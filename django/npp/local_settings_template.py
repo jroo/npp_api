@@ -16,7 +16,7 @@ DATABASE_PORT = ''             # Set to empty string for default. Not used with 
 TIME_ZONE = 'America/New-York'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '4=xw3q*$cy4@^=9(9i8#ltgt*lu1%e(icx#!^%jjhs@391m^g0'
+SECRET_KEY = ''
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
