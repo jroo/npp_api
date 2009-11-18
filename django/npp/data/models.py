@@ -5,3 +5,8 @@ class AnnualStateEnergyConsumption(models.Model):
     msn = models.CharField(max_length=5)
     year = models.IntegerField()
     value = models.FloatField(null=True)
+    
+class MSNCodes(models.Model):
+    msn = models.CharField(max_length=5)
+    description = models.TextField()
+    unit = models.CharField(max_length=255)
