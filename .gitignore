@@ -1,3 +1,4 @@
+raw_data
 local_settings.py
 *.pyc
-html/bible
+html
