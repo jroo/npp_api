@@ -14,3 +14,7 @@ class MSNCodes(models.Model):
 class StatePostalCodes(models.Model):
     code = models.CharField(max_length=2)
     state = models.CharField(max_length=32)
+    
+class FIPSState(models.Model):
+    state = models.CharField(max_length=2)
+    code = models.CharField(max_length=64)
