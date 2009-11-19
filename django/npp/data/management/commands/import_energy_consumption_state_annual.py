@@ -4,7 +4,7 @@ import csv
 
 # National Priorities Project Data Repository
 # import_energy_consumption_state_annual.py 
-# Updated 11/17/2009, Joshua Ruihley, Sunlight Foundation
+# Updated 11/19/2009, Joshua Ruihley, Sunlight Foundation
 
 # Imports U.S. Department of Energy Annual State Energy Consumption data
 # source file: http://www.eia.doe.gov/emeu/states/sep_use/total/csv/use_all_btu.csv (accurate as of 11/17/2009)
@@ -38,8 +38,8 @@ class Command(NoArgsCommand):
                         else:
                             row[j] = float(row[j])
                         row_dict['value'] = row[j]
+                        db_row = AnnualStateEnergyConsumption(state=row_dict['State'], 
+                            msn=row_dict['MSN'], year=row_dict['year'], value=row_dict['value'])
+                        db_row.save()
                     j = j + 1
-                db_row = AnnualStateEnergyConsumption(state=row_dict['State'], 
-                    msn=row_dict['MSN'], year=row_dict['year'], value=row_dict['value'])
-                db_row.save()
             i = i + 1

@@ -8,7 +8,7 @@ import csv
 
 # Imports U.S. Department of Energy Annual State Energy Expenditure data
 # source file: http://www.eia.doe.gov/emeu/states/sep_prod/Prod_dataset.xls (accurate as of 11/19/2009)
-# destination model:  StateAnnualEnergyExpenditures
+# destination model:  StateEnergyProductionEstimates
 
 # HOWTO:
 # 1) Download Excel source file from url listed above
