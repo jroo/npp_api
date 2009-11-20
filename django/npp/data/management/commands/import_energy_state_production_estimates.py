@@ -1,13 +1,14 @@
+from django import db
 from django.core.management.base import NoArgsCommand
 from data.models import StateEnergyProductionEstimates
 import csv
 
 # National Priorities Project Data Repository
 # import_energy_consumption_state_annual.py 
-# Updated 11/19/2009, Joshua Ruihley, Sunlight Foundation
+# Updated 11/20/2009, Joshua Ruihley, Sunlight Foundation
 
 # Imports U.S. Department of Energy Annual State Energy Expenditure data
-# source file: http://www.eia.doe.gov/emeu/states/sep_prod/Prod_dataset.xls (accurate as of 11/19/2009)
+# source file: http://www.eia.doe.gov/emeu/states/sep_prod/Prod_dataset.xls (accurate as of 11/20/2009)
 # destination model:  StateEnergyProductionEstimates
 
 # HOWTO:
@@ -42,5 +43,6 @@ class Command(NoArgsCommand):
                         db_row = StateEnergyProductionEstimates(state=row_dict['StateCode'], 
                             msn=row_dict['MSN'], year=row_dict['year'], value=row_dict['value'])
                         db_row.save()
+                    db.reset_queries()
                     j = j + 1
             i = i + 1
