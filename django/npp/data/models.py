@@ -30,3 +30,25 @@ class StatePostalCodes(models.Model):
 class FIPSState(models.Model):
     state = models.CharField(max_length=2)
     code = models.CharField(max_length=64)
+    
+class ANSICountyState(models.Model):
+    state = models.CharField(max_length=2)
+    ansi_state = models.CharField(max_length=2)
+    code = models.CharField(max_length=3)
+    county = models.CharField(max_length=255)
+    ansi_class = models.CharField(max_length=2)
+    
+class FIPSCountyCongressDistrict(models.Model):
+    state_code = models.CharField(max_length=2)
+    county_code = models.CharField(max_length=3)
+    district_code = models.CharField(max_length=2)
+    congress = models.IntegerField()
+    
+class NCESSchoolDistrict(models.Model):
+    state = models.CharField(max_length=2)
+    district_name = models.CharField(max_length=255)
+    county_name = models.CharField(max_length=255)
+    county_code = models.CharField(max_length=3)
+    state_code = models.CharField(max_length=2)
+    congress_code = models.CharField(max_length=2)
+    district_code = models.CharField(max_length=5)
