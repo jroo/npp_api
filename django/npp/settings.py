@@ -1,6 +1,6 @@
 # Django settings for npp project.
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'npp.data',
+    'npp.api',
 )
 
 try:

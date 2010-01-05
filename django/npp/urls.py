@@ -5,6 +5,8 @@ from django.conf.urls.defaults import *
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+    (r'^api/', include('npp.api.urls')),
+
     # Example:
     # (r'^npp/', include('npp.foo.urls')),
 
