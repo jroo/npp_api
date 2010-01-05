@@ -5,7 +5,7 @@ import csv
 
 # National Priorities Project Data Repository
 # import_nces_sd_codes.py 
-# Updated 11/30/2009, Joshua Ruihley, Sunlight Foundation
+# Updated 01/05/2010, Joshua Ruihley, Sunlight Foundation
 
 # Imports NCES School District codes made available by National Priorities Project
 # source file: http://assets.nationalpriorities.org/raw_data/fips/nces_sd_codes.csv (accurate as of 11/30/2009)
@@ -24,7 +24,6 @@ class Command(NoArgsCommand):
         data_reader = csv.reader(open(SOURCE_FILE))
         i=0
         for row in data_reader:
-            #print row
             if (i==0):
                 fields = row
                 print fields
@@ -34,10 +33,16 @@ class Command(NoArgsCommand):
                 for column in fields:
                     row_dict[column] = row[j]            
                     j = j + 1
-                print row_dict
-                #db_row =NCESSchoolDistrict(state=row_dict['State'], 
-                #    ansi_state=row_dict['ANSI'], code=row_dict['Code'], county=row_dict['County'],
-                #    ansi_class=row_dict['ANSI Cl'])
-                #db_row.save()
-                #db.reset_queries()        
+
+                if row_dict['StateCode'] == '':
+                    state_code = None
+                else:
+                    state_code = int(row_dict['StateCode'].split(' - ')[0].strip())
+                print state_code
+                db_row =NCESSchoolDistrict(state=row_dict['State'], 
+                    district_name=row_dict['DistrictName'], county_name=row_dict['CountyName'], 
+                    county_code=row_dict['CountyCode'], state_code=row_dict['StateCode'],
+                    congress_code=row_dict['CongressCode'], district_code=row_dict['DistrictCode'])
+                db_row.save()
+                db.reset_queries()        
             i = i + 1
