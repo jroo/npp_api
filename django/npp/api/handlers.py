@@ -1,5 +1,6 @@
 from piston.handler import BaseHandler, AnonymousBaseHandler
-from data.models import AnnualStateEnergyConsumption, AnnualStateEnergyExpenditures
+from data.models import AnnualStateEnergyConsumption, AnnualStateEnergyExpenditures, StateEnergyProductionEstimates, MSNCodes, StatePostalCodes, FIPSState
+from data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSchoolDistrict
 from django.conf import settings
 
 def page_limits(request_get):    
@@ -43,3 +44,45 @@ class EnergyExpendituresHandler(GenericHandler):
         allowed_keys = ('id', 'msn', 'year', 'value', 'state')
         model = AnnualStateEnergyConsumption
         super(EnergyExpendituresHandler, self).__init__(allowed_keys, model)
+        
+class EnergyProductionEstimatesHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('id', 'msn', 'year', 'value', 'state')
+        model = StateEnergyProductionEstimates
+        super(EnergyProductionEstimatesHandler, self).__init__(allowed_keys, model)
+        
+class MSNCodeHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('msn', 'description', 'unit')
+        model = MSNCodes
+        super(MSNCodeHandler, self).__init__(allowed_keys, model)
+        
+class StatePostalCodesHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('code', 'state')
+        model = StatePostalCodes
+        super(StatePostalCodesHandler, self).__init__(allowed_keys, model)
+        
+class FIPSStateHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('code', 'state')
+        model = FIPSState
+        super(FIPSStateHandler, self).__init__(allowed_keys, model)
+        
+class ANSICountyStateHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'ansi_state', 'code', 'county', 'ansi_class')
+        model = ANSICountyState
+        super(ANSICountyStateHandler, self).__init__(allowed_keys, model)
+        
+class FIPSCountyCongressDistrictHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state_code', 'county_code', 'district_code', 'congress')
+        model = FIPSCountyCongressDistrict
+        super(FIPSCountyCongressDistrictHandler, self).__init__(allowed_keys, model)
+        
+class NCESSchoolDistrictHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'district_name', 'county_name', 'county_code', 'state_code', 'congress_code', 'district_code')
+        model = NCESSchoolDistrict
+        super(NCESSchoolDistrictHandler, self).__init__(allowed_keys, model)
