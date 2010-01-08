@@ -15,7 +15,9 @@ def page_limits(request_get):
     
 
 class GenericHandler(BaseHandler):
-    def __init__(self, allowed_keys, model):
+    def __init__(self, allowed_keys, model, fields=None, exclude=None):
+        self.fields = fields
+        self.exclude = exclude
         self.model = model
         self.allowed_keys = allowed_keys 
     allowed_methods = ('GET',)
