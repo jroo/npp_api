@@ -13,13 +13,14 @@ def page_limits(request_get):
     
     return {'lower_row':lower_row, 'upper_row':upper_row}
     
-class EnergyConsumptionHandler(BaseHandler):
+
+class GenericHandler(BaseHandler):
+    def __init__(self, allowed_keys, model):
+        self.model = model
+        self.allowed_keys = allowed_keys 
     allowed_methods = ('GET',)
-    allowed_keys = ('id','msn','year','value', 'state')
-    model = AnnualStateEnergyConsumption
-    #anonymous = 'AnonymousEnergyConsumptionHandler'
     
-    def read(self, request, id=None):
+    def read(self, request):
         bounds = page_limits(request.GET)
 
         params = {}
@@ -27,23 +28,18 @@ class EnergyConsumptionHandler(BaseHandler):
             if key in self.allowed_keys:
                 params[str(key)] = val
  
-        records = model.objects.all()           
+        records = self.model.objects.all()           
         records = records.filter(**params)[bounds['lower_row']:bounds['upper_row']]
         return records
-            
-#class AnonymousEnergyConsumptionHandler(AnonymousBaseHandler):
-    #fields = ('id')
     
-class EnergyExpendituresHandler(BaseHandler):
-    
-    allowed_methods = ('GET',)
-    model = AnnualStateEnergyExpenditures
-    
-    def read(self, request, id=None):
-        if id != None:
-            record = AnnualStateEnergyExpenditures.objects.get(id=id)
-            return record
-        else:
-            records = AnnualStateEnergyExpenditures.objects.all()[:10]
-            return records
-    
+class EnergyConsumptionHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('id', 'msn', 'year', 'value', 'state')
+        model = AnnualStateEnergyConsumption
+        super(EnergyConsumptionHandler, self).__init__(allowed_keys, model)
+
+class EnergyExpendituresHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('id', 'msn', 'year', 'value', 'state')
+        model = AnnualStateEnergyConsumption
+        super(EnergyExpendituresHandler, self).__init__(allowed_keys, model)
