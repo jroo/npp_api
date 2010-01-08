@@ -27,7 +27,7 @@ class EnergyConsumptionHandler(BaseHandler):
             if key in self.allowed_keys:
                 params[str(key)] = val
  
-        records = AnnualStateEnergyConsumption.objects.all()           
+        records = model.objects.all()           
         records = records.filter(**params)[bounds['lower_row']:bounds['upper_row']]
         return records
             
