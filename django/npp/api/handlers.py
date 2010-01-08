@@ -4,10 +4,9 @@ from data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSchoolD
 from django.conf import settings
 
 def page_limits(request_get):    
+    page = 1
     if 'page' in request_get:
         page = int(request_get['page'])
-    else:
-        page = 1 
 
     lower_row = (page*settings.SEARCH_PAGINATE_BY) - settings.SEARCH_PAGINATE_BY
     upper_row = lower_row + settings.SEARCH_PAGINATE_BY
