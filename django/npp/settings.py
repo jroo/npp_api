@@ -44,6 +44,9 @@ INSTALLED_APPS = (
     'npp.api',
 )
 
+#api reocrds per page
+SEARCH_PAGINATE_BY = 20
+
 try:
     from local_settings import *
 except ImportError, exp:
