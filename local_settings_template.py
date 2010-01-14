@@ -18,6 +18,8 @@ TIME_ZONE = 'America/New-York'
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = ''
 
+LOCAL_DATA_ROOT = '' # path to root local data directory
+
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
