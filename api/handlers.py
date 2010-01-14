@@ -1,6 +1,6 @@
 from piston.handler import BaseHandler, AnonymousBaseHandler
-from data.models import AnnualStateEnergyConsumption, AnnualStateEnergyExpenditures, StateEnergyProductionEstimates, MSNCodes, StatePostalCodes, FIPSState
-from data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSchoolDistrict
+from npp.data.models import AnnualStateEnergyConsumption, AnnualStateEnergyExpenditures, StateEnergyProductionEstimates, MSNCodes, StatePostalCodes, FIPSState
+from npp.data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSchoolDistrict
 from django.conf import settings
 
 def page_limits(request_get):    
