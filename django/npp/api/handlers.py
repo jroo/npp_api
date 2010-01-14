@@ -11,19 +11,18 @@ def page_limits(request_get):
     lower_row = (page*settings.SEARCH_PAGINATE_BY) - settings.SEARCH_PAGINATE_BY
     upper_row = lower_row + settings.SEARCH_PAGINATE_BY
     
-    return {'lower_row':lower_row, 'upper_row':upper_row}
+    return {'lower':lower_row, 'upper':upper_row}
     
 
 class GenericHandler(BaseHandler):
-    def __init__(self, allowed_keys, model, fields=None, exclude=None):
-        self.fields = fields
-        self.exclude = exclude
+    def __init__(self, allowed_keys, model):
         self.model = model
-        self.allowed_keys = allowed_keys 
+        self.allowed_keys = allowed_keys
+
     allowed_methods = ('GET',)
-    
+
     def read(self, request):
-        bounds = page_limits(request.GET)
+        bound = page_limits(request.GET)
 
         params = {}
         for key,val in request.GET.items():
@@ -31,8 +30,14 @@ class GenericHandler(BaseHandler):
                 params[str(key)] = val
  
         records = self.model.objects.all()           
-        records = records.filter(**params)[bounds['lower_row']:bounds['upper_row']]
+        records = records.filter(**params)[bound['lower']:bound['upper']]
         return records
+        
+class ANSICountyStateHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'ansi_state', 'code', 'county', 'ansi_class')
+        model = ANSICountyState
+        super(ANSICountyStateHandler, self).__init__(allowed_keys, model)
     
 class EnergyConsumptionHandler(GenericHandler):
     def __init__(self):
@@ -52,11 +57,24 @@ class EnergyProductionEstimatesHandler(GenericHandler):
         model = StateEnergyProductionEstimates
         super(EnergyProductionEstimatesHandler, self).__init__(allowed_keys, model)
         
+class FIPSCountyCongressDistrictHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state_code', 'county_code', 'district_code', 'congress')
+        model = FIPSCountyCongressDistrict
+        super(FIPSCountyCongressDistrictHandler, self).__init__(allowed_keys, model)
+        
 class MSNCodeHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('msn', 'description', 'unit')
         model = MSNCodes
         super(MSNCodeHandler, self).__init__(allowed_keys, model)
+        
+class NCESSchoolDistrictHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'district_name', 'county_name', 'county_code', 'state_code', 'congress_code', 'district_code')
+        model = NCESSchoolDistrict
+        exclude = ('id')
+        super(NCESSchoolDistrictHandler, self).__init__(allowed_keys, model)
         
 class StatePostalCodesHandler(GenericHandler):
     def __init__(self):
@@ -69,21 +87,3 @@ class FIPSStateHandler(GenericHandler):
         allowed_keys = ('code', 'state')
         model = FIPSState
         super(FIPSStateHandler, self).__init__(allowed_keys, model)
-        
-class ANSICountyStateHandler(GenericHandler):
-    def __init__(self):
-        allowed_keys = ('state', 'ansi_state', 'code', 'county', 'ansi_class')
-        model = ANSICountyState
-        super(ANSICountyStateHandler, self).__init__(allowed_keys, model)
-        
-class FIPSCountyCongressDistrictHandler(GenericHandler):
-    def __init__(self):
-        allowed_keys = ('state_code', 'county_code', 'district_code', 'congress')
-        model = FIPSCountyCongressDistrict
-        super(FIPSCountyCongressDistrictHandler, self).__init__(allowed_keys, model)
-        
-class NCESSchoolDistrictHandler(GenericHandler):
-    def __init__(self):
-        allowed_keys = ('state', 'district_name', 'county_name', 'county_code', 'state_code', 'congress_code', 'district_code')
-        model = NCESSchoolDistrict
-        super(NCESSchoolDistrictHandler, self).__init__(allowed_keys, model)

@@ -2,3 +2,4 @@ raw_data
 local_settings.py
 *.pyc
 html
+django/npp/apache
