@@ -1,11 +1,12 @@
 from django import db
+from django.conf import settings
 from django.core.management.base import NoArgsCommand
 from data.models import FIPSCountyCongressDistrict
 import csv
 
 # National Priorities Project Data Repository
 # import_fips_countycoungressdistrict.py
-# Updated 11/30/2009, Joshua Ruihley, Sunlight Foundation
+# Updated 1/14/2010, Joshua Ruihley, Sunlight Foundation
 
 # Imports FIPS County Code/Congressional District
 # source file: http://www.census.gov/geo/www/cd110th/natl_code/cou_cd110_natl.txt (accurate as of 11/30/2009)
@@ -18,7 +19,7 @@ import csv
 #       for third column (ex: CD110)
 # 3) Run as Django management command from your project path "python manage.py import_fips_countrycongressdistrict.py
 
-SOURCE_FILE = '/var/www/projects/npp/raw_data/fips/fips_countycongressdistrict.csv'
+SOURCE_FILE = '%s/fips/fips_countycongressdistrict.csv' % settings.LOCAL_DATA_ROOT
 CONGRESS = 110
 CONGRESS_COLUMN = 'CD110'
 

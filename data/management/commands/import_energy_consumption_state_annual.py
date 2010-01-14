@@ -1,11 +1,12 @@
 from django import db
+from django.conf import settings
 from django.core.management.base import NoArgsCommand
 from data.models import AnnualStateEnergyConsumption
 import csv
 
 # National Priorities Project Data Repository
 # import_energy_consumption_state_annual.py 
-# Updated 11/20/2009, Joshua Ruihley, Sunlight Foundation
+# Updated 1/14/2010, Joshua Ruihley, Sunlight Foundation
 
 # Imports U.S. Department of Energy Annual State Energy Consumption data
 # source file: http://www.eia.doe.gov/emeu/states/sep_use/total/csv/use_all_btu.csv (accurate as of 11/17/2009)
@@ -16,7 +17,7 @@ import csv
 # 2) change SOURCE_FILE variable to the the path of the source file you just downloaded
 # 3) Run as Django management command from your project path "python manage.py import_energy_consumption_state_annual"
 
-SOURCE_FILE = '/var/www/projects/npp/raw_data/doe.gov/use_all_btu.csv'
+SOURCE_FILE = '%s/doe.gov/use_all_btu.csv' % settings.LOCAL_DATA_ROOT
 
 class Command(NoArgsCommand):
     

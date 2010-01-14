@@ -1,11 +1,12 @@
 from django import db
+from django.conf import settings
 from django.core.management.base import NoArgsCommand
 from data.models import StateEnergyProductionEstimates
 import csv
 
 # National Priorities Project Data Repository
 # import_cffr_annual.py 
-# Updated 11/20/2009, Joshua Ruihley, Sunlight Foundation
+# Updated 1/14/2010, Joshua Ruihley, Sunlight Foundation
 
 # Imports Annual CFFR data file
 # government source: http://www.census.gov/govs/cffr/ (accurate as of 11/20/2009)
@@ -17,7 +18,7 @@ import csv
 # 2) decompress source data into a path and enter path into SOURCE_PATH var below
 # 43 Run as Django management command from your project path "python manage.py import_cffr_anual"
 
-SOURCE_PATH = '/var/www/projects/npp/raw_data/cffr/'
+SOURCE_PATH = '%s/cffr/' % settings.LOCAL_DATA_ROOT
 
 class Command(NoArgsCommand):
     

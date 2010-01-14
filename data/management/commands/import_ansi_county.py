@@ -1,11 +1,12 @@
 from django import db
+from django.conf import settings
 from django.core.management.base import NoArgsCommand
 from data.models import ANSICountyState
 import csv
 
 # National Priorities Project Data Repository
 # import_ansi_county.py 
-# Updated 11/30/2009, Joshua Ruihley, Sunlight Foundation
+# Updated 1/14/2010, Joshua Ruihley, Sunlight Foundation
 
 # Imports ANSI County Codes made available by Census Bureau
 # source file: http://www.census.gov/geo/www/ansi/national.txt (accurate as of 11/30/2009)
@@ -16,7 +17,8 @@ import csv
 # 1) Download source file from url listed above
 # 2) change SOURCE_FILE variable to the the path of the source file you just downloaded
 # 3) Run as Django management command from your project path "python manage.py import_ansi_county
-SOURCE_FILE = '/var/www/projects/npp/raw_data/fips/ansi_county.csv'
+
+SOURCE_FILE = '%s/fips/ansi_county.csv' % settings.LOCAL_DATA_ROOT
 
 class Command(NoArgsCommand):
     
