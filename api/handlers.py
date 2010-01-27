@@ -1,5 +1,5 @@
 from piston.handler import BaseHandler, AnonymousBaseHandler
-from npp.data.models import AnnualStateEnergyConsumption, AnnualStateEnergyExpenditures, StateEnergyProductionEstimates, MSNCodes, StatePostalCodes, FIPSState
+from npp.data.models import AnnualStateEnergyConsumption, AnnualStateEnergyExpenditures, CFFR, StateEnergyProductionEstimates, MSNCodes, StatePostalCodes, FIPSState
 from npp.data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSchoolDistrict
 from django.conf import settings
 
@@ -38,6 +38,12 @@ class ANSICountyStateHandler(GenericHandler):
         allowed_keys = ('state', 'ansi_state', 'code', 'county', 'ansi_class')
         model = ANSICountyState
         super(ANSICountyStateHandler, self).__init__(allowed_keys, model)
+        
+class CFFRHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('year', 'state_code', 'county_code', 'place_code', 'state_postal', 'congressional_district', 'program_code', 'object_type', 'agency_code', 'funding_sign')
+        model = CFFR
+        super(CFFRHandler, self).__init__(allowed_keys, model)
     
 class EnergyConsumptionHandler(GenericHandler):
     def __init__(self):
