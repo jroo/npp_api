@@ -18,7 +18,7 @@ from data.models import CFFR
 # 3) Run as Django management command from your project path "python manage.py import_cffr_anual"
 # 4) Make sure your database has amount field set as a bigint (and not a regular int)
 
-YEAR = 2002
+YEAR = 1993
 SOURCE_PATH = '%s/cffr/%s/' % (settings.LOCAL_DATA_ROOT, YEAR)
 if YEAR > 2002:
     SOURCE_FILE = '%s%s%scffcom.txt' % (SOURCE_PATH, str(YEAR)[2], str(YEAR)[3])
