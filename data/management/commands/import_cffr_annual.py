@@ -5,7 +5,7 @@ from data.models import CFFR
 
 # National Priorities Project Data Repository
 # import_cffr_annual.py 
-# Updated 1/22/2010, Joshua Ruihley, Sunlight Foundation
+# Updated 1/27/2010, Joshua Ruihley, Sunlight Foundation
 
 # Imports Annual CFFR data file
 # government source: http://www.census.gov/govs/cffr/ (accurate as of 11/20/2009)
@@ -17,6 +17,10 @@ from data.models import CFFR
 # 2) decompress source data into a path and enter path into SOURCE_PATH var below
 # 3) Run as Django management command from your project path "python manage.py import_cffr_anual"
 # 4) Make sure your database has amount field set as a bigint (and not a regular int)
+# AFTER IMPORTING EVERY YEAR:
+# 5) Create indexes in database
+#   CREATE INDEX idx_state_postal ON data_cffr (state_postal)
+#   CREATE INDEX idx_year ON data_cffr (year)
 
 YEAR = 1993
 SOURCE_PATH = '%s/cffr/%s/' % (settings.LOCAL_DATA_ROOT, YEAR)

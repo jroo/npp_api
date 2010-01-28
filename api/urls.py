@@ -14,7 +14,8 @@ msn_code_handler = Resource(MSNCodeHandler)
 nces_school_district_handler = Resource(NCESSchoolDistrictHandler)
 state_postal_codes_handler = Resource(StatePostalCodesHandler)
 
-urlpatterns = patterns('',
+urlpatterns = patterns('django.views.generic.simple',
+    (r'^$', 'direct_to_template', {'template': 'data/index.html'}),
     url(r'^ansi_county_state/$', ansi_county_state_handler),
     url(r'^ansi_county_state/list\.(?P<emitter_format>.+)', ansi_county_state_handler),
     url(r'^cffr/$', cffr_handler),
