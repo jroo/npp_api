@@ -41,7 +41,7 @@ class ANSICountyStateHandler(GenericHandler):
         
 class CFFRHandler(GenericHandler):
     def __init__(self):
-        allowed_keys = ('year', 'state_code', 'county_code', 'place_code', 'state_postal', 'congressional_district', 'program_code', 'object_type', 'agency_code', 'funding_sign')
+        allowed_keys = ('id', 'year', 'state_code', 'county_code', 'place_code', 'state_postal', 'congressional_district', 'program_code', 'object_type', 'agency_code', 'funding_sign')
         model = CFFR
         super(CFFRHandler, self).__init__(allowed_keys, model)
     
