@@ -68,3 +68,21 @@ class CFFR(models.Model):
     agency_code =  models.CharField(max_length=4)
     funding_sign =  models.CharField(max_length=1)
     amount =  models.IntegerField()
+    
+class CFFRGeo(models.Model):
+    year = models.IntegerField()
+    state_code = models.CharField(max_length=2)
+    county_code = models.CharField(max_length=3)
+    place_code =  models.CharField(max_length=5)
+    place_name =  models.CharField(max_length=24)
+    state_gu = models.CharField(max_length=2)
+    type_gu = models.CharField(max_length=1)
+    county_gu = models.CharField(max_length=3)
+    place_gu = models.CharField(max_length=3)
+    split_gu = models.CharField(max_length=3)
+    population =  models.IntegerField(null=True)
+    congress_district =  models.CharField(max_length=34, null=True)
+
+class CFFRProgram(models.Model):
+    program_id_code = models.CharField(max_length=6)
+    program_name = models.CharField(max_length=74)
