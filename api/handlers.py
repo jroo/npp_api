@@ -1,6 +1,6 @@
 from piston.handler import BaseHandler, AnonymousBaseHandler
 from npp.data.models import AnnualStateEnergyConsumption, AnnualStateEnergyExpenditures, CFFR, StateEnergyProductionEstimates, MSNCodes, StatePostalCodes, FIPSState
-from npp.data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSchoolDistrict
+from npp.data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSchoolDistrict, CFFRGeo
 from django.conf import settings
 
 def page_limits(request_get):    
@@ -44,6 +44,12 @@ class CFFRHandler(GenericHandler):
         allowed_keys = ('id', 'year', 'state_code', 'county_code', 'place_code', 'state_postal', 'congressional_district', 'program_code', 'object_type', 'agency_code', 'funding_sign')
         model = CFFR
         super(CFFRHandler, self).__init__(allowed_keys, model)
+        
+class CFFRGeoHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('id', 'year', 'state_code', 'county_code', 'place_code', 'place_name', 'state_gu', 'type_gu', 'county_gu', 'place_gu', 'split_gu', 'congress_district')
+        model = CFFRGeo
+        super(CFFRGeoHandler, self).__init__(allowed_keys, model)
     
 class EnergyConsumptionHandler(GenericHandler):
     def __init__(self):

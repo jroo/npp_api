@@ -1,10 +1,11 @@
 from django.conf.urls.defaults import *
 from piston.resource import Resource
 from npp.api.handlers import EnergyConsumptionHandler, EnergyExpendituresHandler, EnergyProductionEstimatesHandler, MSNCodeHandler, StatePostalCodesHandler, FIPSStateHandler
-from npp.api.handlers import ANSICountyStateHandler, CFFRHandler, FIPSCountyCongressDistrictHandler, NCESSchoolDistrictHandler
+from npp.api.handlers import ANSICountyStateHandler, CFFRHandler, FIPSCountyCongressDistrictHandler, NCESSchoolDistrictHandler, CFFRGeoHandler
 
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
 cffr_handler = Resource(CFFRHandler)
+cffr_geo_handler = Resource(CFFRGeoHandler)
 energy_consumption_handler = Resource(EnergyConsumptionHandler)
 energy_expenditures_handler = Resource(EnergyExpendituresHandler)
 energy_production_estimates_handler = Resource(EnergyProductionEstimatesHandler)
@@ -20,6 +21,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^ansi_county_state/list\.(?P<emitter_format>.+)', ansi_county_state_handler),
     url(r'^cffr/$', cffr_handler),
     url(r'^cffr/list\.(?P<emitter_format>.+)', cffr_handler),
+    url(r'^cffrgeo/$', cffr_geo_handler),
+    url(r'^cffrgeo/list\.(?P<emitter_format>.+)', cffr_geo_handler),
     url(r'^fips_county_congress_district/$', fips_county_congress_district_handler),
     url(r'^fips_county_congress_district/list\.(?P<emitter_format>.+)', fips_county_congress_district_handler),
     url(r'^fips_state/$', fips_state_handler),
