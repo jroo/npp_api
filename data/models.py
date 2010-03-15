@@ -58,7 +58,7 @@ class CFFR(models.Model):
     state_code = models.CharField(max_length=2)
     county_code = models.CharField(max_length=3)
     place_code =  models.CharField(max_length=5)
-    state_postal =  models.CharField(max_length=2)
+    state_postal =  models.CharField(max_length=2, null=True)
     county_name =  models.CharField(max_length=24)
     place_name =  models.CharField(max_length=24)
     population =  models.IntegerField(null=True)
