@@ -87,6 +87,10 @@ class CFFRGeo(models.Model):
     split_gu = models.CharField(max_length=3)
     population =  models.IntegerField(null=True)
     congress_district =  models.CharField(max_length=34, null=True)
+    
+class CFFRObjectCode(models.Model):
+    object_code = models.CharField(max_length=2)
+    category = models.CharField(max_length=80)
 
 class CFFRProgram(models.Model):
     year = models.IntegerField()
