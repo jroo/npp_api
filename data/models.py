@@ -69,6 +69,11 @@ class CFFR(models.Model):
     funding_sign =  models.CharField(max_length=1)
     amount =  models.IntegerField()
     
+class CFFRAgency(models.Model):
+    year = models.IntegerField()
+    agency_code = models.CharField(max_length=4)
+    agency_name = models.CharField(max_length=90)
+    
 class CFFRGeo(models.Model):
     year = models.IntegerField()
     state_code = models.CharField(max_length=2)
