@@ -10,7 +10,7 @@ from data.models import CFFRProgram
 # Imports Annual CFFR program identification file
 # government source: mailed to Barb Chalfonte from Census
 # source data: http://assets.nationalpriorities.org/raw_data/cffr_pre93.tar.gz
-# destination model:  CFFRProg
+# destination model:  CFFRProgram
 
 # HOWTO:
 # 1) Download .tar.gz from source data below
@@ -18,7 +18,7 @@ from data.models import CFFRProgram
 # 3) Run as Django management command from your project path "python manage.py import_cffr_anual_pre93_prog"
 # AFTER IMPORTING EVERY YEAR:
 # 4) Create indexes in database
-#   CREATE INDEX idx_year ON data_cffrgeo (year)
+#   CREATE INDEX idx_year ON data_cffrprog (year)
 
 YEAR = 1982
 SOURCE_PATH = '%s/cffr/%s/' % (settings.LOCAL_DATA_ROOT, YEAR)
