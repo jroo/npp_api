@@ -84,5 +84,6 @@ class CFFRGeo(models.Model):
     congress_district =  models.CharField(max_length=34, null=True)
 
 class CFFRProgram(models.Model):
+    year = models.IntegerField()
     program_id_code = models.CharField(max_length=6)
     program_name = models.CharField(max_length=74)
