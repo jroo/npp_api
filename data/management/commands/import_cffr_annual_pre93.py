@@ -4,25 +4,25 @@ from django.core.management.base import NoArgsCommand
 from data.models import CFFR
 
 # National Priorities Project Data Repository
-# import_cffr_annual.py 
-# Updated 1/27/2010, Joshua Ruihley, Sunlight Foundation
+# import_cffr_annual_pre93.py 
+# Updated 3/16/2010, Joshua Ruihley, Sunlight Foundation
 
 # Imports Annual CFFR data file
 # government source: http://www.census.gov/govs/cffr/ (accurate as of 11/20/2009)
-# source data: http://assets.nationalpriorities.org/raw_data/cffr.tar.gz
+# source data: http://assets.nationalpriorities.org/raw_data/cffr.pre93.tar.gz
 # destination model:  CFFR
 
 # HOWTO:
 # 1) Download .tar.gz from source data below
 # 2) decompress source data into a path and enter path into SOURCE_PATH var below
-# 3) Run as Django management command from your project path "python manage.py import_cffr_anual"
+# 3) Run as Django management command from your project path "python manage.py import_cffr_annual_pre93"
 # 4) Make sure your database has amount field set as a bigint (and not a regular int)
 # AFTER IMPORTING EVERY YEAR:
 # 5) Create indexes in database
 #   CREATE INDEX idx_state_postal ON data_cffr (state_postal)
 #   CREATE INDEX idx_year ON data_cffr (year)
 
-YEAR = 1992
+YEAR = 1983
 SOURCE_PATH = '%s/cffr/%s/' % (settings.LOCAL_DATA_ROOT, YEAR)
 SOURCE_FILE = '%sDATA%s.DAT' % (SOURCE_PATH, YEAR)
 
@@ -54,6 +54,6 @@ class Command(NoArgsCommand):
             #try:
             record.save()
             db.reset_queries()
-            print amount
+            print (YEAR, amount)
             #except:
                 #print "FAIL"
