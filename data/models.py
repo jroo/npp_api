@@ -96,3 +96,13 @@ class CFFRProgram(models.Model):
     year = models.IntegerField()
     program_id_code = models.CharField(max_length=6)
     program_name = models.CharField(max_length=74)
+    
+class SAIPESchool(models.Model):
+    year = models.IntegerField()
+    fips_state = models.CharField(max_length=2)
+    ccd_district_id = models.CharField(max_length=5)
+    district_name = models.CharField(max_length=65)
+    population = models.IntegerField()
+    relevant_population = models.IntegerField()
+    relevant_population_poverty = models.IntegerField()
+    file_stamp = models.CharField(max_length=21)
