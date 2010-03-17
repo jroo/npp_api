@@ -22,7 +22,7 @@ from data.models import SAIPESchool
 #   CREATE INDEX idx_year ON data_saipeschool (year)
 
 YEAR = 1997
-SOURCE_PATH = '%s/census.gov/saipe/' % (settings.LOCAL_DATA_ROOT)
+SOURCE_PATH = '%s/census.gov/saipe/school_districts/' % (settings.LOCAL_DATA_ROOT)
 if YEAR > 2002:
     SOURCE_FILE = '%sUSSD%s.txt' % (SOURCE_PATH, str(YEAR)[2:4])
 else:
