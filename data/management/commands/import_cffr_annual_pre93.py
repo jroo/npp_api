@@ -5,11 +5,11 @@ from data.models import CFFR
 
 # National Priorities Project Data Repository
 # import_cffr_annual_pre93.py 
-# Updated 3/16/2010, Joshua Ruihley, Sunlight Foundation
+# Updated 3/17/2010, Joshua Ruihley, Sunlight Foundation
 
 # Imports Annual CFFR data file
-# government source: http://www.census.gov/govs/cffr/ (accurate as of 11/20/2009)
-# source data: http://assets.nationalpriorities.org/raw_data/cffr.pre93.tar.gz
+# government source: emailed to barb chalfonte from census
+# source data: http://assets.nationalpriorities.org/raw_data/cffr/cffr-pre93.tar.gz
 # destination model:  CFFR
 
 # HOWTO:

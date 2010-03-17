@@ -5,11 +5,14 @@ from data.models import CFFRProgram
 
 # National Priorities Project Data Repository
 # import_cffr_annual_pre93_prog.py 
-# Updated 3/15/2010, Joshua Ruihley, Sunlight Foundation
+# Updated 3/17/2010, Joshua Ruihley, Sunlight Foundation
 
 # Imports Annual CFFR program identification file
-# government source: mailed to Barb Chalfonte from Census
-# source data: http://assets.nationalpriorities.org/raw_data/cffr_pre93.tar.gz
+# government source: pre-93 data mailed to Barb Chalfonte from Census, data from 1993 on: http://www.census.gov/govs/cffr/
+# source data: 
+# pre-93: http://assets.nationalpriorities.org/raw_data/cffr/cffr_pre93.tar.gz
+# '93 and later: http://assets.nationalpriorities.org/raw_data/cffr/cffr.tar.gz
+
 # destination model:  CFFRProgram
 
 # HOWTO:

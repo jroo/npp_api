@@ -6,11 +6,12 @@ import csv
 
 # National Priorities Project Data Repository
 # import_ansi_county.py 
-# Updated 1/14/2010, Joshua Ruihley, Sunlight Foundation
+# Updated 3/17/2010, Joshua Ruihley, Sunlight Foundation
 
 # Imports ANSI County Codes made available by Census Bureau
 # source file: http://www.census.gov/geo/www/ansi/national.txt (accurate as of 11/30/2009)
 # source info: http://www.census.gov/geo/www/ansi/download.html
+# npp cache: http://assets.nationalpriorities.org/raw_data/ansi/national.txt
 # destination model:  ANSICountyState
 
 # HOWTO:
