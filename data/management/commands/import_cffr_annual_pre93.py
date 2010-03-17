@@ -4,60 +4,56 @@ from django.core.management.base import NoArgsCommand
 from data.models import CFFR
 
 # National Priorities Project Data Repository
-# import_cffr_annual.py 
-# Updated 1/27/2010, Joshua Ruihley, Sunlight Foundation
+# import_cffr_annual_pre93.py 
+# Updated 3/16/2010, Joshua Ruihley, Sunlight Foundation
 
 # Imports Annual CFFR data file
 # government source: http://www.census.gov/govs/cffr/ (accurate as of 11/20/2009)
-# source data: http://assets.nationalpriorities.org/raw_data/cffr.tar.gz
+# source data: http://assets.nationalpriorities.org/raw_data/cffr.pre93.tar.gz
 # destination model:  CFFR
 
 # HOWTO:
 # 1) Download .tar.gz from source data below
 # 2) decompress source data into a path and enter path into SOURCE_PATH var below
-# 3) Run as Django management command from your project path "python manage.py import_cffr_anual"
+# 3) Run as Django management command from your project path "python manage.py import_cffr_annual_pre93"
 # 4) Make sure your database has amount field set as a bigint (and not a regular int)
 # AFTER IMPORTING EVERY YEAR:
 # 5) Create indexes in database
 #   CREATE INDEX idx_state_postal ON data_cffr (state_postal)
 #   CREATE INDEX idx_year ON data_cffr (year)
 
-YEAR = 2002
+YEAR = 1983
 SOURCE_PATH = '%s/cffr/%s/' % (settings.LOCAL_DATA_ROOT, YEAR)
-if YEAR > 2002:
-    SOURCE_FILE = '%s%s%scffcom.txt' % (SOURCE_PATH, str(YEAR)[2], str(YEAR)[3])
-else:
-    SOURCE_FILE = '%s%s%sCFFCOM.TXT' % (SOURCE_PATH, str(YEAR)[2], str(YEAR)[3])
+SOURCE_FILE = '%sDATA%s.DAT' % (SOURCE_PATH, YEAR)
 
 class Command(NoArgsCommand):
     
     def handle_noargs(self, **options):
         f = open(SOURCE_FILE, 'r')
         for line in f:
-            state_code= line[0:2]
-            county_code = line[2:5]
-            place_code = line[5:10]
-            state_postal = line[10:12]
-            county_name = line[12:36].rstrip()
-            place_name = line[36:60].rstrip()
-            population = int(line[60:69])
-            if population == 0:
-                population = None
-            congress_district = line[69:103]
-            program_code = line[103:109]
-            object_type = line[109:111]
-            agency_code = line[111:115]
-            funding_sign = line[115:116]
-            amount = int(line[116:128])
-
-            record = CFFR(year=YEAR, state_code=state_code, county_code=county_code, 
-                place_code=place_code, state_postal=state_postal, county_name=county_name, 
-                place_name=place_name, population=population, congress_district=congress_district, 
+            #gu_state_code= line[0:2]
+            #gu_type_code = line[2:3]
+            #gu_county_code = line[3:6]
+            #gu_place_code = line[6:9]
+            #gu_split_code = line[9:12]
+            program_code = line[12:18]
+            object_type = line[18:20]
+            funding_sign = line[20:21]
+            amount = int(line[21:33])
+            fips_state = line[33:34]
+            fips_county = line[35:38]
+            fips_place = line[38:43]
+            #pass_through = [43:44]
+            agency_code = line[44:48]
+            
+            record = CFFR(year=YEAR, state_code=fips_state, county_code=fips_county, 
+                place_code=fips_place, state_postal=None, county_name=None, 
+                place_name=None, population=None, congress_district=None, 
                 program_code=program_code, object_type=object_type, agency_code=agency_code, 
                 funding_sign=funding_sign, amount=amount)
-            try:
-                record.save()
-                db.reset_queries()
-                print amount
-            except:
-                print "FAIL"
+            #try:
+            record.save()
+            db.reset_queries()
+            print (YEAR, amount)
+            #except:
+                #print "FAIL"

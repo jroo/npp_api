@@ -58,9 +58,9 @@ class CFFR(models.Model):
     state_code = models.CharField(max_length=2)
     county_code = models.CharField(max_length=3)
     place_code =  models.CharField(max_length=5)
-    state_postal =  models.CharField(max_length=2)
-    county_name =  models.CharField(max_length=24)
-    place_name =  models.CharField(max_length=24)
+    state_postal =  models.CharField(max_length=2, null=True)
+    county_name =  models.CharField(max_length=24, null=True)
+    place_name =  models.CharField(max_length=24, null=True)
     population =  models.IntegerField(null=True)
     congress_district =  models.CharField(max_length=34, null=True)
     program_code =  models.CharField(max_length=6)
@@ -87,8 +87,22 @@ class CFFRGeo(models.Model):
     split_gu = models.CharField(max_length=3)
     population =  models.IntegerField(null=True)
     congress_district =  models.CharField(max_length=34, null=True)
+    
+class CFFRObjectCode(models.Model):
+    object_code = models.CharField(max_length=2)
+    category = models.CharField(max_length=80)
 
 class CFFRProgram(models.Model):
     year = models.IntegerField()
     program_id_code = models.CharField(max_length=6)
     program_name = models.CharField(max_length=74)
+    
+class SAIPESchool(models.Model):
+    year = models.IntegerField()
+    fips_state = models.CharField(max_length=2)
+    ccd_district_id = models.CharField(max_length=5)
+    district_name = models.CharField(max_length=65)
+    population = models.IntegerField()
+    relevant_population = models.IntegerField()
+    relevant_population_poverty = models.IntegerField()
+    file_stamp = models.CharField(max_length=21)
