@@ -6,9 +6,10 @@ import csv
 
 # National Priorities Project Data Repository
 # import_energy_consumption_state_annual.py 
-# Updated 1/14/2010, Joshua Ruihley, Sunlight Foundation
+# Updated 3/17/2010, Joshua Ruihley, Sunlight Foundation
 
 # Imports U.S. Department of Energy Annual State Energy Consumption data
+# government source: http://www.eia.doe.gov/emeu/states/_seds.html
 # source file: http://www.eia.doe.gov/emeu/states/sep_use/total/csv/use_all_btu.csv (accurate as of 11/17/2009)
 # destination model:  StateAnnualEnergyConsumption
 

@@ -12,47 +12,13 @@ class AnnualStateEnergyExpenditures(models.Model):
     year = models.IntegerField()
     value = models.FloatField(null=True)
     
-class StateEnergyProductionEstimates(models.Model):
-    state = models.CharField(max_length=2)
-    msn = models.CharField(max_length=5)
-    year = models.IntegerField()
-    value = models.FloatField(null=True)
-    
-class MSNCodes(models.Model):
-    msn = models.CharField(max_length=5)
-    description = models.TextField()
-    unit = models.CharField(max_length=255)
-    
-class StatePostalCodes(models.Model):
-    code = models.CharField(max_length=2)
-    state = models.CharField(max_length=32)
-    
-class FIPSState(models.Model):
-    state = models.CharField(max_length=2)
-    code = models.CharField(max_length=64)
-    
 class ANSICountyState(models.Model):
     state = models.CharField(max_length=2)
     ansi_state = models.CharField(max_length=2)
     code = models.CharField(max_length=3)
     county = models.CharField(max_length=255)
     ansi_class = models.CharField(max_length=2)
-    
-class FIPSCountyCongressDistrict(models.Model):
-    state_code = models.CharField(max_length=2)
-    county_code = models.CharField(max_length=3)
-    district_code = models.CharField(max_length=2)
-    congress = models.IntegerField()
-    
-class NCESSchoolDistrict(models.Model):
-    state = models.CharField(max_length=2)
-    district_name = models.CharField(max_length=255)
-    county_name = models.CharField(max_length=255)
-    county_code = models.CharField(max_length=3)
-    state_code = models.CharField(max_length=2)
-    congress_code = models.CharField(max_length=2)
-    district_code = models.CharField(max_length=5)
-    
+
 class CFFR(models.Model):
     year = models.IntegerField()
     state_code = models.CharField(max_length=2)
@@ -97,6 +63,30 @@ class CFFRProgram(models.Model):
     program_id_code = models.CharField(max_length=6)
     program_name = models.CharField(max_length=74)
     
+class FIPSCountyCongressDistrict(models.Model):
+    state_code = models.CharField(max_length=2)
+    county_code = models.CharField(max_length=3)
+    district_code = models.CharField(max_length=2)
+    congress = models.IntegerField()
+    
+class FIPSState(models.Model):
+    state = models.CharField(max_length=2)
+    code = models.CharField(max_length=64)
+    
+class MSNCodes(models.Model):
+    msn = models.CharField(max_length=5)
+    description = models.TextField()
+    unit = models.CharField(max_length=255)
+    
+class NCESSchoolDistrict(models.Model):
+    state = models.CharField(max_length=2)
+    district_name = models.CharField(max_length=255)
+    county_name = models.CharField(max_length=255)
+    county_code = models.CharField(max_length=3)
+    state_code = models.CharField(max_length=2)
+    congress_code = models.CharField(max_length=2)
+    district_code = models.CharField(max_length=5)
+    
 class SAIPESchool(models.Model):
     year = models.IntegerField()
     fips_state = models.CharField(max_length=2)
@@ -106,3 +96,54 @@ class SAIPESchool(models.Model):
     relevant_population = models.IntegerField()
     relevant_population_poverty = models.IntegerField()
     file_stamp = models.CharField(max_length=21)
+    
+class SAIPECountyState(models.Model):
+    year = models.IntegerField()
+    fips_state = models.CharField(max_length=2)
+    fips_county = models.CharField(max_length=3)
+    
+    all_age_poverty = models.IntegerField(null=True)
+    all_age_poverty_90_lower = models.IntegerField(null=True)
+    all_age_poverty_90_upper = models.IntegerField(null=True)
+    all_age_poverty_percent = models.FloatField(null=True)
+    all_age_poverty_percent_90_lower = models.FloatField(null=True)
+    all_age_poverty_percent_90_upper = models.FloatField(null=True)
+    
+    age_0_17_poverty = models.IntegerField(null=True)
+    age_0_17_poverty_90_lower = models.IntegerField(null=True)
+    age_0_17_poverty_90_upper = models.IntegerField(null=True)
+    age_0_17_poverty_percent = models.FloatField(null=True)
+    age_0_17_poverty_percent_90_lower = models.FloatField(null=True)
+    age_0_17_poverty_percent_90_upper = models.FloatField(null=True)
+    
+    age_5_17_related_poverty = models.IntegerField(null=True)
+    age_5_17_related_poverty_90_lower = models.IntegerField(null=True)
+    age_5_17_related_poverty_90_upper = models.IntegerField(null=True)
+    age_5_17_related_poverty_percent = models.FloatField(null=True)
+    age_5_17_related_poverty_percent_90_lower = models.FloatField(null=True)
+    age_5_17_related_poverty_percent_90_upper = models.FloatField(null=True)
+    
+    median_household_income = models.IntegerField(null=True)
+    median_household_income_90_lower = models.IntegerField(null=True)
+    median_household_income_90_upper = models.IntegerField(null=True)
+    
+    age_0_5_poverty = models.IntegerField(null=True)
+    age_0_5_poverty_90_lower = models.IntegerField(null=True)
+    age_0_5_poverty_90_upper = models.IntegerField(null=True)
+    age_0_5_poverty_percent = models.FloatField(null=True)
+    age_0_5_poverty_percent_90_lower = models.FloatField(null=True)
+    age_0_5_poverty_percent_90_upper = models.FloatField(null=True)
+    
+    state_county_name = models.CharField(max_length=45)
+    state_postal_abbreviation = models.CharField(max_length=2)
+    file_tag = models.CharField(max_length=22)
+    
+class StateEnergyProductionEstimates(models.Model):
+    state = models.CharField(max_length=2)
+    msn = models.CharField(max_length=5)
+    year = models.IntegerField()
+    value = models.FloatField(null=True)
+    
+class StatePostalCodes(models.Model):
+    code = models.CharField(max_length=2)
+    state = models.CharField(max_length=32)

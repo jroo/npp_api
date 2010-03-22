@@ -5,11 +5,11 @@ from data.models import SAIPESchool
 
 # National Priorities Project Data Repository
 # import_saipe_school.py 
-# Updated 3/16/2010, Joshua Ruihley, Sunlight Foundation
+# Updated 3/17/2010, Joshua Ruihley, Sunlight Foundation
 
 # Imports Annual SAIPE School District file
 # government source: http://www.census.gov/did/www/saipe/data/schools/data/index.html (accurate as of 3/16/2010)
-# source data: http://assets.nationalpriorities.org/raw_data/saipe_school.tar.gz
+# source data: http://assets.nationalpriorities.org/raw_data/saipe/saipe_school_district.zip
 # destination model:  SAIPESchool
 
 # HOWTO:
@@ -22,7 +22,7 @@ from data.models import SAIPESchool
 #   CREATE INDEX idx_year ON data_saipeschool (year)
 
 YEAR = 1997
-SOURCE_PATH = '%s/census.gov/saipe/' % (settings.LOCAL_DATA_ROOT)
+SOURCE_PATH = '%s/census.gov/saipe/school_districts/' % (settings.LOCAL_DATA_ROOT)
 if YEAR > 2002:
     SOURCE_FILE = '%sUSSD%s.txt' % (SOURCE_PATH, str(YEAR)[2:4])
 else:

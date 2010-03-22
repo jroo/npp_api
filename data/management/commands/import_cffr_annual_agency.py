@@ -5,11 +5,11 @@ from data.models import CFFRAgency
 
 # National Priorities Project Data Repository
 # import_cffr_annual_agency.py 
-# Updated 3/15/2010, Joshua Ruihley, Sunlight Foundation
+# Updated 3/17/2010, Joshua Ruihley, Sunlight Foundation
 
 # Imports Annual CFFR agency files
 # government source: mailed to Barb Chalfonte from Census
-# source data: http://assets.nationalpriorities.org/raw_data/cffr.tar.gz
+# source data: http://assets.nationalpriorities.org/raw_data/cffr/cffr.tar.gz
 # destination model:  CFFRAgency
 
 # HOWTO:
