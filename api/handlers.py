@@ -1,6 +1,6 @@
 from piston.handler import BaseHandler, AnonymousBaseHandler
 from npp.data.models import AnnualStateEnergyConsumption, AnnualStateEnergyExpenditures, CFFR, StateEnergyProductionEstimates, MSNCodes, StatePostalCodes, FIPSState
-from npp.data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSchoolDistrict, CFFRGeo
+from npp.data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSchoolDistrict, CFFRGeo, CFFRAgency, CFFRObjectCode, CFFRProgram, SAIPESchool
 from django.conf import settings
 
 def page_limits(request_get):    
@@ -13,7 +13,6 @@ def page_limits(request_get):
     
     return {'lower':lower_row, 'upper':upper_row}
     
-
 class GenericHandler(BaseHandler):
     def __init__(self, allowed_keys, model):
         self.model = model
@@ -45,11 +44,29 @@ class CFFRHandler(GenericHandler):
         model = CFFR
         super(CFFRHandler, self).__init__(allowed_keys, model)
         
+class CFFRAgencyHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('id', 'year', 'agency_code', 'agency_name')
+        model = CFFRAgency
+        super(CFFRAgencyHandler, self).__init__(allowed_keys, model)
+        
 class CFFRGeoHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('id', 'year', 'state_code', 'county_code', 'place_code', 'place_name', 'state_gu', 'type_gu', 'county_gu', 'place_gu', 'split_gu', 'congress_district')
         model = CFFRGeo
         super(CFFRGeoHandler, self).__init__(allowed_keys, model)
+        
+class CFFRObjectCodeHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('id', 'object_code', 'category')
+        model = CFFRObjectCode
+        super(CFFRObjectCodeHandler, self).__init__(allowed_keys, model)
+        
+class CFFRProgramHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('id', 'year', 'program_id_code', 'program_name')
+        model = CFFRProgram
+        super(CFFRProgramHandler, self).__init__(allowed_keys, model)
     
 class EnergyConsumptionHandler(GenericHandler):
     def __init__(self):
@@ -99,3 +116,9 @@ class FIPSStateHandler(GenericHandler):
         allowed_keys = ('code', 'state')
         model = FIPSState
         super(FIPSStateHandler, self).__init__(allowed_keys, model)
+        
+class SAIPESchoolHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('id', 'year', 'fips_state', 'ccd_district_id', 'district_name')
+        model = SAIPESchool
+        super(SAIPESchoolHandler, self).__init__(allowed_keys, model)
