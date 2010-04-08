@@ -1,0 +1,47 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>CFFR</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">Format: </div>
+	<div>http://data.nationalpriorities.org/api/&lt;source&gt;/list.&lt;format&gt;?...</div>
+</div>
+
+<h2>Sources</h2>
+
+<p>There are four sources for CFFR data.  They are</p>
+<ul>
+	<li>
+		<div>cffr</div>
+		<div>Primary CFFR Data</div>
+		<div>Allowed Keys: 'id', 'year', 'state_code', 'county_code', 'place_code', 'state_postal', 'congressional_district', 'program_code', 'object_type', 'agency_code', 'funding_sign'</div>
+		<div>Example: <a href="http://data.nationalpriorities.org/api/cffr/list.json?state_code=01&county_code=001&year=2008">http://data.nationalpriorities.org/api/cffr/list.json?state_code=01&county_code=001&amp;year=2008</a></div>
+	</li>
+	<li>
+		<div>cffragency</div>
+		<div>CFFR Agency Codes</div>
+		<div>Allowed Keys: 'id', 'year', 'agency_code', 'agency_name'</div>
+		<div>Example: <a href="http://data.nationalpriorities.org/api/cffragency/list.xml?year=2008">http://data.nationalpriorities.org/api/cffragency/list.xml?year=2008</a>
+	</li>
+	<li>
+		<div>cffrgeo</div>
+		<div>CFFR Geo Codes</div>
+		<div>Allowed Keys: 'id', 'year', 'state_code', 'county_code', 'place_code', 'place_name', 'state_gu', 'type_gu', 'county_gu', 'place_gu', 'split_gu', 'congress_district'</div>
+		<div>Example: <a href="http://data.nationalpriorities.org/api/cffrgeo/list.xml?state_code=40">http://data.nationalpriorities.org/api/cffrgeo/list.xml?state_code=40</a></div>
+
+	</li>
+	<li>
+		<div>cffrobjectcode</div>
+		<div>CFFR Object Codes</div>
+		<div>Allowed Keys: 'id', 'object_code', 'category'</div>
+		<div>Example: <a href="http://data.nationalpriorities.org/api/cffrobjectcode/list.json">http://data.nationalpriorities.org/api/cffrobjectcode/list.json</a></div>
+	</li>
+	<li>
+		<div>cffrprogram</div>
+		<div>CFFR Programs</div>
+		<div>Allowed Keys: 'id', 'year', 'program_id_code', 'program_name'</div>
+		<div>Example: <a href="http://data.nationalpriorities.org/api/cffrprogram/list.xml?year=2008">http://dta.nationalpriorities.org/api/cffrprogram/list.xml?year=2008</a></div>
+	</li>
+</ul>
+{% endblock %}

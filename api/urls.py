@@ -21,7 +21,15 @@ saipe_school_handler = Resource(SAIPESchoolHandler)
 state_postal_codes_handler = Resource(StatePostalCodesHandler)
 
 urlpatterns = patterns('django.views.generic.simple',
-    (r'^$', 'direct_to_template', {'template': 'data/index.html'}),
+    url(r'^$', 'direct_to_template', {'template': 'api/index.html'}),
+    (r'^cffr.html$', 'direct_to_template', {'template': 'api/cffr.html'}),
+    (r'^fips_county_congressional.html$', 'direct_to_template', {'template': 'api/fips_county_congressional.html'}),
+    (r'^ansi_county_state.html$', 'direct_to_template', {'template': 'api/ansi_county_state.html'}),
+    (r'^energy_consumption_state.html$', 'direct_to_template', {'template': 'api/energy_consumption_state.html'}),
+    (r'^energy_expenditures_state.html$', 'direct_to_template', {'template': 'api/energy_expenditures_state.html'}),
+    (r'^nces_school_district.html$', 'direct_to_template', {'template': 'api/nces_school_district.html'}),
+    (r'^saipe_county_state.html$', 'direct_to_template', {'template': 'api/saipe_county_state.html'}),
+    (r'^saipe_school.html$', 'direct_to_template', {'template': 'api/saipe_school.html'}),
     url(r'^ansi_county_state/$', ansi_county_state_handler),
     url(r'^ansi_county_state/list\.(?P<emitter_format>.+)', ansi_county_state_handler),
     url(r'^cffr/$', cffr_handler),
@@ -52,7 +60,4 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^saipe_school/list\.(?P<emitter_format>.+)', saipe_school_handler),
     url(r'^state_postal_codes/$', state_postal_codes_handler),
     url(r'^state_postal_codes/list\.(?P<emitter_format>.+)', state_postal_codes_handler),
-
-    # automated documentation
-    #url(r'^$', documentation_view),
 )

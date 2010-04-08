@@ -2,6 +2,10 @@ from piston.handler import BaseHandler, AnonymousBaseHandler
 from npp.data.models import AnnualStateEnergyConsumption, AnnualStateEnergyExpenditures, CFFR, StateEnergyProductionEstimates, MSNCodes, StatePostalCodes, FIPSState
 from npp.data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSchoolDistrict, CFFRGeo, CFFRAgency, CFFRObjectCode, CFFRProgram, SAIPESchool
 from django.conf import settings
+from piston.doc import generate_doc
+
+
+#docs = []
 
 def page_limits(request_get):    
     page = 1
@@ -30,6 +34,7 @@ class GenericHandler(BaseHandler):
  
         records = self.model.objects.all()           
         records = records.filter(**params)[bound['lower']:bound['upper']]
+            
         return records
         
 class ANSICountyStateHandler(GenericHandler):
@@ -43,6 +48,9 @@ class CFFRHandler(GenericHandler):
         allowed_keys = ('id', 'year', 'state_code', 'county_code', 'place_code', 'state_postal', 'congressional_district', 'program_code', 'object_type', 'agency_code', 'funding_sign')
         model = CFFR
         super(CFFRHandler, self).__init__(allowed_keys, model)
+        
+doc = generate_doc(CFFRHandler)
+#docs.append(doc)
         
 class CFFRAgencyHandler(GenericHandler):
     def __init__(self):
