@@ -1,4 +1,12 @@
 {% extends "api/api_base.html" %}
 
 {% block content %}
+<h1>FIPS County, Congress, and District Codes</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/fips_county_congress_district/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state_code', 'county_code', 'district_code', 'congress'</div>
+		<div>Example: <a href="http://data.nationalpriorities.org/api/fips_county_congress_district/list.json?state_code=13&congress=110">http://data.nationalpriorities.org/api/fips_county_congress_district/list.json?state_code=13&amp;congress=110</a></div>
+	</div>
+</div>
 {% endblock %}
