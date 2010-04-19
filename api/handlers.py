@@ -4,9 +4,6 @@ from npp.data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSch
 from django.conf import settings
 from piston.doc import generate_doc
 
-
-#docs = []
-
 def page_limits(request_get):    
     page = 1
     if 'page' in request_get:
@@ -48,9 +45,6 @@ class CFFRHandler(GenericHandler):
         allowed_keys = ('id', 'year', 'state_code', 'county_code', 'place_code', 'state_postal', 'congressional_district', 'program_code', 'object_type', 'agency_code', 'funding_sign')
         model = CFFR
         super(CFFRHandler, self).__init__(allowed_keys, model)
-        
-doc = generate_doc(CFFRHandler)
-#docs.append(doc)
         
 class CFFRAgencyHandler(GenericHandler):
     def __init__(self):

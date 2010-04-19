@@ -5,9 +5,22 @@
 		<meta name="description" content="" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>National Priorities Project API</title>
+		<link rel="stylesheet" href="http://assets.nationalpriorities.org/data_site/v1/css/styles.css" type="text/css" media="screen" /> 
+
 </head>
 <body>
-	{% block content %}
-	{% endblock %}
+		<div id="header"> 
+			<div id="headmain"> 
+				<div id="left"> 
+					<div id="title"><a href="/">NPP Data</a></span></div> 
+					<div id="titlesub2">data used by National Priorities Project</div> 
+				</div> 
+			</div> 
+		</div> 
+		<div id="headerborder"></div> 
+		<div id="main">
+		{% block content %}
+		{% endblock %}
+		</div>
 </body>
 </html>

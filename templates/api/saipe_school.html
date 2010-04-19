@@ -1,4 +1,12 @@
 {% extends "api/api_base.html" %}
 
 {% block content %}
+<h1>School District Level Small Area Income and Poverty Estimates</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/saipe_school/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'id', 'year', 'fips_state', 'ccd_district_id', 'district_name'</div>
+		<div>Example: <a href="http://data.nationalpriorities.org/api/saipe_school/list.json?state=FL">http://data.nationalpriorities.org/api/saipe_school/list.json?state=FL</a></div>
+	</div>
+</div>
 {% endblock %}
