@@ -1,4 +1,12 @@
 {% extends "api/api_base.html" %}
 
 {% block content %}
+<h1>NCES School District Codes</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/nces_school_district/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'district_name', 'county_name', 'county_code', 'state_code', 'congress_code', 'district_code'</div>
+		<div>Example: <a href="http://data.nationalpriorities.org/api/nces_school_district/list.json?state=FL">http://data.nationalpriorities.org/api/nces_school_district/list.json?state=FL</a></div>
+	</div>
+</div>
 {% endblock %}
