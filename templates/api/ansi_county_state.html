@@ -1,4 +1,12 @@
 {% extends "api/api_base.html" %}
 
 {% block content %}
+<h1>ANSI County and State Codes</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/ansi_county_state/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'ansi_state', 'code', 'county', 'ansi_class'</div>
+		<div>Example: <a href="http://data.nationalpriorities.org/api/ansi_county_state/list.json?state=WY">http://data.nationalpriorities.org/api/ansi_county_state/list.json?state=WY</a></div>
+	</div>
+</div>
 {% endblock %}

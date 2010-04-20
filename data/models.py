@@ -73,6 +73,20 @@ class FIPSState(models.Model):
     state = models.CharField(max_length=2)
     code = models.CharField(max_length=64)
     
+class IRSGrossCollections(models.Model):
+    state = models.CharField(max_length=2)
+    total_collections = models.IntegerField()
+    buisness_income_taxes = models.IntegerField()
+    individual_total = models.IntegerField()
+    individual_witheld_fica = models.IntegerField()
+    individual_notwitheld_seca = models.IntegerField()
+    individual_unemployment = models.IntegerField()
+    individual_railroad_retirement = models.IntegerField()
+    individual_estate_trust_income = models.IntegerField()
+    estate_tax = models.IntegerField()
+    gift_tax = models.IntegerField()
+    excise_taxes = models.IntegerField()
+    
 class MSNCodes(models.Model):
     msn = models.CharField(max_length=5)
     description = models.TextField()
