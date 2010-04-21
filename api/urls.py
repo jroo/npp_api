@@ -31,6 +31,8 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^nces_school_district.html$', 'direct_to_template', {'template': 'api/nces_school_district.html'}),
     (r'^saipe_county_state.html$', 'direct_to_template', {'template': 'api/saipe_county_state.html'}),
     (r'^saipe_school.html$', 'direct_to_template', {'template': 'api/saipe_school.html'}),
+    (r'^state_emissions.html$', 'direct_to_template', {'template': 'api/state_emissions.html'}),
+
     url(r'^ansi_county_state/$', ansi_county_state_handler),
     url(r'^ansi_county_state/list\.(?P<emitter_format>.+)', ansi_county_state_handler),
     url(r'^cffr/$', cffr_handler),
