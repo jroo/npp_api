@@ -18,7 +18,7 @@ import csv
 # 2) change SOURCE_FILE variable to the the path of the source file you just downloaded
 # 3) Run as Django management command from your project path "python manage.py import_irs_gross
 
-YEAR = 2009
+YEAR = 2007
 SOURCE_PATH = '%s/irs/' % (settings.LOCAL_DATA_ROOT)
 SOURCE_FILE = '%s%sdb05co_clean.csv' % (SOURCE_PATH, str(YEAR)[2:4])
 
@@ -27,4 +27,5 @@ class Command(NoArgsCommand):
     def handle_noargs(self, **options):
         data_reader = csv.reader(open(SOURCE_FILE))
         for row in data_reader:
-            print row
+            for col in row:
+                print col.replace('\n', '')

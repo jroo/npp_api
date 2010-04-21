@@ -1,6 +1,7 @@
 from piston.handler import BaseHandler, AnonymousBaseHandler
 from npp.data.models import AnnualStateEnergyConsumption, AnnualStateEnergyExpenditures, CFFR, StateEnergyProductionEstimates, MSNCodes, StatePostalCodes, FIPSState
 from npp.data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSchoolDistrict, CFFRGeo, CFFRAgency, CFFRObjectCode, CFFRProgram, SAIPESchool
+from npp.data.models import StateEmissions
 from django.conf import settings
 from piston.doc import generate_doc
 
@@ -106,6 +107,12 @@ class NCESSchoolDistrictHandler(GenericHandler):
         model = NCESSchoolDistrict
         exclude = ('id')
         super(NCESSchoolDistrictHandler, self).__init__(allowed_keys, model)
+        
+class StateEmissionsHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year', 'producer_type', 'energy_source')
+        model = StateEmissions
+        super(StateEmissionsHandler, self).__init__(allowed_keys, model)
         
 class StatePostalCodesHandler(GenericHandler):
     def __init__(self):
