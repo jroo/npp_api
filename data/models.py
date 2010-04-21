@@ -152,6 +152,15 @@ class SAIPECountyState(models.Model):
     state_postal_abbreviation = models.CharField(max_length=2)
     file_tag = models.CharField(max_length=22)
     
+class StateEmissions(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=16)
+    producer_type = models.CharField(max_length=64)
+    energy_source = models.CharField(max_length=64)
+    co2 = models.IntegerField()
+    so2 = models.IntegerField()
+    nox = models.IntegerField()
+    
 class StateEnergyProductionEstimates(models.Model):
     state = models.CharField(max_length=2)
     msn = models.CharField(max_length=5)
