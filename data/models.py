@@ -75,9 +75,9 @@ class FIPSState(models.Model):
     
 class IRSGrossCollections(models.Model):
     year = models.IntegerField()
-    state = models.CharField(max_length=2)
+    state = models.CharField(max_length=255)
     total_collections = models.IntegerField()
-    buisness_income_taxes = models.IntegerField()
+    business_income_taxes = models.IntegerField()
     individual_total = models.IntegerField()
     individual_witheld_fica = models.IntegerField()
     individual_notwitheld_seca = models.IntegerField()

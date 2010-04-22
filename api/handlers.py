@@ -1,7 +1,7 @@
 from piston.handler import BaseHandler, AnonymousBaseHandler
 from npp.data.models import AnnualStateEnergyConsumption, AnnualStateEnergyExpenditures, CFFR, StateEnergyProductionEstimates, MSNCodes, StatePostalCodes, FIPSState
 from npp.data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSchoolDistrict, CFFRGeo, CFFRAgency, CFFRObjectCode, CFFRProgram, SAIPESchool
-from npp.data.models import StateEmissions
+from npp.data.models import StateEmissions, IRSGrossCollections
 from django.conf import settings
 from piston.doc import generate_doc
 
@@ -94,6 +94,12 @@ class FIPSCountyCongressDistrictHandler(GenericHandler):
         allowed_keys = ('state_code', 'county_code', 'district_code', 'congress')
         model = FIPSCountyCongressDistrict
         super(FIPSCountyCongressDistrictHandler, self).__init__(allowed_keys, model)
+        
+class IRSGrossCollectionsHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year')
+        model = IRSGrossCollections
+        super(IRSGrossCollectionsHandler, self).__init__(allowed_keys, model)
         
 class MSNCodeHandler(GenericHandler):
     def __init__(self):

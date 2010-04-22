@@ -2,7 +2,7 @@ from django.conf.urls.defaults import *
 from piston.resource import Resource
 from npp.api.handlers import EnergyConsumptionHandler, EnergyExpendituresHandler, EnergyProductionEstimatesHandler, MSNCodeHandler, StatePostalCodesHandler, FIPSStateHandler
 from npp.api.handlers import ANSICountyStateHandler, CFFRHandler, FIPSCountyCongressDistrictHandler, NCESSchoolDistrictHandler, CFFRAgencyHandler, CFFRGeoHandler
-from npp.api.handlers import CFFRObjectCodeHandler, CFFRProgramHandler, SAIPESchoolHandler, StateEmissionsHandler
+from npp.api.handlers import CFFRObjectCodeHandler, CFFRProgramHandler, SAIPESchoolHandler, StateEmissionsHandler, IRSGrossCollectionsHandler
 
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
 cffr_handler = Resource(CFFRHandler)
@@ -15,6 +15,7 @@ energy_expenditures_handler = Resource(EnergyExpendituresHandler)
 energy_production_estimates_handler = Resource(EnergyProductionEstimatesHandler)
 fips_county_congress_district_handler = Resource(FIPSCountyCongressDistrictHandler)
 fips_state_handler = Resource(FIPSStateHandler)
+irs_gross_collections_handler = Resource(IRSGrossCollectionsHandler)
 msn_code_handler = Resource(MSNCodeHandler)
 nces_school_district_handler = Resource(NCESSchoolDistrictHandler)
 saipe_school_handler = Resource(SAIPESchoolHandler)
@@ -49,6 +50,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^fips_county_congress_district/list\.(?P<emitter_format>.+)', fips_county_congress_district_handler),
     url(r'^fips_state/$', fips_state_handler),
     url(r'^fips_state/list\.(?P<emitter_format>.+)', fips_state_handler),
+    url(r'^irs_gross_collections/$', irs_gross_collections_handler),
+    url(r'^irs_gross_collections/list\.(?P<emitter_format>.+)', irs_gross_collections_handler),
     url(r'^energy_consumption/$', energy_consumption_handler),
     url(r'^energy_consumption/list\.(?P<emitter_format>.+)', energy_consumption_handler),
     url(r'^energy_expenditures/$', energy_expenditures_handler),
