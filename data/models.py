@@ -74,6 +74,7 @@ class FIPSState(models.Model):
     code = models.CharField(max_length=64)
     
 class IRSGrossCollections(models.Model):
+    year = models.IntegerField()
     state = models.CharField(max_length=2)
     total_collections = models.IntegerField()
     buisness_income_taxes = models.IntegerField()
