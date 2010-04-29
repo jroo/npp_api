@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>IRS Gross Collections</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/irs_gross_collections/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'year'</div>
+		<div>Example: <a href="http://data.nationalpriorities.org/api/irs_gross_collections/list.json?state=California&year=2007">http://data.nationalpriorities.org/api/irs_gross_collections/list.json?state=California&amp;year=2007</a></div>
+	</div>
+</div>
+{% endblock %}
