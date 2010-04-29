@@ -74,18 +74,19 @@ class FIPSState(models.Model):
     code = models.CharField(max_length=64)
     
 class IRSGrossCollections(models.Model):
-    state = models.CharField(max_length=2)
+    year = models.IntegerField()
+    state = models.CharField(max_length=255)
     total_collections = models.IntegerField()
-    buisness_income_taxes = models.IntegerField()
+    business_income_taxes = models.IntegerField()
     individual_total = models.IntegerField()
-    individual_witheld_fica = models.IntegerField()
-    individual_notwitheld_seca = models.IntegerField()
-    individual_unemployment = models.IntegerField()
-    individual_railroad_retirement = models.IntegerField()
-    individual_estate_trust_income = models.IntegerField()
-    estate_tax = models.IntegerField()
-    gift_tax = models.IntegerField()
-    excise_taxes = models.IntegerField()
+    individual_witheld_fica = models.IntegerField(null=True)
+    individual_notwitheld_seca = models.IntegerField(null=True)
+    individual_unemployment = models.IntegerField(null=True)
+    individual_railroad_retirement = models.IntegerField(null=True)
+    individual_estate_trust_income = models.IntegerField(null=True)
+    estate_tax = models.IntegerField(null=True)
+    gift_tax = models.IntegerField(null=True)
+    excise_taxes = models.IntegerField(null=True)
     
 class MSNCodes(models.Model):
     msn = models.CharField(max_length=5)
@@ -170,3 +171,23 @@ class StateEnergyProductionEstimates(models.Model):
 class StatePostalCodes(models.Model):
     code = models.CharField(max_length=2)
     state = models.CharField(max_length=32)
+    
+class VehicleRegistrations(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=32)
+    auto_private = models.IntegerField()
+    auto_public = models.IntegerField(null=True)
+    auto_total = models.IntegerField()
+    buses_private = models.IntegerField()
+    buses_public = models.IntegerField(null=True)
+    buses_total = models.IntegerField()
+    trucks_private = models.IntegerField()
+    trucks_public = models.IntegerField(null=True)
+    trucks_total = models.IntegerField()
+    all_private = models.IntegerField()
+    all_public = models.IntegerField(null=True)
+    all_total = models.IntegerField()
+    private_commercial_per_capita = models.FloatField(null=True)
+    motorcycle_private = models.IntegerField()
+    motorcycle_public = models.IntegerField(null=True)
+    
