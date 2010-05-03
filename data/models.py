@@ -168,6 +168,19 @@ class StateEnergyProductionEstimates(models.Model):
     year = models.IntegerField()
     value = models.FloatField(null=True)
     
+class StateMedianIncome(models.Model):
+    start_year = models.IntegerField()
+    end_year = models.IntegerField()
+    state = models.CharField(max_length=32)
+    median_income = models.IntegerField()
+    standard_error = models.IntegerField()
+    ninety_pct = models.IntegerField()
+    states_not_different = models.IntegerField()
+    states_higher = models.IntegerField()
+    states_lower = models.IntegerField()
+    start_year = models.IntegerField()
+    end_year = models.IntegerField()
+    
 class StatePostalCodes(models.Model):
     code = models.CharField(max_length=2)
     state = models.CharField(max_length=32)

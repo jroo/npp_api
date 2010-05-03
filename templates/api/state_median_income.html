@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>State Median Income</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/state_median_income/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'start_year', 'end_year'</div>
+		<div>Example: <a href="http://data.nationalpriorities.org/api/state_median_income/list.json?state=MI&end_year=2008">http://data.nationalpriorities.org/api/energy_consumption/list.json?state=MI&amp;end_year=2008</a></div>
+	</div>
+</div>
+{% endblock %}

@@ -3,6 +3,8 @@ from piston.resource import Resource
 from npp.api.handlers import EnergyConsumptionHandler, EnergyExpendituresHandler, EnergyProductionEstimatesHandler, MSNCodeHandler, StatePostalCodesHandler, FIPSStateHandler
 from npp.api.handlers import ANSICountyStateHandler, CFFRHandler, FIPSCountyCongressDistrictHandler, NCESSchoolDistrictHandler, CFFRAgencyHandler, CFFRGeoHandler
 from npp.api.handlers import CFFRObjectCodeHandler, CFFRProgramHandler, SAIPESchoolHandler, StateEmissionsHandler, IRSGrossCollectionsHandler, VehicleRegistrationsHandler
+from npp.api.handlers import StateMedianIncomeHandler
+
 
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
 cffr_handler = Resource(CFFRHandler)
@@ -20,6 +22,7 @@ msn_code_handler = Resource(MSNCodeHandler)
 nces_school_district_handler = Resource(NCESSchoolDistrictHandler)
 saipe_school_handler = Resource(SAIPESchoolHandler)
 state_emissions_handler = Resource(StateEmissionsHandler)
+state_median_income_handler = Resource(StateMedianIncomeHandler)
 state_postal_codes_handler = Resource(StatePostalCodesHandler)
 vehicle_registrations_handler = Resource(VehicleRegistrationsHandler)
 
@@ -35,6 +38,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^saipe_county_state.html$', 'direct_to_template', {'template': 'api/saipe_county_state.html'}),
     (r'^saipe_school.html$', 'direct_to_template', {'template': 'api/saipe_school.html'}),
     (r'^state_emissions.html$', 'direct_to_template', {'template': 'api/state_emissions.html'}),
+    (r'^state_median_income.html$', 'direct_to_template', {'template': 'api/state_median_income.html'}),
     (r'^state_vehicle_registrations.html$', 'direct_to_template', {'template':'api/state_vehicle_registrations.html'}),
 
     url(r'^ansi_county_state/$', ansi_county_state_handler),
@@ -69,6 +73,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^saipe_school/list\.(?P<emitter_format>.+)', saipe_school_handler),
     url(r'^state_emissions/$', state_emissions_handler),
     url(r'^state_emissions/list\.(?P<emitter_format>.+)', state_emissions_handler),
+    url(r'^state_median_income/$', state_median_income_handler),
+    url(r'^state_median_income/list\.(?P<emitter_format>.+)', state_median_income_handler),
     url(r'^state_postal_codes/$', state_postal_codes_handler),
     url(r'^state_postal_codes/list\.(?P<emitter_format>.+)', state_postal_codes_handler),
     url(r'^state_vehicle_registrations/$', vehicle_registrations_handler),
