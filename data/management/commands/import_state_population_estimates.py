@@ -1,26 +1,25 @@
 from django import db
 from django.conf import settings
 from django.core.management.base import NoArgsCommand
-from data.models import PopulationEstimates
+from data.models import StatePopulationEstimates
 import csv
 
 # National Priorities Project Data Repository
 # import_population_estimates.py
 # Updated 5/4/2010, Joshua Ruihley, Sunlight Foundation
 
-# Imports Census FactFinder Annual Population Estimate Data
+# Imports Census FactFinder Annual State Population Estimate Data
 # source info: http://factfinder.census.gov/servlet/DatasetMainPageServlet?_program=PEP&_submenuId=&_lang=en&_ts= (accurate as of 5/4/2010)
 # npp csvs: http://assets.nationalpriorities.org.s3.amazonaws.com/raw_data/census.gov/population_estimates/pe<year>.csv
-# destination model:  PopulationEstimates
+# destination model:  StatePopulationEstimates
 
 # HOWTO:
 # 1) Download source files from url listed above
 # 2) Convert source file to .csv with same formatting as npp csv
 # 3) change SOURCE_FILE variable to the the path of the source file you just created
-# 4) convert co2, so2 and nox columns in database to type bigint
-# 5) Run as Django management command from your project path "python manage.py import_emissions_state
+# 4 Run as Django management command from your project path "python manage.py import_state_population_estimates
 
-YEAR = 2006
+YEAR = 2008
 SOURCE_FILE = '%s/census.gov/factfinder/population_estimates/pe_%s.csv' % (settings.LOCAL_DATA_ROOT, YEAR)
 
 class Command(NoArgsCommand):
@@ -75,7 +74,7 @@ class Command(NoArgsCommand):
                 female_62_over = clean_int(row[34])
                 female_65_over = clean_int(row[35])
                 
-                record = PopulationEstimates(year=YEAR, state=state, total_population=total_population,
+                record = StatePopulationEstimates(year=YEAR, state=state, total_population=total_population,
                     race_white_alone=race_white_alone, race_black_alone=race_black_alone,
                     race_american_indian_alone=race_american_indian_alone, race_asian_alone=race_asian_alone,
                     race_pacific_island_alone=race_pacific_island_alone, race_two_or_more=race_two_or_more,

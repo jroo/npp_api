@@ -102,7 +102,7 @@ class NCESSchoolDistrict(models.Model):
     congress_code = models.CharField(max_length=2)
     district_code = models.CharField(max_length=5)
     
-class PopulationEstimates(models.Model):
+class StatePopulationEstimates(models.Model):
     year = models.IntegerField()
     state = models.CharField(max_length=32)
     total_population = models.IntegerField(null=True)
