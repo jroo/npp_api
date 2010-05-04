@@ -3,8 +3,7 @@ from piston.resource import Resource
 from npp.api.handlers import EnergyConsumptionHandler, EnergyExpendituresHandler, EnergyProductionEstimatesHandler, MSNCodeHandler, StatePostalCodesHandler, FIPSStateHandler
 from npp.api.handlers import ANSICountyStateHandler, CFFRHandler, FIPSCountyCongressDistrictHandler, NCESSchoolDistrictHandler, CFFRAgencyHandler, CFFRGeoHandler
 from npp.api.handlers import CFFRObjectCodeHandler, CFFRProgramHandler, SAIPESchoolHandler, StateEmissionsHandler, IRSGrossCollectionsHandler, VehicleRegistrationsHandler
-from npp.api.handlers import StateMedianIncomeHandler
-
+from npp.api.handlers import StateMedianIncomeHandler, StatePopulationEstimatesHandler
 
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
 cffr_handler = Resource(CFFRHandler)
@@ -23,6 +22,7 @@ nces_school_district_handler = Resource(NCESSchoolDistrictHandler)
 saipe_school_handler = Resource(SAIPESchoolHandler)
 state_emissions_handler = Resource(StateEmissionsHandler)
 state_median_income_handler = Resource(StateMedianIncomeHandler)
+state_population_estimates_handler = Resource(StatePopulationEstimatesHandler)
 state_postal_codes_handler = Resource(StatePostalCodesHandler)
 vehicle_registrations_handler = Resource(VehicleRegistrationsHandler)
 
@@ -34,12 +34,12 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^irs_gross_collections.html$', 'direct_to_template', {'template': 'api/irs_gross_collections.html'}),
     (r'^energy_consumption_state.html$', 'direct_to_template', {'template': 'api/energy_consumption_state.html'}),
     (r'^energy_expenditures_state.html$', 'direct_to_template', {'template': 'api/energy_expenditures_state.html'}),
-    (r'^state_population_estimates.html$', 'direct_to_template', {'template': 'api/state_population_estimates.html'}),
     (r'^nces_school_district.html$', 'direct_to_template', {'template': 'api/nces_school_district.html'}),
     (r'^saipe_county_state.html$', 'direct_to_template', {'template': 'api/saipe_county_state.html'}),
     (r'^saipe_school.html$', 'direct_to_template', {'template': 'api/saipe_school.html'}),
     (r'^state_emissions.html$', 'direct_to_template', {'template': 'api/state_emissions.html'}),
     (r'^state_median_income.html$', 'direct_to_template', {'template': 'api/state_median_income.html'}),
+    (r'^state_population_estimates.html$', 'direct_to_template', {'template': 'api/state_population_estimates.html'}),
     (r'^state_vehicle_registrations.html$', 'direct_to_template', {'template':'api/state_vehicle_registrations.html'}),
 
     url(r'^ansi_county_state/$', ansi_county_state_handler),
@@ -76,6 +76,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^state_emissions/list\.(?P<emitter_format>.+)', state_emissions_handler),
     url(r'^state_median_income/$', state_median_income_handler),
     url(r'^state_median_income/list\.(?P<emitter_format>.+)', state_median_income_handler),
+    url(r'^state_population_estimates/$', state_population_estimates_handler),
+    url(r'^state_population_estimates/list\.(?P<emitter_format>.+)', state_population_estimates_handler),
     url(r'^state_postal_codes/$', state_postal_codes_handler),
     url(r'^state_postal_codes/list\.(?P<emitter_format>.+)', state_postal_codes_handler),
     url(r'^state_vehicle_registrations/$', vehicle_registrations_handler),
