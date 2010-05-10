@@ -4,6 +4,7 @@ from npp.api.handlers import EnergyConsumptionHandler, EnergyExpendituresHandler
 from npp.api.handlers import ANSICountyStateHandler, CFFRHandler, FIPSCountyCongressDistrictHandler, NCESSchoolDistrictHandler, CFFRAgencyHandler, CFFRGeoHandler
 from npp.api.handlers import CFFRObjectCodeHandler, CFFRProgramHandler, SAIPESchoolHandler, StateEmissionsHandler, IRSGrossCollectionsHandler, VehicleRegistrationsHandler
 from npp.api.handlers import StateMedianIncomeHandler, StatePopulationEstimatesHandler, SAIPECountyStateHandler, StateUnemploymentHandler
+from npp.api.handlers import CountyUnemploymentHandler
 
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
 cffr_handler = Resource(CFFRHandler)
@@ -11,6 +12,7 @@ cffr_agency_handler = Resource(CFFRAgencyHandler)
 cffr_geo_handler = Resource(CFFRGeoHandler)
 cffr_object_code_handler = Resource(CFFRObjectCodeHandler)
 cffr_program_handler = Resource(CFFRProgramHandler)
+county_unemployment_handler = Resource(CountyUnemploymentHandler)
 energy_consumption_handler = Resource(EnergyConsumptionHandler)
 energy_expenditures_handler = Resource(EnergyExpendituresHandler)
 energy_production_estimates_handler = Resource(EnergyProductionEstimatesHandler)
@@ -31,6 +33,7 @@ vehicle_registrations_handler = Resource(VehicleRegistrationsHandler)
 urlpatterns = patterns('django.views.generic.simple',
     url(r'^$', 'direct_to_template', {'template': 'api/index.html'}),
     (r'^cffr.html$', 'direct_to_template', {'template': 'api/cffr.html'}),
+    (r'^county_unemployment.html$', 'direct_to_template', {'template': 'api/county_unemployment.html'}),
     (r'^fips_county_congressional.html$', 'direct_to_template', {'template': 'api/fips_county_congressional.html'}),
     (r'^ansi_county_state.html$', 'direct_to_template', {'template': 'api/ansi_county_state.html'}),
     (r'^irs_gross_collections.html$', 'direct_to_template', {'template': 'api/irs_gross_collections.html'}),
@@ -57,6 +60,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^cffrobjectcode/list\.(?P<emitter_format>.+)', cffr_object_code_handler), 
     url(r'^cffrprogram/$', cffr_program_handler),
     url(r'^cffrprogram/list\.(?P<emitter_format>.+)', cffr_program_handler),
+    url(r'^county_unemployment/$', county_unemployment_handler),
+    url(r'^county_unemployment/list\.(?P<emitter_format>.+)', county_unemployment_handler),
     url(r'^fips_county_congress_district/$', fips_county_congress_district_handler),
     url(r'^fips_county_congress_district/list\.(?P<emitter_format>.+)', fips_county_congress_district_handler),
     url(r'^fips_state/$', fips_state_handler),

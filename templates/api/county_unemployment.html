@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>County Unemployment</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/county_unemployment/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state_fips', 'county_fips', 'year'</div>
+		<div>Example: <a href="/api/county_unemployment/list.json?state_fips=41&county_fips=013">http://data.nationalpriorities.org/api/county_unemployment/list.json?state_fips=41&amp;county_fips=013</a></div>
+	</div>
+</div>
+{% endblock %}
