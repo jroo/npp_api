@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>State Unemployment Rates</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/state_unemployment/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'year'</div>
+		<div>Example: <a href="/api/state_unemployment/list.json?state=LOUISIANA">http://data.nationalpriorities.org/api/state_unemployment/list.json?state=LOUISIANA</a></div>
+	</div>
+</div>
+{% endblock %}
