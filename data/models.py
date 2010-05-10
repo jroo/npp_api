@@ -63,6 +63,18 @@ class CFFRProgram(models.Model):
     program_id_code = models.CharField(max_length=6)
     program_name = models.CharField(max_length=74)
     
+class CountyUnemployment(models.Model):
+    year = models.IntegerField()
+    laus_code = models.CharField(max_length=8)
+    state_fips = models.CharField(max_length=2)
+    county_fips = models.CharField(max_length=3)
+    county_name = models.CharField(max_length=255)
+    year = models.IntegerField()
+    labor_force = models.IntegerField(null=True)
+    employed = models.IntegerField(null=True)
+    unemployed = models.IntegerField(null=True)
+    unemployment_rate = models.FloatField(null=True)
+    
 class FIPSCountyCongressDistrict(models.Model):
     state_code = models.CharField(max_length=2)
     county_code = models.CharField(max_length=3)
