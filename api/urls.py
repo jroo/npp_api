@@ -3,7 +3,7 @@ from piston.resource import Resource
 from npp.api.handlers import EnergyConsumptionHandler, EnergyExpendituresHandler, EnergyProductionEstimatesHandler, MSNCodeHandler, StatePostalCodesHandler, FIPSStateHandler
 from npp.api.handlers import ANSICountyStateHandler, CFFRHandler, FIPSCountyCongressDistrictHandler, NCESSchoolDistrictHandler, CFFRAgencyHandler, CFFRGeoHandler
 from npp.api.handlers import CFFRObjectCodeHandler, CFFRProgramHandler, SAIPESchoolHandler, StateEmissionsHandler, IRSGrossCollectionsHandler, VehicleRegistrationsHandler
-from npp.api.handlers import StateMedianIncomeHandler, StatePopulationEstimatesHandler, SAIPECountyStateHandler
+from npp.api.handlers import StateMedianIncomeHandler, StatePopulationEstimatesHandler, SAIPECountyStateHandler, StateUnemploymentHandler
 
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
 cffr_handler = Resource(CFFRHandler)
@@ -25,6 +25,7 @@ state_emissions_handler = Resource(StateEmissionsHandler)
 state_median_income_handler = Resource(StateMedianIncomeHandler)
 state_population_estimates_handler = Resource(StatePopulationEstimatesHandler)
 state_postal_codes_handler = Resource(StatePostalCodesHandler)
+state_unemployment_handler = Resource(StateUnemploymentHandler)
 vehicle_registrations_handler = Resource(VehicleRegistrationsHandler)
 
 urlpatterns = patterns('django.views.generic.simple',
@@ -41,6 +42,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^state_emissions.html$', 'direct_to_template', {'template': 'api/state_emissions.html'}),
     (r'^state_median_income.html$', 'direct_to_template', {'template': 'api/state_median_income.html'}),
     (r'^state_population_estimates.html$', 'direct_to_template', {'template': 'api/state_population_estimates.html'}),
+    (r'^state_unemployment.html$', 'direct_to_template', {'template': 'api/state_unemployment.html'}),
     (r'^state_vehicle_registrations.html$', 'direct_to_template', {'template':'api/state_vehicle_registrations.html'}),
 
     url(r'^ansi_county_state/$', ansi_county_state_handler),
@@ -83,6 +85,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^state_population_estimates/list\.(?P<emitter_format>.+)', state_population_estimates_handler),
     url(r'^state_postal_codes/$', state_postal_codes_handler),
     url(r'^state_postal_codes/list\.(?P<emitter_format>.+)', state_postal_codes_handler),
+    url(r'^state_unemployment/$', state_unemployment_handler),
+    url(r'^state_unemployment/list\.(?P<emitter_format>.+)', state_unemployment_handler),
     url(r'^state_vehicle_registrations/$', vehicle_registrations_handler),
     url(r'^state_vehicle_registrations/list\.(?P<emitter_format>.+)', vehicle_registrations_handler),
 )

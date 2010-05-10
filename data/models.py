@@ -266,6 +266,11 @@ class StatePostalCodes(models.Model):
     code = models.CharField(max_length=2)
     state = models.CharField(max_length=32)
     
+class StateUnemployment(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=32)
+    rate = models.FloatField()
+    
 class VehicleRegistrations(models.Model):
     year = models.IntegerField()
     state = models.CharField(max_length=32)
