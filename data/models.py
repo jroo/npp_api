@@ -1,5 +1,10 @@
 from django.db import models
 
+class AlternativeFuelVehicles(models.Model):
+    state = models.CharField(max_length=32)
+    year = models.IntegerField()
+    value = models.IntegerField()
+
 class AnnualStateEnergyConsumption(models.Model):
     state = models.CharField(max_length=2)
     msn = models.CharField(max_length=5)

@@ -4,8 +4,9 @@ from npp.api.handlers import EnergyConsumptionHandler, EnergyExpendituresHandler
 from npp.api.handlers import ANSICountyStateHandler, CFFRHandler, FIPSCountyCongressDistrictHandler, NCESSchoolDistrictHandler, CFFRAgencyHandler, CFFRGeoHandler
 from npp.api.handlers import CFFRObjectCodeHandler, CFFRProgramHandler, SAIPESchoolHandler, StateEmissionsHandler, IRSGrossCollectionsHandler, VehicleRegistrationsHandler
 from npp.api.handlers import StateMedianIncomeHandler, StatePopulationEstimatesHandler, SAIPECountyStateHandler, StateUnemploymentHandler
-from npp.api.handlers import CountyUnemploymentHandler
+from npp.api.handlers import CountyUnemploymentHandler, AlternativeFuelVehiclesHandler
 
+alternative_fuel_vehicles_handler = Resource(AlternativeFuelVehiclesHandler)
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
 cffr_handler = Resource(CFFRHandler)
 cffr_agency_handler = Resource(CFFRAgencyHandler)
@@ -48,6 +49,9 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^state_unemployment.html$', 'direct_to_template', {'template': 'api/state_unemployment.html'}),
     (r'^state_vehicle_registrations.html$', 'direct_to_template', {'template':'api/state_vehicle_registrations.html'}),
 
+
+    url(r'^alternative_fuel_vehicles/$', alternative_fuel_vehicles_handler),
+    url(r'^alternative_fuel_vehicles/list\.(?P<emitter_format>.+)', alternative_fuel_vehicles_handler),
     url(r'^ansi_county_state/$', ansi_county_state_handler),
     url(r'^ansi_county_state/list\.(?P<emitter_format>.+)', ansi_county_state_handler),
     url(r'^cffr/$', cffr_handler),
