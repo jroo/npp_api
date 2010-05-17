@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>Alternative Fuel Vehicles</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/alternative_fuel_vehicles/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'year'</div>
+		<div>Example: <a href="/api/alternative_fuel_vehicles/list.json?state=Missouri">http://data.nationalpriorities.org/api/alternative_fuel_vehicles/list.json?state=Missouri</a></div>
+	</div>
+</div>
+{% endblock %}
