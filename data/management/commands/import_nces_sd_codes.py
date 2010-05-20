@@ -27,7 +27,6 @@ class Command(NoArgsCommand):
         for row in data_reader:
             if (i==0):
                 fields = row
-                print fields
             else:
                 j=0
                 row_dict = {}
@@ -39,7 +38,6 @@ class Command(NoArgsCommand):
                     state_code = None
                 else:
                     state_code = int(row_dict['StateCode'].split(' - ')[0].strip())
-                print state_code
                 db_row =NCESSchoolDistrict(state=row_dict['State'], 
                     district_name=row_dict['DistrictName'], county_name=row_dict['CountyName'], 
                     county_code=row_dict['CountyCode'], state_code=row_dict['StateCode'],
