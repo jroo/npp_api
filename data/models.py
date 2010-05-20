@@ -114,10 +114,28 @@ class NCESSchoolDistrict(models.Model):
     state = models.CharField(max_length=2)
     district_name = models.CharField(max_length=255)
     county_name = models.CharField(max_length=255)
-    county_code = models.CharField(max_length=3)
+    county_code = models.CharField(max_length=4)
     state_code = models.CharField(max_length=2)
     congress_code = models.CharField(max_length=2)
-    district_code = models.CharField(max_length=5)
+    district_code = models.CharField(max_length=6)
+    
+class PresidentsBudgetAuthority(models.Model):
+    agency_code = models.IntegerField()
+    agency_name = models.CharField(max_length=255)
+    bureau_code = models.IntegerField()
+    bureau_name = models.CharField(max_length=255)
+    account_code = models.IntegerField(null=True)
+    account_name = models.CharField(max_length=255)
+    treasury_agency_code = models.IntegerField(null=True)
+    subfunction_code = models.IntegerField()
+    subfunction_title = models.CharField(max_length=255)
+    bea_category = models.CharField(max_length=32)
+    on_off_buget = models.CharField(max_length=32)
+    
+class PresidentsBudgetAuthorityYear(models.Model):
+    authority = models.ForeignKey('PresidentsBudgetAuthority')
+    year = models.IntegerField()
+    value = models.IntegerField()
     
 class CountyPopulationEstimates(models.Model):
     year = models.IntegerField()
@@ -199,6 +217,18 @@ class StatePopulationEstimates(models.Model):
     female_21_over = models.IntegerField()
     female_62_over = models.IntegerField()
     female_65_over = models.IntegerField()
+    
+class StateRenewableEnergy(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=32)
+    fossil_coal = models.FloatField()
+    fossil_gas = models.FloatField()
+    fossil_oil = models.FloatField()
+    nuclear_electric = models.FloatField()
+    renewable_biofuels = models.FloatField()
+    renewable_other = models.FloatField()
+    renewable_total = models.FloatField()
+    total = models.FloatField()
     
 class SAIPESchool(models.Model):
     year = models.IntegerField()
