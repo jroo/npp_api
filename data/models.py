@@ -4,6 +4,9 @@ class AlternativeFuelVehicles(models.Model):
     state = models.CharField(max_length=32)
     year = models.IntegerField()
     value = models.IntegerField()
+    
+    def fips_state(self):
+        return "999"
 
 class AnnualStateEnergyConsumption(models.Model):
     state = models.CharField(max_length=2)
@@ -119,22 +122,28 @@ class NCESSchoolDistrict(models.Model):
     congress_code = models.CharField(max_length=2)
     district_code = models.CharField(max_length=6)
     
-class PresidentsBudgetAuthority(models.Model):
-    agency_code = models.IntegerField()
+class PresidentsBudget(models.Model):
+    budget_type = models.CharField(max_length=32)
+    source_category_code = models.IntegerField(null=True)
+    source_category_name = models.CharField(max_length=255, null=True)
+    source_subcategory_code = models.IntegerField(null=True)
+    source_subcategory_name = models.CharField(max_length=255, null=True)
+    agency_code = models.IntegerField(null=True)
     agency_name = models.CharField(max_length=255)
-    bureau_code = models.IntegerField()
+    bureau_code = models.IntegerField(null=True)
     bureau_name = models.CharField(max_length=255)
     account_code = models.IntegerField(null=True)
     account_name = models.CharField(max_length=255)
     treasury_agency_code = models.IntegerField(null=True)
-    subfunction_code = models.IntegerField()
-    subfunction_title = models.CharField(max_length=255)
-    bea_category = models.CharField(max_length=32)
-    on_off_buget = models.CharField(max_length=32)
+    subfunction_code = models.IntegerField(null=True)
+    subfunction_title = models.CharField(max_length=255, null=True)
+    bea_category = models.CharField(max_length=32, null=True)
+    grant_non_grant = models.CharField(max_length=32, null=True)
+    on_off_budget = models.CharField(max_length=32)
     
-class PresidentsBudgetAuthorityYear(models.Model):
-    authority = models.ForeignKey('PresidentsBudgetAuthority')
-    year = models.IntegerField()
+class PresidentsBudgetYear(models.Model):
+    budget = models.ForeignKey('PresidentsBudget')
+    year = models.CharField(max_length=4)
     value = models.IntegerField()
     
 class CountyPopulationEstimates(models.Model):

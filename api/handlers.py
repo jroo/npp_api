@@ -38,7 +38,7 @@ class GenericHandler(BaseHandler):
         
 class AlternativeFuelVehiclesHandler(GenericHandler):
     def __init__(self):
-        allowed_keys = ('state', 'year')
+        allowed_keys = ('state', 'year', 'fips_state')
         model = AlternativeFuelVehicles
         super(AlternativeFuelVehiclesHandler, self).__init__(allowed_keys, model)
         
