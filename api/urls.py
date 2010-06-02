@@ -4,7 +4,7 @@ from npp.api.handlers import EnergyConsumptionHandler, EnergyExpendituresHandler
 from npp.api.handlers import ANSICountyStateHandler, CFFRHandler, FIPSCountyCongressDistrictHandler, NCESSchoolDistrictHandler, CFFRAgencyHandler, CFFRGeoHandler
 from npp.api.handlers import CFFRObjectCodeHandler, CFFRProgramHandler, SAIPESchoolHandler, StateEmissionsHandler, IRSGrossCollectionsHandler, VehicleRegistrationsHandler
 from npp.api.handlers import StateMedianIncomeHandler, StatePopulationEstimatesHandler, SAIPECountyStateHandler, StateUnemploymentHandler
-from npp.api.handlers import CountyUnemploymentHandler, AlternativeFuelVehiclesHandler
+from npp.api.handlers import CountyUnemploymentHandler, AlternativeFuelVehiclesHandler, PresidentsBudgetHandler
 
 alternative_fuel_vehicles_handler = Resource(AlternativeFuelVehiclesHandler)
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
@@ -22,6 +22,7 @@ fips_state_handler = Resource(FIPSStateHandler)
 irs_gross_collections_handler = Resource(IRSGrossCollectionsHandler)
 msn_code_handler = Resource(MSNCodeHandler)
 nces_school_district_handler = Resource(NCESSchoolDistrictHandler)
+presidents_budget_handler = Resource(PresidentsBudgetHandler)
 saipe_county_state_handler = Resource(SAIPECountyStateHandler)
 saipe_school_handler = Resource(SAIPESchoolHandler)
 state_emissions_handler = Resource(StateEmissionsHandler)
@@ -83,6 +84,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^msn_codes/list\.(?P<emitter_format>.+)', msn_code_handler),
     url(r'^nces_school_district/$', nces_school_district_handler),
     url(r'^nces_school_district/list\.(?P<emitter_format>.+)', nces_school_district_handler),
+    url(r'^presidents_budget/$', presidents_budget_handler),
+    url(r'^presidents_budget/list\.(?P<emitter_format>.+)', presidents_budget_handler),
     url(r'^saipe_county_state/$', saipe_county_state_handler),
     url(r'^saipe_county_state/list\.(?P<emitter_format>.+)', saipe_county_state_handler),
     url(r'^saipe_school/$', saipe_school_handler),
