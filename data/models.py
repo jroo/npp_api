@@ -122,6 +122,11 @@ class NCESSchoolDistrict(models.Model):
     congress_code = models.CharField(max_length=2)
     district_code = models.CharField(max_length=6)
     
+class NewAIDSCases(models.Model):
+    state = models.CharField(max_length=32)
+    year = models.IntegerField()
+    value = models.IntegerField(null=True)
+    
 class PresidentsBudget(models.Model):
     budget_type = models.CharField(max_length=32)
     source_category_code = models.IntegerField(null=True)
@@ -142,7 +147,7 @@ class PresidentsBudget(models.Model):
     on_off_budget = models.CharField(max_length=32)
     
 class PresidentsBudgetYear(models.Model):
-    budget = models.ForeignKey('PresidentsBudget')
+    budget = models.ForeignKey('PresidentsBudget', related_name='years')
     year = models.CharField(max_length=4)
     value = models.IntegerField()
     

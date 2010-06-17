@@ -4,7 +4,7 @@ from npp.api.handlers import EnergyConsumptionHandler, EnergyExpendituresHandler
 from npp.api.handlers import ANSICountyStateHandler, CFFRHandler, FIPSCountyCongressDistrictHandler, NCESSchoolDistrictHandler, CFFRAgencyHandler, CFFRGeoHandler
 from npp.api.handlers import CFFRObjectCodeHandler, CFFRProgramHandler, SAIPESchoolHandler, StateEmissionsHandler, IRSGrossCollectionsHandler, VehicleRegistrationsHandler
 from npp.api.handlers import StateMedianIncomeHandler, StatePopulationEstimatesHandler, SAIPECountyStateHandler, StateUnemploymentHandler
-from npp.api.handlers import CountyUnemploymentHandler, AlternativeFuelVehiclesHandler, PresidentsBudgetHandler
+from npp.api.handlers import CountyUnemploymentHandler, AlternativeFuelVehiclesHandler, PresidentsBudgetHandler, NewAIDSCasesHandler
 
 alternative_fuel_vehicles_handler = Resource(AlternativeFuelVehiclesHandler)
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
@@ -21,6 +21,7 @@ fips_county_congress_district_handler = Resource(FIPSCountyCongressDistrictHandl
 fips_state_handler = Resource(FIPSStateHandler)
 irs_gross_collections_handler = Resource(IRSGrossCollectionsHandler)
 msn_code_handler = Resource(MSNCodeHandler)
+new_aids_cases_handler = Resource(NewAIDSCasesHandler)
 nces_school_district_handler = Resource(NCESSchoolDistrictHandler)
 presidents_budget_handler = Resource(PresidentsBudgetHandler)
 saipe_county_state_handler = Resource(SAIPECountyStateHandler)
@@ -43,6 +44,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^energy_consumption_state.html$', 'direct_to_template', {'template': 'api/energy_consumption_state.html'}),
     (r'^energy_expenditures_state.html$', 'direct_to_template', {'template': 'api/energy_expenditures_state.html'}),
     (r'^nces_school_district.html$', 'direct_to_template', {'template': 'api/nces_school_district.html'}),
+    (r'^new_aids_cases.html$', 'direct_to_template', {'template': 'api/new_aids_cases.html'}),
     (r'^saipe_county_state.html$', 'direct_to_template', {'template': 'api/saipe_county_state.html'}),
     (r'^saipe_school.html$', 'direct_to_template', {'template': 'api/saipe_school.html'}),
     (r'^state_emissions.html$', 'direct_to_template', {'template': 'api/state_emissions.html'}),
@@ -84,6 +86,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^msn_codes/list\.(?P<emitter_format>.+)', msn_code_handler),
     url(r'^nces_school_district/$', nces_school_district_handler),
     url(r'^nces_school_district/list\.(?P<emitter_format>.+)', nces_school_district_handler),
+    url(r'^new_aids_cases/$', new_aids_cases_handler),
+    url(r'^new_aids_cases/list\.(?P<emitter_format>.+)', new_aids_cases_handler),
     url(r'^presidents_budget/$', presidents_budget_handler),
     url(r'^presidents_budget/list\.(?P<emitter_format>.+)', presidents_budget_handler),
     url(r'^saipe_county_state/$', saipe_county_state_handler),

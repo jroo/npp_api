@@ -2,7 +2,7 @@ from piston.handler import BaseHandler, AnonymousBaseHandler
 from npp.data.models import AnnualStateEnergyConsumption, AnnualStateEnergyExpenditures, CFFR, StateEnergyProductionEstimates, MSNCodes, StatePostalCodes, FIPSState
 from npp.data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSchoolDistrict, CFFRGeo, CFFRAgency, CFFRObjectCode, CFFRProgram, SAIPESchool
 from npp.data.models import StateEmissions, IRSGrossCollections, VehicleRegistrations, StateMedianIncome, StatePopulationEstimates, SAIPECountyState
-from npp.data.models import StateUnemployment, CountyUnemployment, AlternativeFuelVehicles, PresidentsBudget
+from npp.data.models import StateUnemployment, CountyUnemployment, AlternativeFuelVehicles, PresidentsBudget, NewAIDSCases
 from django.conf import settings
 from piston.doc import generate_doc
 
@@ -17,9 +17,10 @@ def page_limits(request_get):
     return {'lower':lower_row, 'upper':upper_row}
     
 class GenericHandler(BaseHandler):
-    def __init__(self, allowed_keys, model):
+    def __init__(self, allowed_keys, model, fields=None):
         self.model = model
         self.allowed_keys = allowed_keys
+        self.fields = fields
 
     allowed_methods = ('GET',)
 
@@ -120,18 +121,29 @@ class MSNCodeHandler(GenericHandler):
         model = MSNCodes
         super(MSNCodeHandler, self).__init__(allowed_keys, model)
         
+class NewAIDSCasesHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year')
+        model = NewAIDSCases
+        super(NewAIDSCasesHandler, self).__init__(allowed_keys, model)
+        
 class NCESSchoolDistrictHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'district_name', 'county_name', 'county_code', 'state_code', 'congress_code', 'district_code')
         model = NCESSchoolDistrict
-        exclude = ('id')
         super(NCESSchoolDistrictHandler, self).__init__(allowed_keys, model)
         
 class PresidentsBudgetHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('budget_type', 'source_category_code', 'source_subcategory_code', 'agency_code', 'bureau_code', 'account_code', 'treasury_agency_code', 'subfunction_code', 'grant_non_grant')
         model = PresidentsBudget
-        super(PresidentsBudgetHandler, self).__init__(allowed_keys, model)
+        fields = ('budget_type', 'source_category_code', 'source_category_name',
+            'source_subcategory_code', 'source_subcategory_name', 'agency_code',
+            'agency_name', 'bureau_code', 'bureau_name', 'account_code',
+            'account_name', 'treasury_agency_code', 'subfunction_code',
+            'subfunction_title', 'bea_category', 'grant_non_grant',
+            'on_off_budget', ('years', ('year', 'value',),),)
+        super(PresidentsBudgetHandler, self).__init__(allowed_keys, model, fields)
         
 class StateEmissionsHandler(GenericHandler):
     def __init__(self):
