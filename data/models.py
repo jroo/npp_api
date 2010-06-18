@@ -198,6 +198,11 @@ class CountyPopulationEstimates(models.Model):
     female_62_over = models.IntegerField(null=True)
     female_65_over = models.IntegerField(null=True)
     
+class SCHIPEnrollment(models.Model):
+    state = models.CharField(max_length=32)
+    year = models.IntegerField()
+    value = models.IntegerField(null=True)
+    
 class StatePopulationEstimates(models.Model):
     year = models.IntegerField()
     state = models.CharField(max_length=32)

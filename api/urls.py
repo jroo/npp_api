@@ -5,6 +5,7 @@ from npp.api.handlers import ANSICountyStateHandler, CFFRHandler, FIPSCountyCong
 from npp.api.handlers import CFFRObjectCodeHandler, CFFRProgramHandler, SAIPESchoolHandler, StateEmissionsHandler, IRSGrossCollectionsHandler, VehicleRegistrationsHandler
 from npp.api.handlers import StateMedianIncomeHandler, StatePopulationEstimatesHandler, SAIPECountyStateHandler, StateUnemploymentHandler
 from npp.api.handlers import CountyUnemploymentHandler, AlternativeFuelVehiclesHandler, PresidentsBudgetHandler, NewAIDSCasesHandler, MedicaidParticipationHandler
+from npp.api.handlers import SCHIPEnrollmentHandler
 
 alternative_fuel_vehicles_handler = Resource(AlternativeFuelVehiclesHandler)
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
@@ -27,6 +28,7 @@ nces_school_district_handler = Resource(NCESSchoolDistrictHandler)
 presidents_budget_handler = Resource(PresidentsBudgetHandler)
 saipe_county_state_handler = Resource(SAIPECountyStateHandler)
 saipe_school_handler = Resource(SAIPESchoolHandler)
+schip_enrollment_handler = Resource(SCHIPEnrollmentHandler)
 state_emissions_handler = Resource(StateEmissionsHandler)
 state_median_income_handler = Resource(StateMedianIncomeHandler)
 state_population_estimates_handler = Resource(StatePopulationEstimatesHandler)
@@ -49,6 +51,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^new_aids_cases.html$', 'direct_to_template', {'template': 'api/new_aids_cases.html'}),
     (r'^saipe_county_state.html$', 'direct_to_template', {'template': 'api/saipe_county_state.html'}),
     (r'^saipe_school.html$', 'direct_to_template', {'template': 'api/saipe_school.html'}),
+    (r'^schip_enrollment.html$', 'direct_to_template', {'template': 'api/schip_enrollment.html'}),
     (r'^state_emissions.html$', 'direct_to_template', {'template': 'api/state_emissions.html'}),
     (r'^state_median_income.html$', 'direct_to_template', {'template': 'api/state_median_income.html'}),
     (r'^state_population_estimates.html$', 'direct_to_template', {'template': 'api/state_population_estimates.html'}),
@@ -98,6 +101,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^saipe_county_state/list\.(?P<emitter_format>.+)', saipe_county_state_handler),
     url(r'^saipe_school/$', saipe_school_handler),
     url(r'^saipe_school/list\.(?P<emitter_format>.+)', saipe_school_handler),
+    url(r'^schip_enrollment/$', schip_enrollment_handler),
+    url(r'^schip_enrollment/list\.(?P<emitter_format>.+)', schip_enrollment_handler),
     url(r'^state_emissions/$', state_emissions_handler),
     url(r'^state_emissions/list\.(?P<emitter_format>.+)', state_emissions_handler),
     url(r'^state_median_income/$', state_median_income_handler),

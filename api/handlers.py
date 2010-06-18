@@ -2,7 +2,7 @@ from piston.handler import BaseHandler, AnonymousBaseHandler
 from npp.data.models import AnnualStateEnergyConsumption, AnnualStateEnergyExpenditures, CFFR, StateEnergyProductionEstimates, MSNCodes, StatePostalCodes, FIPSState
 from npp.data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSchoolDistrict, CFFRGeo, CFFRAgency, CFFRObjectCode, CFFRProgram, SAIPESchool
 from npp.data.models import StateEmissions, IRSGrossCollections, VehicleRegistrations, StateMedianIncome, StatePopulationEstimates, SAIPECountyState
-from npp.data.models import StateUnemployment, CountyUnemployment, AlternativeFuelVehicles, PresidentsBudget, NewAIDSCases, MedicaidParticipation
+from npp.data.models import StateUnemployment, CountyUnemployment, AlternativeFuelVehicles, PresidentsBudget, NewAIDSCases, MedicaidParticipation, SCHIPEnrollment
 from django.conf import settings
 from piston.doc import generate_doc
 
@@ -150,6 +150,12 @@ class PresidentsBudgetHandler(GenericHandler):
             'subfunction_title', 'bea_category', 'grant_non_grant',
             'on_off_budget', ('years', ('year', 'value',),),)
         super(PresidentsBudgetHandler, self).__init__(allowed_keys, model, fields)
+        
+class SCHIPEnrollmentHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year')
+        model = SCHIPEnrollment
+        super(SCHIPEnrollmentHandler, self).__init__(allowed_keys, model)
         
 class StateEmissionsHandler(GenericHandler):
     def __init__(self):
