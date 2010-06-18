@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>State Medicare Enrollment</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/medicare_enrollment/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'year'</div>
+		<div>Example: <a href="http://data.nationalpriorities.org/api/medicare_enrollment/list.json?state=Tennessee">http://data.nationalpriorities.org/api/medicare_enrollment/list.json?state=Tennessee</a></div>
+	</div>
+</div>
+{% endblock %}

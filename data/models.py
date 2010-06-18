@@ -118,6 +118,11 @@ class MedicaidParticipation(models.Model):
     year = models.IntegerField()
     value = models.IntegerField(null=True)
     
+class MedicareEnrollment(models.Model):
+    state = models.CharField(max_length=32)
+    year = models.IntegerField()
+    value = models.IntegerField(null=True)
+    
 class NCESSchoolDistrict(models.Model):
     state = models.CharField(max_length=2)
     district_name = models.CharField(max_length=255)
