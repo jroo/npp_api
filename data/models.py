@@ -113,6 +113,11 @@ class MSNCodes(models.Model):
     description = models.TextField()
     unit = models.CharField(max_length=255)
     
+class MedicaidParticipation(models.Model):
+    state = models.CharField(max_length=32)
+    year = models.IntegerField()
+    value = models.IntegerField(null=True)
+    
 class NCESSchoolDistrict(models.Model):
     state = models.CharField(max_length=2)
     district_name = models.CharField(max_length=255)

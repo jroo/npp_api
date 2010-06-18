@@ -2,7 +2,7 @@ from piston.handler import BaseHandler, AnonymousBaseHandler
 from npp.data.models import AnnualStateEnergyConsumption, AnnualStateEnergyExpenditures, CFFR, StateEnergyProductionEstimates, MSNCodes, StatePostalCodes, FIPSState
 from npp.data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSchoolDistrict, CFFRGeo, CFFRAgency, CFFRObjectCode, CFFRProgram, SAIPESchool
 from npp.data.models import StateEmissions, IRSGrossCollections, VehicleRegistrations, StateMedianIncome, StatePopulationEstimates, SAIPECountyState
-from npp.data.models import StateUnemployment, CountyUnemployment, AlternativeFuelVehicles, PresidentsBudget, NewAIDSCases
+from npp.data.models import StateUnemployment, CountyUnemployment, AlternativeFuelVehicles, PresidentsBudget, NewAIDSCases, MedicaidParticipation
 from django.conf import settings
 from piston.doc import generate_doc
 
@@ -114,6 +114,12 @@ class IRSGrossCollectionsHandler(GenericHandler):
         allowed_keys = ('state', 'year')
         model = IRSGrossCollections
         super(IRSGrossCollectionsHandler, self).__init__(allowed_keys, model)
+
+class MedicaidParticipationHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year')
+        model = MedicaidParticipation
+        super(MedicaidParticipationHandler, self).__init__(allowed_keys, model)
         
 class MSNCodeHandler(GenericHandler):
     def __init__(self):
