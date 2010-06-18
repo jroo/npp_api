@@ -8,7 +8,7 @@ import csv
 # import_new_aids_cases.py
 # Updated 6/17/2010, Joshua Ruihley, Sunlight Foundation
 
-# Imports Department of Energy Alternative Fuel Vehicles Total
+# Imports HHS State New AIDS Cases Data
 # source info: http://www.cms.hhs.gov/MedicareMedicaidStatSupp/LT/list.asp?filterType=none&filterByDID=0&sortByDID=1&sortOrder=ascending&intNumPerPage=10&listpage=3 (accurate as of 6/17/2010)
 # npp csv: http://assets.nationalpriorities.org/raw_data/health/aids.csv (updated 6/17/2010)
 # destination model:  NewAIDSCases

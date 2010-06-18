@@ -5,10 +5,10 @@ from data.models import SCHIPEnrollment
 import csv
 
 # National Priorities Project Data Repository
-# import_new_aids_cases.py
+# import_schip_enrollment.py
 # Updated 6/18/2010, Joshua Ruihley, Sunlight Foundation
 
-# Imports Department of Energy Alternative Fuel Vehicles Total
+# Imports HHS S-CHIP Enrollment Data
 # source info: http://www.census.gov/compendia/statab/cats/health_nutrition/medicare_medicaid.html (accurate as of 6/18/2010)
 # npp csv: http://assets.nationalpriorities.org/raw_data/health/chip.csv (updated 6/18/2010)
 # destination model:  SCHIPEnrollment

@@ -5,10 +5,10 @@ from data.models import MedicaidParticipation
 import csv
 
 # National Priorities Project Data Repository
-# import_new_aids_cases.py
+# import_medicaid_participation.py
 # Updated 6/18/2010, Joshua Ruihley, Sunlight Foundation
 
-# Imports Department of Energy Alternative Fuel Vehicles Total
+# Imports HHS State Medicaid Participation
 # source info: http://www.cms.hhs.gov/MedicareMedicaidStatSupp/LT/list.asp?filterType=none&filterByDID=0&sortByDID=1&sortOrder=ascending&intNumPerPage=10&listpage=3 (accurate as of 6/18/2010)
 # npp csv: http://assets.nationalpriorities.org/raw_data/health/medicaid_participation.csv (updated 6/18/2010)
 # destination model:  MedicaidParticipation
