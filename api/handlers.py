@@ -3,7 +3,7 @@ from npp.data.models import AnnualStateEnergyConsumption, AnnualStateEnergyExpen
 from npp.data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSchoolDistrict, CFFRGeo, CFFRAgency, CFFRObjectCode, CFFRProgram, SAIPESchool
 from npp.data.models import StateEmissions, IRSGrossCollections, VehicleRegistrations, StateMedianIncome, StatePopulationEstimates, SAIPECountyState
 from npp.data.models import StateUnemployment, CountyUnemployment, AlternativeFuelVehicles, PresidentsBudget, NewAIDSCases, MedicaidParticipation, SCHIPEnrollment
-from npp.data.models import MedicareEnrollment
+from npp.data.models import MedicareEnrollment, HealthInsurance, KidsHealthInsurance
 
 from django.conf import settings
 from piston.doc import generate_doc
@@ -111,11 +111,23 @@ class FIPSCountyCongressDistrictHandler(GenericHandler):
         model = FIPSCountyCongressDistrict
         super(FIPSCountyCongressDistrictHandler, self).__init__(allowed_keys, model)
         
+class HealthInsuranceHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year')
+        model = HealthInsurance
+        super(HealthInsuranceHandler, self).__init__(allowed_keys, model)
+        
 class IRSGrossCollectionsHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year')
         model = IRSGrossCollections
         super(IRSGrossCollectionsHandler, self).__init__(allowed_keys, model)
+        
+class KidsHealthInsuranceHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year')
+        model = KidsHealthInsurance
+        super(KidsHealthInsuranceHandler, self).__init__(allowed_keys, model)
 
 class MedicaidParticipationHandler(GenericHandler):
     def __init__(self):

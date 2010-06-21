@@ -5,7 +5,7 @@ from npp.api.handlers import ANSICountyStateHandler, CFFRHandler, FIPSCountyCong
 from npp.api.handlers import CFFRObjectCodeHandler, CFFRProgramHandler, SAIPESchoolHandler, StateEmissionsHandler, IRSGrossCollectionsHandler, VehicleRegistrationsHandler
 from npp.api.handlers import StateMedianIncomeHandler, StatePopulationEstimatesHandler, SAIPECountyStateHandler, StateUnemploymentHandler
 from npp.api.handlers import CountyUnemploymentHandler, AlternativeFuelVehiclesHandler, PresidentsBudgetHandler, NewAIDSCasesHandler, MedicaidParticipationHandler
-from npp.api.handlers import SCHIPEnrollmentHandler, MedicareEnrollmentHandler
+from npp.api.handlers import SCHIPEnrollmentHandler, MedicareEnrollmentHandler, HealthInsuranceHandler, KidsHealthInsuranceHandler
 
 alternative_fuel_vehicles_handler = Resource(AlternativeFuelVehiclesHandler)
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
@@ -20,7 +20,9 @@ energy_expenditures_handler = Resource(EnergyExpendituresHandler)
 energy_production_estimates_handler = Resource(EnergyProductionEstimatesHandler)
 fips_county_congress_district_handler = Resource(FIPSCountyCongressDistrictHandler)
 fips_state_handler = Resource(FIPSStateHandler)
+health_insurance_handler = Resource(HealthInsuranceHandler)
 irs_gross_collections_handler = Resource(IRSGrossCollectionsHandler)
+kids_health_insurance_handler = Resource(KidsHealthInsuranceHandler)
 medicaid_participation_handler = Resource(MedicaidParticipationHandler)
 medicare_enrollment_handler = Resource(MedicareEnrollmentHandler)
 msn_code_handler = Resource(MSNCodeHandler)
@@ -40,11 +42,13 @@ vehicle_registrations_handler = Resource(VehicleRegistrationsHandler)
 urlpatterns = patterns('django.views.generic.simple',
     url(r'^$', 'direct_to_template', {'template': 'api/index.html'}),
     (r'^alternative_fuel_vehicles.html$', 'direct_to_template', {'template': 'api/alternative_fuel_vehicles.html'}),
+    (r'^ansi_county_state.html$', 'direct_to_template', {'template': 'api/ansi_county_state.html'}),
     (r'^cffr.html$', 'direct_to_template', {'template': 'api/cffr.html'}),
     (r'^county_unemployment.html$', 'direct_to_template', {'template': 'api/county_unemployment.html'}),
     (r'^fips_county_congressional.html$', 'direct_to_template', {'template': 'api/fips_county_congressional.html'}),
-    (r'^ansi_county_state.html$', 'direct_to_template', {'template': 'api/ansi_county_state.html'}),
+    (r'^health_insurance.html$', 'direct_to_template', {'template': 'api/health_insurance.html'}),
     (r'^irs_gross_collections.html$', 'direct_to_template', {'template': 'api/irs_gross_collections.html'}),
+    (r'^kids_health_insurance.html$', 'direct_to_template', {'template': 'api/kids_health_insurance.html'}),
     (r'^energy_consumption_state.html$', 'direct_to_template', {'template': 'api/energy_consumption_state.html'}),
     (r'^energy_expenditures_state.html$', 'direct_to_template', {'template': 'api/energy_expenditures_state.html'}),
     (r'^nces_school_district.html$', 'direct_to_template', {'template': 'api/nces_school_district.html'}),
@@ -81,8 +85,12 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^fips_county_congress_district/list\.(?P<emitter_format>.+)', fips_county_congress_district_handler),
     url(r'^fips_state/$', fips_state_handler),
     url(r'^fips_state/list\.(?P<emitter_format>.+)', fips_state_handler),
+    url(r'^health_insurance/$', health_insurance_handler),
+    url(r'^health_insurance/list\.(?P<emitter_format>.+)', health_insurance_handler),
     url(r'^irs_gross_collections/$', irs_gross_collections_handler),
     url(r'^irs_gross_collections/list\.(?P<emitter_format>.+)', irs_gross_collections_handler),
+    url(r'^kids_health_insurance/$', kids_health_insurance_handler),
+    url(r'^kids_health_insurance/list\.(?P<emitter_format>.+)', kids_health_insurance_handler),
     url(r'^energy_consumption/$', energy_consumption_handler),
     url(r'^energy_consumption/list\.(?P<emitter_format>.+)', energy_consumption_handler),
     url(r'^energy_expenditures/$', energy_expenditures_handler),
