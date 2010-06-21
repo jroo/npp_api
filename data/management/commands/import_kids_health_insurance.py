@@ -33,11 +33,11 @@ class Command(NoArgsCommand):
                 value = None
             return value
 
-        record = KidsHealthInsurance()
         for i, row in enumerate(data_reader):
             if i == 0:
                 header_row = row;            
             else:
+                record = KidsHealthInsurance()
                 for j,col in enumerate(row):
                     setattr(record, header_row[j], col)
                 record.save()

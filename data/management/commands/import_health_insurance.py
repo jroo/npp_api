@@ -33,12 +33,12 @@ class Command(NoArgsCommand):
                 value = None
             return value
 
-        record = HealthInsurance()
         for i, row in enumerate(data_reader):
-            #print row
             if i == 0:
                 header_row = row;            
             else:
+                record = HealthInsurance()
                 for j,col in enumerate(row):
                     setattr(record, header_row[j], col)
                 record.save()
+                
