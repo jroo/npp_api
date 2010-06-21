@@ -210,7 +210,7 @@ class MilitaryPersonnel(models.Model):
     state = models.CharField(max_length=32)
     military_personnel = models.IntegerField()
     civilian_personnel = models.IntegerField(null=True)
-    reserve_national_guary_personnel = models.IntegerField(null=True)
+    reserve_national_guard_personnel = models.IntegerField(null=True)
     
 class NCESSchoolDistrict(models.Model):
     state = models.CharField(max_length=2)
