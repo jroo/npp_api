@@ -3,7 +3,7 @@ from npp.data.models import AnnualStateEnergyConsumption, AnnualStateEnergyExpen
 from npp.data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSchoolDistrict, CFFRGeo, CFFRAgency, CFFRObjectCode, CFFRProgram, SAIPESchool
 from npp.data.models import StateEmissions, IRSGrossCollections, VehicleRegistrations, StateMedianIncome, StatePopulationEstimates, SAIPECountyState
 from npp.data.models import StateUnemployment, CountyUnemployment, AlternativeFuelVehicles, PresidentsBudget, NewAIDSCases, MedicaidParticipation, SCHIPEnrollment
-from npp.data.models import MedicareEnrollment, HealthInsurance, KidsHealthInsurance
+from npp.data.models import MedicareEnrollment, HealthInsurance, KidsHealthInsurance, MilitaryPersonnel
 
 from django.conf import settings
 from piston.doc import generate_doc
@@ -140,6 +140,12 @@ class MedicareEnrollmentHandler(GenericHandler):
         allowed_keys = ('state', 'year')
         model = MedicareEnrollment
         super(MedicareEnrollmentHandler, self).__init__(allowed_keys, model)
+        
+class MilitaryPersonnelHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year')
+        model = MilitaryPersonnel
+        super(MilitaryPersonnelHandler, self).__init__(allowed_keys, model)
         
 class MSNCodeHandler(GenericHandler):
     def __init__(self):

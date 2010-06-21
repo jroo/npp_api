@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>State Military Personnel Totals</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/military_personnel/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'year'</div>
+		<div>Example: <a href="http://data.nationalpriorities.org/api/military_personnel/list.json?state=Vermont">http://data.nationalpriorities.org/api/military_personnel/list.json?state=Vermont</a></div>
+	</div>
+</div>
+{% endblock %}

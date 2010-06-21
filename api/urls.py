@@ -5,7 +5,7 @@ from npp.api.handlers import ANSICountyStateHandler, CFFRHandler, FIPSCountyCong
 from npp.api.handlers import CFFRObjectCodeHandler, CFFRProgramHandler, SAIPESchoolHandler, StateEmissionsHandler, IRSGrossCollectionsHandler, VehicleRegistrationsHandler
 from npp.api.handlers import StateMedianIncomeHandler, StatePopulationEstimatesHandler, SAIPECountyStateHandler, StateUnemploymentHandler
 from npp.api.handlers import CountyUnemploymentHandler, AlternativeFuelVehiclesHandler, PresidentsBudgetHandler, NewAIDSCasesHandler, MedicaidParticipationHandler
-from npp.api.handlers import SCHIPEnrollmentHandler, MedicareEnrollmentHandler, HealthInsuranceHandler, KidsHealthInsuranceHandler
+from npp.api.handlers import SCHIPEnrollmentHandler, MedicareEnrollmentHandler, HealthInsuranceHandler, KidsHealthInsuranceHandler, MilitaryPersonnelHandler
 
 alternative_fuel_vehicles_handler = Resource(AlternativeFuelVehiclesHandler)
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
@@ -25,6 +25,7 @@ irs_gross_collections_handler = Resource(IRSGrossCollectionsHandler)
 kids_health_insurance_handler = Resource(KidsHealthInsuranceHandler)
 medicaid_participation_handler = Resource(MedicaidParticipationHandler)
 medicare_enrollment_handler = Resource(MedicareEnrollmentHandler)
+military_personnel_handler = Resource(MilitaryPersonnelHandler)
 msn_code_handler = Resource(MSNCodeHandler)
 new_aids_cases_handler = Resource(NewAIDSCasesHandler)
 nces_school_district_handler = Resource(NCESSchoolDistrictHandler)
@@ -54,6 +55,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^nces_school_district.html$', 'direct_to_template', {'template': 'api/nces_school_district.html'}),
     (r'^medicaid_participation.html$', 'direct_to_template', {'template': 'api/medicaid_participation.html'}),
     (r'^medicare_enrollment.html$', 'direct_to_template', {'template': 'api/medicare_enrollment.html'}),
+    (r'^military_personnel.html$', 'direct_to_template', {'template': 'api/military_personnel.html'}),
     (r'^new_aids_cases.html$', 'direct_to_template', {'template': 'api/new_aids_cases.html'}),
     (r'^saipe_county_state.html$', 'direct_to_template', {'template': 'api/saipe_county_state.html'}),
     (r'^saipe_school.html$', 'direct_to_template', {'template': 'api/saipe_school.html'}),
@@ -101,6 +103,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^medicaid_participation/list\.(?P<emitter_format>.+)', medicaid_participation_handler),
     url(r'^medicare_enrollment/$', medicare_enrollment_handler),
     url(r'^medicare_enrollment/list\.(?P<emitter_format>.+)', medicare_enrollment_handler),
+    url(r'^military_personnel/$', military_personnel_handler),
+    url(r'^military_personnel/list\.(?P<emitter_format>.+)', military_personnel_handler),
     url(r'^msn_codes/$', msn_code_handler),
     url(r'^msn_codes/list\.(?P<emitter_format>.+)', msn_code_handler),
     url(r'^nces_school_district/$', nces_school_district_handler),
