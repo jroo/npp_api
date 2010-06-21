@@ -205,6 +205,13 @@ class MedicareEnrollment(models.Model):
     year = models.IntegerField()
     value = models.IntegerField(null=True)
     
+class MilitaryPersonnel(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=32)
+    military_personnel = models.IntegerField()
+    civilian_personnel = models.IntegerField(null=True)
+    reserve_national_guary_personnel = models.IntegerField(null=True)
+    
 class NCESSchoolDistrict(models.Model):
     state = models.CharField(max_length=2)
     district_name = models.CharField(max_length=255)
