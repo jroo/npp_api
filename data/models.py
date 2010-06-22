@@ -414,6 +414,26 @@ class StateEnergyProductionEstimates(models.Model):
     year = models.IntegerField()
     value = models.FloatField(null=True)
     
+class StateGDP(models.Model):
+    year = models.IntegerField()
+    fips = models.IntegerField()
+    state = models.CharField(max_length=32)
+    industry_code = models.IntegerField()
+    industry = models.CharField(max_length=64)
+    component_code = models.IntegerField()
+    component = models.CharField(max_length=128)
+    value = models.IntegerField()
+
+class StateGDPPre97(models.Model):
+    year = models.IntegerField()
+    fips = models.IntegerField()
+    state = models.CharField(max_length=32)
+    industry_code = models.IntegerField()
+    industry = models.CharField(max_length=64)
+    component_code = models.IntegerField()
+    component = models.CharField(max_length=128)
+    value = models.IntegerField()
+       
 class StateMedianIncome(models.Model):
     start_year = models.IntegerField()
     end_year = models.IntegerField()
