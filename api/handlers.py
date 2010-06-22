@@ -3,7 +3,7 @@ from npp.data.models import AnnualStateEnergyConsumption, AnnualStateEnergyExpen
 from npp.data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSchoolDistrict, CFFRGeo, CFFRAgency, CFFRObjectCode, CFFRProgram, SAIPESchool
 from npp.data.models import StateEmissions, IRSGrossCollections, VehicleRegistrations, StateMedianIncome, StatePopulationEstimates, SAIPECountyState
 from npp.data.models import StateUnemployment, CountyUnemployment, AlternativeFuelVehicles, PresidentsBudget, NewAIDSCases, MedicaidParticipation, SCHIPEnrollment
-from npp.data.models import MedicareEnrollment, HealthInsurance, KidsHealthInsurance, MilitaryPersonnel
+from npp.data.models import MedicareEnrollment, HealthInsurance, KidsHealthInsurance, MilitaryPersonnel, StateGDP, StateGDPPre97
 
 from django.conf import settings
 from piston.doc import generate_doc
@@ -188,6 +188,18 @@ class StateEmissionsHandler(GenericHandler):
         allowed_keys = ('state', 'year', 'producer_type', 'energy_source')
         model = StateEmissions
         super(StateEmissionsHandler, self).__init__(allowed_keys, model)
+        
+class StateGDPHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year')
+        model = StateGDP
+        super(StateGDPHandler, self).__init__(allowed_keys, model)
+
+class StateGDPPre97Handler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year')
+        model = StateGDP
+        super(StateGDPPre97Handler, self).__init__(allowed_keys, model)
         
 class StateMedianIncomeHandler(GenericHandler):
     def __init__(self):
