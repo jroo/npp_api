@@ -251,7 +251,7 @@ class SAIPECountyStateHandler(GenericHandler):
         
 class ShelterPopulationHandler(GenericHandler):
     def __init__(self):
-        allowed_keys = ('id', 'year', 'fips_state', 'fips_county', 'state_county_name', 'state_postal_abbreviation')
+        allowed_keys = ('state', 'year')
         model = ShelterPopulation
         super(ShelterPopulationHandler, self).__init__(allowed_keys, model)
         

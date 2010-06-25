@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>State Shelter Population</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/shelter_population/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'year' (year must be 1990 or 2000)</div>
+		<div>Example: <a href="/api/shelter_population/list.json?state=California&year=2000">http://data.nationalpriorities.org/api/shelter_population/list.json?state=California&amp;year=2000</a></div>
+	</div>
+</div>
+{% endblock %}
