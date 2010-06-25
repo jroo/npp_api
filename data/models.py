@@ -26,6 +26,11 @@ class ANSICountyState(models.Model):
     code = models.CharField(max_length=3)
     county = models.CharField(max_length=255)
     ansi_class = models.CharField(max_length=2)
+    
+class AverageTeacherSalary(models.Model):
+    state = models.CharField(max_length=32)
+    year = models.IntegerField()
+    value = models.IntegerField()
 
 class CFFR(models.Model):
     year = models.IntegerField()
