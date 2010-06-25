@@ -4,7 +4,7 @@ from npp.data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSch
 from npp.data.models import StateEmissions, IRSGrossCollections, VehicleRegistrations, StateMedianIncome, StatePopulationEstimates, SAIPECountyState
 from npp.data.models import StateUnemployment, CountyUnemployment, AlternativeFuelVehicles, PresidentsBudget, NewAIDSCases, MedicaidParticipation, SCHIPEnrollment
 from npp.data.models import MedicareEnrollment, HealthInsurance, KidsHealthInsurance, MilitaryPersonnel, StateGDP, StateGDPPre97, AverageTeacherSalary
-
+from npp.data.models import ShelterPopulation
 from django.conf import settings
 from piston.doc import generate_doc
 
@@ -248,6 +248,12 @@ class SAIPECountyStateHandler(GenericHandler):
         allowed_keys = ('id', 'year', 'fips_state', 'fips_county', 'state_county_name', 'state_postal_abbreviation')
         model = SAIPECountyState
         super(SAIPECountyStateHandler, self).__init__(allowed_keys, model)
+        
+class ShelterPopulationHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('id', 'year', 'fips_state', 'fips_county', 'state_county_name', 'state_postal_abbreviation')
+        model = ShelterPopulation
+        super(ShelterPopulationHandler, self).__init__(allowed_keys, model)
         
 class VehicleRegistrationsHandler(GenericHandler):
     def __init__(self):
