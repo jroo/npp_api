@@ -6,11 +6,12 @@ from npp.api.handlers import CFFRObjectCodeHandler, CFFRProgramHandler, SAIPESch
 from npp.api.handlers import StateMedianIncomeHandler, StatePopulationEstimatesHandler, SAIPECountyStateHandler, StateUnemploymentHandler
 from npp.api.handlers import CountyUnemploymentHandler, AlternativeFuelVehiclesHandler, PresidentsBudgetHandler, NewAIDSCasesHandler, MedicaidParticipationHandler
 from npp.api.handlers import SCHIPEnrollmentHandler, MedicareEnrollmentHandler, HealthInsuranceHandler, KidsHealthInsuranceHandler, MilitaryPersonnelHandler
-from npp.api.handlers import StateGDPHandler, StateGDPPre97Handler
+from npp.api.handlers import StateGDPHandler, StateGDPPre97Handler, AverageTeacherSalaryHandler
 
 
 alternative_fuel_vehicles_handler = Resource(AlternativeFuelVehiclesHandler)
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
+average_teacher_salary_handler = Resource(AverageTeacherSalaryHandler)
 cffr_handler = Resource(CFFRHandler)
 cffr_agency_handler = Resource(CFFRAgencyHandler)
 cffr_geo_handler = Resource(CFFRGeoHandler)
@@ -48,6 +49,7 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^$', 'direct_to_template', {'template': 'api/index.html'}),
     (r'^alternative_fuel_vehicles.html$', 'direct_to_template', {'template': 'api/alternative_fuel_vehicles.html'}),
     (r'^ansi_county_state.html$', 'direct_to_template', {'template': 'api/ansi_county_state.html'}),
+    (r'^average_teacher_salary.html$', 'direct_to_template', {'template': 'api/average_teacher_salary.html'}),
     (r'^cffr.html$', 'direct_to_template', {'template': 'api/cffr.html'}),
     (r'^county_unemployment.html$', 'direct_to_template', {'template': 'api/county_unemployment.html'}),
     (r'^fips_county_congressional.html$', 'direct_to_template', {'template': 'api/fips_county_congressional.html'}),
@@ -77,6 +79,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^alternative_fuel_vehicles/list\.(?P<emitter_format>.+)', alternative_fuel_vehicles_handler),
     url(r'^ansi_county_state/$', ansi_county_state_handler),
     url(r'^ansi_county_state/list\.(?P<emitter_format>.+)', ansi_county_state_handler),
+    url(r'^average_teacher_salary/$', average_teacher_salary_handler),
+    url(r'^average_teacher_salary/list\.(?P<emitter_format>.+)', average_teacher_salary_handler),
     url(r'^cffr/$', cffr_handler),
     url(r'^cffr/list\.(?P<emitter_format>.+)', cffr_handler),
     url(r'^cffragency/$', cffr_agency_handler),

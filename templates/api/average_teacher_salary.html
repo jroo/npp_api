@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>Average Teacher Salary by State</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/average_teacher_salary/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'year'</div>
+		<div>Example: <a href="/api/average_teacher_salary/list.json?state=Florida&year=2006">http://data.nationalpriorities.org/api/average_teacher_salary/list.json?state=Florida&amp;year=2006</a></div>
+	</div>
+</div>
+{% endblock %}
