@@ -467,6 +467,20 @@ class StateUnemployment(models.Model):
     state = models.CharField(max_length=32)
     rate = models.FloatField()
     
+class SubfunctionsCFFR(models.Model):
+    subfunction_number = models.TextField(max_length=3)
+    subfunction_name = models.TextField(max_length=64)
+    cfda_program_code = models.TextField(max_length=8)
+    program_name = models.TextField(max_length=64)
+    at_code_1 = models.TextField(max_length=1, null=True)
+    at_code_2 = models.TextField(max_length=1, null=True)
+    at_code_3 = models.TextField(max_length=1, null=True)
+    at_code_4 = models.TextField(max_length=1, null=True)
+    at_code_5 = models.TextField(max_length=1, null=True)
+    at_code_6 = models.TextField(max_length=1, null=True)
+    at_code_7 = models.TextField(max_length=1, null=True)
+    at_code_8 = models.TextField(max_length=1, null=True)
+ 
 class VehicleRegistrations(models.Model):
     year = models.IntegerField()
     state = models.CharField(max_length=32)
