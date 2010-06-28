@@ -4,7 +4,7 @@ from npp.data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSch
 from npp.data.models import StateEmissions, IRSGrossCollections, VehicleRegistrations, StateMedianIncome, StatePopulationEstimates, SAIPECountyState
 from npp.data.models import StateUnemployment, CountyUnemployment, AlternativeFuelVehicles, PresidentsBudget, NewAIDSCases, MedicaidParticipation, SCHIPEnrollment
 from npp.data.models import MedicareEnrollment, HealthInsurance, KidsHealthInsurance, MilitaryPersonnel, StateGDP, StateGDPPre97, AverageTeacherSalary
-from npp.data.models import ShelterPopulation
+from npp.data.models import ShelterPopulation, ATCodes, BudgetCategorySubfunctions, SubfunctionsCFFR
 from django.conf import settings
 from piston.doc import generate_doc
 
@@ -51,11 +51,23 @@ class ANSICountyStateHandler(GenericHandler):
         model = ANSICountyState
         super(ANSICountyStateHandler, self).__init__(allowed_keys, model)
         
+class ATCodesHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('code')
+        model = ATCodes
+        super(ATCodesHandler, self).__init__(allowed_keys, model)
+        
 class AverageTeacherSalaryHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year')
         model = AverageTeacherSalary
         super(AverageTeacherSalaryHandler, self).__init__(allowed_keys, model)
+        
+class BudgetCategorySubfunctionsHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('subfunction')
+        model = BudgetCategorySubfunctions
+        super(BudgetCategorySubfunctionsHandler, self).__init__(allowed_keys, model)
         
 class CFFRHandler(GenericHandler):
     def __init__(self):
@@ -230,6 +242,13 @@ class StateUnemploymentHandler(GenericHandler):
         allowed_keys = ('year', 'state')
         model = StateUnemployment
         super(StateUnemploymentHandler, self).__init__(allowed_keys, model)
+        
+class SubfunctionsCFFRHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('subfunction_number', 'cfda_program_code', 'at_code_1', 'at_code_2',
+            'at_code_3', 'at_code_4', 'at_code_5', 'at_code_6' ,'at_code_7', 'at_code_8')
+        model = SubfunctionsCFFR
+        super(SubfunctionsCFFRHandler, self).__init__(allowed_keys, model)
         
 class FIPSStateHandler(GenericHandler):
     def __init__(self):

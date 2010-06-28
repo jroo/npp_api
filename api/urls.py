@@ -6,11 +6,14 @@ from npp.api.handlers import CFFRObjectCodeHandler, CFFRProgramHandler, SAIPESch
 from npp.api.handlers import StateMedianIncomeHandler, StatePopulationEstimatesHandler, SAIPECountyStateHandler, StateUnemploymentHandler
 from npp.api.handlers import CountyUnemploymentHandler, AlternativeFuelVehiclesHandler, PresidentsBudgetHandler, NewAIDSCasesHandler, MedicaidParticipationHandler
 from npp.api.handlers import SCHIPEnrollmentHandler, MedicareEnrollmentHandler, HealthInsuranceHandler, KidsHealthInsuranceHandler, MilitaryPersonnelHandler
-from npp.api.handlers import StateGDPHandler, StateGDPPre97Handler, AverageTeacherSalaryHandler, ShelterPopulationHandler
+from npp.api.handlers import StateGDPHandler, StateGDPPre97Handler, AverageTeacherSalaryHandler, ShelterPopulationHandler, ATCodesHandler, BudgetCategorySubfunctionsHandler
+from npp.api.handlers import SubfunctionsCFFRHandler
 
 alternative_fuel_vehicles_handler = Resource(AlternativeFuelVehiclesHandler)
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
+at_codes_handler = Resource(ATCodesHandler)
 average_teacher_salary_handler = Resource(AverageTeacherSalaryHandler)
+budget_category_subfunctions_handler = Resource(BudgetCategorySubfunctionsHandler)
 cffr_handler = Resource(CFFRHandler)
 cffr_agency_handler = Resource(CFFRAgencyHandler)
 cffr_geo_handler = Resource(CFFRGeoHandler)
@@ -43,13 +46,16 @@ state_median_income_handler = Resource(StateMedianIncomeHandler)
 state_population_estimates_handler = Resource(StatePopulationEstimatesHandler)
 state_postal_codes_handler = Resource(StatePostalCodesHandler)
 state_unemployment_handler = Resource(StateUnemploymentHandler)
+subfunctions_cffr_handler = Resource(SubfunctionsCFFRHandler)
 vehicle_registrations_handler = Resource(VehicleRegistrationsHandler)
 
 urlpatterns = patterns('django.views.generic.simple',
     url(r'^$', 'direct_to_template', {'template': 'api/index.html'}),
     (r'^alternative_fuel_vehicles.html$', 'direct_to_template', {'template': 'api/alternative_fuel_vehicles.html'}),
     (r'^ansi_county_state.html$', 'direct_to_template', {'template': 'api/ansi_county_state.html'}),
+    (r'^at_codes.html$', 'direct_to_template', {'template': 'api/at_codes.html'}),
     (r'^average_teacher_salary.html$', 'direct_to_template', {'template': 'api/average_teacher_salary.html'}),
+    (r'^budget_category_subfunctions.html$', 'direct_to_template', {'template': 'api/budget_category_subfunctions.html'}),
     (r'^cffr.html$', 'direct_to_template', {'template': 'api/cffr.html'}),
     (r'^county_unemployment.html$', 'direct_to_template', {'template': 'api/county_unemployment.html'}),
     (r'^fips_county_congressional.html$', 'direct_to_template', {'template': 'api/fips_county_congressional.html'}),
@@ -74,14 +80,18 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^state_population_estimates.html$', 'direct_to_template', {'template': 'api/state_population_estimates.html'}),
     (r'^state_unemployment.html$', 'direct_to_template', {'template': 'api/state_unemployment.html'}),
     (r'^state_vehicle_registrations.html$', 'direct_to_template', {'template':'api/state_vehicle_registrations.html'}),
-
+    (r'^subfunctions_cffr.html$', 'direct_to_template', {'template': 'api/subfunctions_cffr.html'}),
 
     url(r'^alternative_fuel_vehicles/$', alternative_fuel_vehicles_handler),
     url(r'^alternative_fuel_vehicles/list\.(?P<emitter_format>.+)', alternative_fuel_vehicles_handler),
     url(r'^ansi_county_state/$', ansi_county_state_handler),
     url(r'^ansi_county_state/list\.(?P<emitter_format>.+)', ansi_county_state_handler),
+    url(r'^at_codes/$', at_codes_handler),
+    url(r'^at_codes/list\.(?P<emitter_format>.+)', at_codes_handler),
     url(r'^average_teacher_salary/$', average_teacher_salary_handler),
     url(r'^average_teacher_salary/list\.(?P<emitter_format>.+)', average_teacher_salary_handler),
+    url(r'^budget_category_subfunctions/$', budget_category_subfunctions_handler),
+    url(r'^budget_category_subfunctions/list\.(?P<emitter_format>.+)', budget_category_subfunctions_handler),
     url(r'^cffr/$', cffr_handler),
     url(r'^cffr/list\.(?P<emitter_format>.+)', cffr_handler),
     url(r'^cffragency/$', cffr_agency_handler),
@@ -148,4 +158,6 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^state_unemployment/list\.(?P<emitter_format>.+)', state_unemployment_handler),
     url(r'^state_vehicle_registrations/$', vehicle_registrations_handler),
     url(r'^state_vehicle_registrations/list\.(?P<emitter_format>.+)', vehicle_registrations_handler),
+    url(r'^subfunctions_cffr/$', subfunctions_cffr_handler),
+    url(r'^subfunctions_cffr/list\.(?P<emitter_format>.+)', subfunctions_cffr_handler),
 )
