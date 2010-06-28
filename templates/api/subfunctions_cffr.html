@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>Budget Category Subfunctions to CFFR Agency Lookup</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/subfunctions_cffr/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'subfunction_number'</div>
+		<div>Example: <a href="/api/subfunctions_cffr/list.json?subfunction_number=053">http://data.nationalpriorities.org/api/subfunctions_cffr/list.json?subfunction_number=053</a></div>
+	</div>
+</div>
+{% endblock %}
