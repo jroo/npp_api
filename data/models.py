@@ -31,6 +31,10 @@ class AverageTeacherSalary(models.Model):
     state = models.CharField(max_length=32)
     year = models.IntegerField()
     value = models.IntegerField()
+    
+class BudgetCategorySubfunctions(models.Model):
+    subfunction = models.TextField(max_length=3)
+    npp_budget_category = models.TextField(max_length=64)
 
 class CFFR(models.Model):
     year = models.IntegerField()
