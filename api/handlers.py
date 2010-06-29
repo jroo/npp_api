@@ -4,7 +4,7 @@ from npp.data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSch
 from npp.data.models import StateEmissions, IRSGrossCollections, VehicleRegistrations, StateMedianIncome, StatePopulationEstimates, SAIPECountyState
 from npp.data.models import StateUnemployment, CountyUnemployment, AlternativeFuelVehicles, PresidentsBudget, NewAIDSCases, MedicaidParticipation, SCHIPEnrollment
 from npp.data.models import MedicareEnrollment, HealthInsurance, KidsHealthInsurance, MilitaryPersonnel, StateGDP, StateGDPPre97, AverageTeacherSalary
-from npp.data.models import ShelterPopulation, ATCodes, BudgetCategorySubfunctions, SubfunctionsCFFR, MedianHouseholdIncome4Member
+from npp.data.models import ShelterPopulation, ATCodes, BudgetCategorySubfunctions, SubfunctionsCFFR, MedianHouseholdIncome4Member, PeopleInPoverty
 from django.conf import settings
 from piston.doc import generate_doc
 
@@ -188,6 +188,12 @@ class NCESSchoolDistrictHandler(GenericHandler):
         allowed_keys = ('state', 'district_name', 'county_name', 'county_code', 'state_code', 'congress_code', 'district_code')
         model = NCESSchoolDistrict
         super(NCESSchoolDistrictHandler, self).__init__(allowed_keys, model)
+        
+class PeopleInPovertyHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year')
+        model = PeopleInPoverty
+        super(PeopleInPovertyHandler, self).__init__(allowed_keys, model)
         
 class PresidentsBudgetHandler(GenericHandler):
     def __init__(self):

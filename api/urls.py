@@ -7,7 +7,7 @@ from npp.api.handlers import StateMedianIncomeHandler, StatePopulationEstimatesH
 from npp.api.handlers import CountyUnemploymentHandler, AlternativeFuelVehiclesHandler, PresidentsBudgetHandler, NewAIDSCasesHandler, MedicaidParticipationHandler
 from npp.api.handlers import SCHIPEnrollmentHandler, MedicareEnrollmentHandler, HealthInsuranceHandler, KidsHealthInsuranceHandler, MilitaryPersonnelHandler
 from npp.api.handlers import StateGDPHandler, StateGDPPre97Handler, AverageTeacherSalaryHandler, ShelterPopulationHandler, ATCodesHandler, BudgetCategorySubfunctionsHandler
-from npp.api.handlers import SubfunctionsCFFRHandler, MedianHouseholdIncome4MemberHandler
+from npp.api.handlers import SubfunctionsCFFRHandler, MedianHouseholdIncome4MemberHandler, PeopleInPovertyHandler
 
 alternative_fuel_vehicles_handler = Resource(AlternativeFuelVehiclesHandler)
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
@@ -35,6 +35,7 @@ military_personnel_handler = Resource(MilitaryPersonnelHandler)
 msn_code_handler = Resource(MSNCodeHandler)
 new_aids_cases_handler = Resource(NewAIDSCasesHandler)
 nces_school_district_handler = Resource(NCESSchoolDistrictHandler)
+people_in_poverty_handler = Resource(PeopleInPovertyHandler)
 presidents_budget_handler = Resource(PresidentsBudgetHandler)
 saipe_county_state_handler = Resource(SAIPECountyStateHandler)
 saipe_school_handler = Resource(SAIPESchoolHandler)
@@ -51,6 +52,7 @@ subfunctions_cffr_handler = Resource(SubfunctionsCFFRHandler)
 vehicle_registrations_handler = Resource(VehicleRegistrationsHandler)
 
 urlpatterns = patterns('django.views.generic.simple',
+    #documentation urls
     url(r'^$', 'direct_to_template', {'template': 'api/index.html'}),
     (r'^alternative_fuel_vehicles.html$', 'direct_to_template', {'template': 'api/alternative_fuel_vehicles.html'}),
     (r'^ansi_county_state.html$', 'direct_to_template', {'template': 'api/ansi_county_state.html'}),
@@ -72,6 +74,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^medicare_enrollment.html$', 'direct_to_template', {'template': 'api/medicare_enrollment.html'}),
     (r'^military_personnel.html$', 'direct_to_template', {'template': 'api/military_personnel.html'}),
     (r'^new_aids_cases.html$', 'direct_to_template', {'template': 'api/new_aids_cases.html'}),
+    (r'^people_in_poverty.html$', 'direct_to_template', {'template': 'api/people_in_poverty.html'}),
     (r'^saipe_county_state.html$', 'direct_to_template', {'template': 'api/saipe_county_state.html'}),
     (r'^saipe_school.html$', 'direct_to_template', {'template': 'api/saipe_school.html'}),
     (r'^schip_enrollment.html$', 'direct_to_template', {'template': 'api/schip_enrollment.html'}),
@@ -85,6 +88,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^state_vehicle_registrations.html$', 'direct_to_template', {'template':'api/state_vehicle_registrations.html'}),
     (r'^subfunctions_cffr.html$', 'direct_to_template', {'template': 'api/subfunctions_cffr.html'}),
 
+    #api urls
     url(r'^alternative_fuel_vehicles/$', alternative_fuel_vehicles_handler),
     url(r'^alternative_fuel_vehicles/list\.(?P<emitter_format>.+)', alternative_fuel_vehicles_handler),
     url(r'^ansi_county_state/$', ansi_county_state_handler),
@@ -137,6 +141,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^nces_school_district/list\.(?P<emitter_format>.+)', nces_school_district_handler),
     url(r'^new_aids_cases/$', new_aids_cases_handler),
     url(r'^new_aids_cases/list\.(?P<emitter_format>.+)', new_aids_cases_handler),
+    url(r'^people_in_poverty/$', people_in_poverty_handler),
+    url(r'^people_in_poverty/list\.(?P<emitter_format>.+)', people_in_poverty_handler),
     url(r'^presidents_budget/$', presidents_budget_handler),
     url(r'^presidents_budget/list\.(?P<emitter_format>.+)', presidents_budget_handler),
     url(r'^saipe_county_state/$', saipe_county_state_handler),
