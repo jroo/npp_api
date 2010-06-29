@@ -31,11 +31,6 @@ class Command(NoArgsCommand):
     def handle_noargs(self, **options):
         f = open(SOURCE_FILE, 'r')
         for line in f:
-            #gu_state_code= line[0:2]
-            #gu_type_code = line[2:3]
-            #gu_county_code = line[3:6]
-            #gu_place_code = line[6:9]
-            #gu_split_code = line[9:12]
             program_code = line[12:18]
             object_type = line[18:20]
             funding_sign = line[20:21]
@@ -43,7 +38,6 @@ class Command(NoArgsCommand):
             fips_state = line[33:34]
             fips_county = line[35:38]
             fips_place = line[38:43]
-            #pass_through = [43:44]
             agency_code = line[44:48]
             
             record = CFFR(year=YEAR, state_code=fips_state, county_code=fips_county, 
@@ -51,9 +45,7 @@ class Command(NoArgsCommand):
                 place_name=None, population=None, congress_district=None, 
                 program_code=program_code, object_type=object_type, agency_code=agency_code, 
                 funding_sign=funding_sign, amount=amount)
-            #try:
+
             record.save()
             db.reset_queries()
-            print (YEAR, amount)
-            #except:
-                #print "FAIL"
+
