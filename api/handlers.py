@@ -4,7 +4,7 @@ from npp.data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSch
 from npp.data.models import StateEmissions, IRSGrossCollections, VehicleRegistrations, StateMedianIncome, StatePopulationEstimates, SAIPECountyState
 from npp.data.models import StateUnemployment, CountyUnemployment, AlternativeFuelVehicles, PresidentsBudget, NewAIDSCases, MedicaidParticipation, SCHIPEnrollment
 from npp.data.models import MedicareEnrollment, HealthInsurance, KidsHealthInsurance, MilitaryPersonnel, StateGDP, StateGDPPre97, AverageTeacherSalary
-from npp.data.models import ShelterPopulation, ATCodes, BudgetCategorySubfunctions, SubfunctionsCFFR
+from npp.data.models import ShelterPopulation, ATCodes, BudgetCategorySubfunctions, SubfunctionsCFFR, MedianHouseholdIncome4Member
 from django.conf import settings
 from piston.doc import generate_doc
 
@@ -158,6 +158,12 @@ class MedicareEnrollmentHandler(GenericHandler):
         allowed_keys = ('state', 'year')
         model = MedicareEnrollment
         super(MedicareEnrollmentHandler, self).__init__(allowed_keys, model)
+
+class MedianHouseholdIncome4MemberHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year')
+        model = MedianHouseholdIncome4Member
+        super(MedianHouseholdIncome4MemberHandler, self).__init__(allowed_keys, model)
         
 class MilitaryPersonnelHandler(GenericHandler):
     def __init__(self):

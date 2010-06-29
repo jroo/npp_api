@@ -7,7 +7,7 @@ from npp.api.handlers import StateMedianIncomeHandler, StatePopulationEstimatesH
 from npp.api.handlers import CountyUnemploymentHandler, AlternativeFuelVehiclesHandler, PresidentsBudgetHandler, NewAIDSCasesHandler, MedicaidParticipationHandler
 from npp.api.handlers import SCHIPEnrollmentHandler, MedicareEnrollmentHandler, HealthInsuranceHandler, KidsHealthInsuranceHandler, MilitaryPersonnelHandler
 from npp.api.handlers import StateGDPHandler, StateGDPPre97Handler, AverageTeacherSalaryHandler, ShelterPopulationHandler, ATCodesHandler, BudgetCategorySubfunctionsHandler
-from npp.api.handlers import SubfunctionsCFFRHandler
+from npp.api.handlers import SubfunctionsCFFRHandler, MedianHouseholdIncome4MemberHandler
 
 alternative_fuel_vehicles_handler = Resource(AlternativeFuelVehiclesHandler)
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
@@ -28,6 +28,7 @@ fips_state_handler = Resource(FIPSStateHandler)
 health_insurance_handler = Resource(HealthInsuranceHandler)
 irs_gross_collections_handler = Resource(IRSGrossCollectionsHandler)
 kids_health_insurance_handler = Resource(KidsHealthInsuranceHandler)
+median_household_income_4_member_handler = Resource(MedianHouseholdIncome4MemberHandler)
 medicaid_participation_handler = Resource(MedicaidParticipationHandler)
 medicare_enrollment_handler = Resource(MedicareEnrollmentHandler)
 military_personnel_handler = Resource(MilitaryPersonnelHandler)
@@ -121,6 +122,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^energy_expenditures/list\.(?P<emitter_format>.+)', energy_expenditures_handler),
     url(r'^energy_production_estimates/', energy_production_estimates_handler),
     url(r'^energy_production_estimates/list\.(?P<emitter_format>.+)', energy_production_estimates_handler),
+    url(r'^median_household_income_4_member/$', median_household_income_4_member_handler),
+    url(r'^median_household_income_4_member/list\.(?P<emitter_format>.+)', median_household_income_4_member_handler),
     url(r'^medicaid_participation/$', medicaid_participation_handler),
     url(r'^medicaid_participation/list\.(?P<emitter_format>.+)', medicaid_participation_handler),
     url(r'^medicare_enrollment/$', medicare_enrollment_handler),
