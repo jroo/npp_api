@@ -202,11 +202,11 @@ class KidsHealthInsurance(models.Model):
     military_se = models.FloatField()
     military_pct = models.FloatField()
     military_pct_se = models.FloatField() 
-    
-class MSNCodes(models.Model):
-    msn = models.CharField(max_length=5)
-    description = models.TextField()
-    unit = models.CharField(max_length=255)
+
+class MedianHouseholdIncome4Member(models.Model):
+    state = models.CharField(max_length=32)
+    year = models.IntegerField()
+    value = models.IntegerField()
     
 class MedicaidParticipation(models.Model):
     state = models.CharField(max_length=32)
@@ -224,6 +224,11 @@ class MilitaryPersonnel(models.Model):
     military_personnel = models.IntegerField()
     civilian_personnel = models.IntegerField(null=True)
     reserve_national_guard_personnel = models.IntegerField(null=True)
+
+class MSNCodes(models.Model):
+    msn = models.CharField(max_length=5)
+    description = models.TextField()
+    unit = models.CharField(max_length=255)
     
 class NCESSchoolDistrict(models.Model):
     state = models.CharField(max_length=2)
