@@ -1,0 +1,13 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>State Median Household Income for 4 persons</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/median_household_income_4_member/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'year'</div>
+		<div>Example: <a href="/api/median_household_income_4_member/list.json?state=Alabama&year=2006">http://data.nationalpriorities.org/api/median_household_income_4_member/list.json?state=Alabama&amp;year=2006</a></div>
+	</div>
+</div>
+
+{% endblock %}

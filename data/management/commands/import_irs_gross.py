@@ -17,10 +17,10 @@ import csv
 # 1) Download source files from url listed above
 # 2) change SOURCE_FILE variable to the the path of the source file you just downloaded
 # 3) change column (row[]) values below to reflect where column exists in csv
-# 4) Run as Django management command from your project path "python manage.py import_irs_gross
+# 4) Run as Django management command from your project path "python manage.py import_irs_gross"
 # 5) Add index to year column in db
 
-YEAR = 2007
+YEAR = 2009
 SOURCE_PATH = '%s/irs/' % (settings.LOCAL_DATA_ROOT)
 SOURCE_FILE = '%s%sIRS.csv' % (SOURCE_PATH, str(YEAR))
 
@@ -60,4 +60,3 @@ class Command(NoArgsCommand):
                 individual_estate_trust_income=individual_estate_trust_income,
                 estate_tax = estate_tax, gift_tax=gift_tax, excise_taxes=excise_taxes)
             record.save()
-            print state
