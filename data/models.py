@@ -243,6 +243,15 @@ class NewAIDSCases(models.Model):
     state = models.CharField(max_length=32)
     year = models.IntegerField()
     value = models.IntegerField(null=True)
+
+class PeopleInPoverty(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=32)
+    total_population = models.IntegerField()
+    value = models.IntegerField()
+    value_standard_error = models.IntegerField()
+    percent = models.FloatField()
+    percent_standard_error = models.FloatField()
     
 class PresidentsBudget(models.Model):
     budget_type = models.CharField(max_length=32)
