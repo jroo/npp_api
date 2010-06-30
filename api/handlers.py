@@ -5,7 +5,7 @@ from npp.data.models import StateEmissions, IRSGrossCollections, VehicleRegistra
 from npp.data.models import StateUnemployment, CountyUnemployment, AlternativeFuelVehicles, PresidentsBudget, NewAIDSCases, MedicaidParticipation, SCHIPEnrollment
 from npp.data.models import MedicareEnrollment, HealthInsurance, KidsHealthInsurance, MilitaryPersonnel, StateGDP, StateGDPPre97, AverageTeacherSalary
 from npp.data.models import ShelterPopulation, ATCodes, BudgetCategorySubfunctions, SubfunctionsCFFR, MedianHouseholdIncome4Member, PeopleInPoverty
-from npp.data.models import StateLaborForceParticipation
+from npp.data.models import StateLaborForceParticipation, Employment
 from django.conf import settings
 from piston.doc import generate_doc
 
@@ -105,6 +105,12 @@ class CountyUnemploymentHandler(GenericHandler):
         allowed_keys = ('state_fips', 'county_fips', 'year')
         model = CountyUnemployment
         super(CountyUnemploymentHandler, self).__init__(allowed_keys, model)
+
+class EmploymentHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year')
+        model = Employment
+        super(EmploymentHandler, self).__init__(allowed_keys, model)
     
 class EnergyConsumptionHandler(GenericHandler):
     def __init__(self):

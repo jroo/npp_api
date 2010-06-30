@@ -8,6 +8,8 @@ from npp.api.handlers import CountyUnemploymentHandler, AlternativeFuelVehiclesH
 from npp.api.handlers import SCHIPEnrollmentHandler, MedicareEnrollmentHandler, HealthInsuranceHandler, KidsHealthInsuranceHandler, MilitaryPersonnelHandler
 from npp.api.handlers import StateGDPHandler, StateGDPPre97Handler, AverageTeacherSalaryHandler, ShelterPopulationHandler, ATCodesHandler, BudgetCategorySubfunctionsHandler
 from npp.api.handlers import SubfunctionsCFFRHandler, MedianHouseholdIncome4MemberHandler, PeopleInPovertyHandler, StateLaborForceParticipationHandler
+from npp.api.handlers import EmploymentHandler
+
 
 alternative_fuel_vehicles_handler = Resource(AlternativeFuelVehiclesHandler)
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
@@ -20,6 +22,7 @@ cffr_geo_handler = Resource(CFFRGeoHandler)
 cffr_object_code_handler = Resource(CFFRObjectCodeHandler)
 cffr_program_handler = Resource(CFFRProgramHandler)
 county_unemployment_handler = Resource(CountyUnemploymentHandler)
+employment_handler = Resource(EmploymentHandler)
 energy_consumption_handler = Resource(EnergyConsumptionHandler)
 energy_expenditures_handler = Resource(EnergyExpendituresHandler)
 energy_production_estimates_handler = Resource(EnergyProductionEstimatesHandler)
@@ -62,6 +65,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^budget_category_subfunctions.html$', 'direct_to_template', {'template': 'api/budget_category_subfunctions.html'}),
     (r'^cffr.html$', 'direct_to_template', {'template': 'api/cffr.html'}),
     (r'^county_unemployment.html$', 'direct_to_template', {'template': 'api/county_unemployment.html'}),
+    (r'^employment.html$', 'direct_to_template', {'template': 'api/employment.html'}),
     (r'^fips_county_congressional.html$', 'direct_to_template', {'template': 'api/fips_county_congressional.html'}),
     (r'^health_insurance.html$', 'direct_to_template', {'template': 'api/health_insurance.html'}),
     (r'^irs_gross_collections.html$', 'direct_to_template', {'template': 'api/irs_gross_collections.html'}),
@@ -113,6 +117,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^cffrprogram/list\.(?P<emitter_format>.+)', cffr_program_handler),
     url(r'^county_unemployment/$', county_unemployment_handler),
     url(r'^county_unemployment/list\.(?P<emitter_format>.+)', county_unemployment_handler),
+    url(r'^employment/$', employment_handler),
+    url(r'^employment/list\.(?P<emitter_format>.+)', employment_handler),
     url(r'^fips_county_congress_district/$', fips_county_congress_district_handler),
     url(r'^fips_county_congress_district/list\.(?P<emitter_format>.+)', fips_county_congress_district_handler),
     url(r'^fips_state/$', fips_state_handler),
