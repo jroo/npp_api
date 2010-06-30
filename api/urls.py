@@ -7,7 +7,7 @@ from npp.api.handlers import StateMedianIncomeHandler, StatePopulationEstimatesH
 from npp.api.handlers import CountyUnemploymentHandler, AlternativeFuelVehiclesHandler, PresidentsBudgetHandler, NewAIDSCasesHandler, MedicaidParticipationHandler
 from npp.api.handlers import SCHIPEnrollmentHandler, MedicareEnrollmentHandler, HealthInsuranceHandler, KidsHealthInsuranceHandler, MilitaryPersonnelHandler
 from npp.api.handlers import StateGDPHandler, StateGDPPre97Handler, AverageTeacherSalaryHandler, ShelterPopulationHandler, ATCodesHandler, BudgetCategorySubfunctionsHandler
-from npp.api.handlers import SubfunctionsCFFRHandler, MedianHouseholdIncome4MemberHandler, PeopleInPovertyHandler
+from npp.api.handlers import SubfunctionsCFFRHandler, MedianHouseholdIncome4MemberHandler, PeopleInPovertyHandler, StateLaborForceParticipationHandler
 
 alternative_fuel_vehicles_handler = Resource(AlternativeFuelVehiclesHandler)
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
@@ -44,6 +44,7 @@ shelter_population_handler = Resource(ShelterPopulationHandler)
 state_gdp_handler = Resource(StateGDPHandler)
 state_gdp_pre97_handler = Resource(StateGDPPre97Handler)
 state_emissions_handler = Resource(StateEmissionsHandler)
+state_labor_force_participation_handler = Resource(StateLaborForceParticipationHandler)
 state_median_income_handler = Resource(StateMedianIncomeHandler)
 state_population_estimates_handler = Resource(StatePopulationEstimatesHandler)
 state_postal_codes_handler = Resource(StatePostalCodesHandler)
@@ -82,6 +83,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^state_emissions.html$', 'direct_to_template', {'template': 'api/state_emissions.html'}),
     (r'^state_gdp.html$', 'direct_to_template', {'template': 'api/state_gdp.html'}),
     (r'^state_gdp_pre97.html$', 'direct_to_template', {'template': 'api/state_gdp_pre97.html'}),
+    (r'^state_labor_force_participation.html$', 'direct_to_template', {'template': 'api/state_labor_force_participation.html'}),
     (r'^state_median_income.html$', 'direct_to_template', {'template': 'api/state_median_income.html'}),
     (r'^state_population_estimates.html$', 'direct_to_template', {'template': 'api/state_population_estimates.html'}),
     (r'^state_unemployment.html$', 'direct_to_template', {'template': 'api/state_unemployment.html'}),
@@ -159,6 +161,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^state_gdp/list\.(?P<emitter_format>.+)', state_gdp_handler),
     url(r'^state_gdp_pre97/$', state_gdp_pre97_handler),
     url(r'^state_gdp_pre97/list\.(?P<emitter_format>.+)', state_gdp_pre97_handler),
+    url(r'^state_labor_force_participation/$', state_labor_force_participation_handler),
+    url(r'^state_labor_force_participation/list\.(?P<emitter_format>.+)', state_labor_force_participation_handler),
     url(r'^state_median_income/$', state_median_income_handler),
     url(r'^state_median_income/list\.(?P<emitter_format>.+)', state_median_income_handler),
     url(r'^state_population_estimates/$', state_population_estimates_handler),

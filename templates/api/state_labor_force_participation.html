@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>State Labor Force Participation</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/state_labor_force_participation/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'year'</div>
+		<div>Example: <a href="/api/state_labor_force_participation/list.json?state=Montana&year=1999">http://data.nationalpriorities.org/api/state_labor_force_participation/list.json?state=Montana&amp;year=1999</a></div>
+	</div>
+</div>
+{% endblock %}

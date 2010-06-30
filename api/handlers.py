@@ -5,6 +5,7 @@ from npp.data.models import StateEmissions, IRSGrossCollections, VehicleRegistra
 from npp.data.models import StateUnemployment, CountyUnemployment, AlternativeFuelVehicles, PresidentsBudget, NewAIDSCases, MedicaidParticipation, SCHIPEnrollment
 from npp.data.models import MedicareEnrollment, HealthInsurance, KidsHealthInsurance, MilitaryPersonnel, StateGDP, StateGDPPre97, AverageTeacherSalary
 from npp.data.models import ShelterPopulation, ATCodes, BudgetCategorySubfunctions, SubfunctionsCFFR, MedianHouseholdIncome4Member, PeopleInPoverty
+from npp.data.models import StateLaborForceParticipation
 from django.conf import settings
 from piston.doc import generate_doc
 
@@ -230,6 +231,12 @@ class StateGDPPre97Handler(GenericHandler):
         allowed_keys = ('state', 'year')
         model = StateGDP
         super(StateGDPPre97Handler, self).__init__(allowed_keys, model)
+
+class StateLaborForceParticipationHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year')
+        model = StateLaborForceParticipation
+        super(StateLaborForceParticipationHandler, self).__init__(allowed_keys, model)
         
 class StateMedianIncomeHandler(GenericHandler):
     def __init__(self):
