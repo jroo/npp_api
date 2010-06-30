@@ -99,13 +99,13 @@ class CountyUnemployment(models.Model):
 class Employment(models.Model):
     year = models.IntegerField()
     state = models.CharField(max_length=32)
-    total_civilian_labor_force = models.FloatField()
-    white_civilian_labor_force = models.FloatField()
-    black_civilian_labor_force = models.FloatField()
-    hispanic_civilian_labor_force = models.FloatField()
-    white_unemployed = models.FloatField()
-    black_unemployed = models.FloatField()
-    hispanic_unemployed = models.FloatField()
+    total_civilian_labor_force = models.FloatField(null=True)
+    white_civilian_labor_force = models.FloatField(null=True)
+    black_civilian_labor_force = models.FloatField(null=True)
+    hispanic_civilian_labor_force = models.FloatField(null=True)
+    white_unemployed = models.FloatField(null=True)
+    black_unemployed = models.FloatField(null=True)
+    hispanic_unemployed = models.FloatField(null=True)
     
 class FIPSCountyCongressDistrict(models.Model):
     state_code = models.CharField(max_length=2)
