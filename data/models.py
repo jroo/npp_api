@@ -96,6 +96,17 @@ class CountyUnemployment(models.Model):
     unemployed = models.IntegerField(null=True)
     unemployment_rate = models.FloatField(null=True)
     
+class Employment(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=32)
+    total_civilian_labor_force = models.FloatField()
+    white_civilian_labor_force = models.FloatField()
+    black_civilian_labor_force = models.FloatField()
+    hispanic_civilian_labor_force = models.FloatField()
+    white_unemployed = models.FloatField()
+    black_unemployed = models.FloatField()
+    hispanic_unemployed = models.FloatField()
+    
 class FIPSCountyCongressDistrict(models.Model):
     state_code = models.CharField(max_length=2)
     county_code = models.CharField(max_length=3)
