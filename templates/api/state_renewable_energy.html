@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>State Renewable Energy</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/state_renewable_energy/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'year'</div>
+		<div>Example: <a href="/api/state_renewable_energy/list.json?state=Maryland&year=2007">http://data.nationalpriorities.org/api/state_renewable_energy/list.json?state=Maryland&amp;year=2007</a></div>
+	</div>
+</div>
+{% endblock %}

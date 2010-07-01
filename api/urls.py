@@ -8,7 +8,7 @@ from npp.api.handlers import CountyUnemploymentHandler, AlternativeFuelVehiclesH
 from npp.api.handlers import SCHIPEnrollmentHandler, MedicareEnrollmentHandler, HealthInsuranceHandler, KidsHealthInsuranceHandler, MilitaryPersonnelHandler
 from npp.api.handlers import StateGDPHandler, StateGDPPre97Handler, AverageTeacherSalaryHandler, ShelterPopulationHandler, ATCodesHandler, BudgetCategorySubfunctionsHandler
 from npp.api.handlers import SubfunctionsCFFRHandler, MedianHouseholdIncome4MemberHandler, PeopleInPovertyHandler, StateLaborForceParticipationHandler
-from npp.api.handlers import EmploymentHandler
+from npp.api.handlers import EmploymentHandler, StateRenewableEnergyHandler
 
 
 alternative_fuel_vehicles_handler = Resource(AlternativeFuelVehiclesHandler)
@@ -51,6 +51,7 @@ state_labor_force_participation_handler = Resource(StateLaborForceParticipationH
 state_median_income_handler = Resource(StateMedianIncomeHandler)
 state_population_estimates_handler = Resource(StatePopulationEstimatesHandler)
 state_postal_codes_handler = Resource(StatePostalCodesHandler)
+state_renewable_energy_handler = Resource(StateRenewableEnergyHandler)
 state_unemployment_handler = Resource(StateUnemploymentHandler)
 subfunctions_cffr_handler = Resource(SubfunctionsCFFRHandler)
 vehicle_registrations_handler = Resource(VehicleRegistrationsHandler)
@@ -90,6 +91,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^state_labor_force_participation.html$', 'direct_to_template', {'template': 'api/state_labor_force_participation.html'}),
     (r'^state_median_income.html$', 'direct_to_template', {'template': 'api/state_median_income.html'}),
     (r'^state_population_estimates.html$', 'direct_to_template', {'template': 'api/state_population_estimates.html'}),
+    (r'^state_renewable_energy.html$', 'direct_to_template', {'template': 'api/state_renewable_energy.html'}),
     (r'^state_unemployment.html$', 'direct_to_template', {'template': 'api/state_unemployment.html'}),
     (r'^state_vehicle_registrations.html$', 'direct_to_template', {'template':'api/state_vehicle_registrations.html'}),
     (r'^subfunctions_cffr.html$', 'direct_to_template', {'template': 'api/subfunctions_cffr.html'}),
@@ -173,6 +175,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^state_median_income/list\.(?P<emitter_format>.+)', state_median_income_handler),
     url(r'^state_population_estimates/$', state_population_estimates_handler),
     url(r'^state_population_estimates/list\.(?P<emitter_format>.+)', state_population_estimates_handler),
+    url(r'^state_renewable_energy/$', state_renewable_energy_handler),
+    url(r'^state_renewable_energy/list\.(?P<emitter_format>.+)', state_renewable_energy_handler),
     url(r'^state_postal_codes/$', state_postal_codes_handler),
     url(r'^state_postal_codes/list\.(?P<emitter_format>.+)', state_postal_codes_handler),
     url(r'^state_unemployment/$', state_unemployment_handler),
