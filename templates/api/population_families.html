@@ -1,0 +1,14 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>State Population - Families</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/population_families/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'year'</div>
+		<div>Example: <a href="/api/population_families/list.json?state=ME&year=2008">http://data.nationalpriorities.org/api/population_families/list.json?state=ME&amp;year=2008</a></div>
+		<div>Example: <a href="/api/population_families/list.json?state=Maine&year=2000">http://data.nationalpriorities.org/api/population_families/list.json?state=Maine&amp;year=2000</a></div>
+		<div>Notes: State identifier type changes from full name to postal abbreviation starting in 2001</div>
+	</div>
+</div>
+{% endblock %}
