@@ -264,6 +264,11 @@ class PeopleInPoverty(models.Model):
     percent = models.FloatField()
     percent_standard_error = models.FloatField()
     
+class PopulationFamilies(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=32)
+    value = models.IntegerField()
+    
 class PresidentsBudget(models.Model):
     budget_type = models.CharField(max_length=32)
     source_category_code = models.IntegerField(null=True)
