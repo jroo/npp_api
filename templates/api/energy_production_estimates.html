@@ -2,11 +2,36 @@
 
 {% block content %}
 <h1>Annual State Energy Production Estimates</h1>
-
 <div class="api_urls">
-	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/energy_production_estimates/list.&lt;format&gt;?...</div>
-		<div>Allowed Keys: 'id', 'msn', 'year', 'value', 'state'</div>
+	<div class="api_description">
+		<h4>Data Description</h4>
+		<p>Annual estimates of energy production by state.</p>
+	</div>
+	<div>
+	<h4>Format of API Call</h4>
+		<div class="api_url_format">http://data.nationalpriorities.org/api/energy_production_estimates/list.&lt;format&gt;?...</div>
+		<p>Allowed Keys: 'msn', 'year', 'state'</p>
 		<div>Example: <a href="/api/energy_production_estimates/list.json?state=WY&year=2007">http://data.nationalpriorities.org/api/energy_production_estimates/list.json?state=WY&amp;year=2007</a></div>
+	</div>
+		<h4>Returned Fields</h4>
+		<ul class="api_returned_fields">
+			<li><span class="em">id:</span> Internal Database ID (may change, do not rely on)</li>
+			<li><span class="em">msn:</span> Code to Describe Energy Source, Sector, and Type of Data (<a href="http://www.eia.doe.gov/states/CDF/Data%20File%20Codes%20and%20Descriptions.xls">list of msn's</a>)</li>
+			<li><span class="em">year</span></li>
+			<li><span class="em">state:</span> U.S. State</li>
+			<li><span class="em">value:</span> Energy Production Value</li>
+		</ul>
+	</div>
+	<div>
+		<h4>Source</h4>
+		<a href="http://www.eia.doe.gov/emeu/states/_seds_production.html">Energy Information Administration (EIA), State Energy Data System (SEDS)</a>
+	</div>
+	<div class="api_notes">
+		<h4>Notes</h4>
+		<ul>
+			<li>Computation of ethanol estimates isn't reliable</li>
+			<li>'value' units depend on MSN (<a href="http://www.eia.doe.gov/states/CDF/Data%20File%20Codes%20and%20Descriptions.xls">list of MSN's</a>)</li>
+		</ul>
 	</div>
 </div>
 {% endblock %}
