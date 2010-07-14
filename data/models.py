@@ -269,6 +269,13 @@ class PeopleInPoverty(models.Model):
     percent = models.FloatField()
     percent_standard_error = models.FloatField()
     
+class OwnersRenters(models.Model):
+    state = models.CharField(max_length=32)
+    year = models.IntegerField()
+    total = models.IntegerField()
+    owner_occupied = models.IntegerField()
+    renter_occupied = models.IntegerField()
+    
 class PopulationFamilies(models.Model):
     year = models.IntegerField()
     state = models.CharField(max_length=32)
