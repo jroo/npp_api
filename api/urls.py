@@ -8,8 +8,7 @@ from npp.api.handlers import CountyUnemploymentHandler, AlternativeFuelVehiclesH
 from npp.api.handlers import SCHIPEnrollmentHandler, MedicareEnrollmentHandler, HealthInsuranceHandler, KidsHealthInsuranceHandler, MilitaryPersonnelHandler
 from npp.api.handlers import StateGDPHandler, StateGDPPre97Handler, AverageTeacherSalaryHandler, ShelterPopulationHandler, ATCodesHandler, BudgetCategorySubfunctionsHandler
 from npp.api.handlers import SubfunctionsCFFRHandler, MedianHouseholdIncome4MemberHandler, PeopleInPovertyHandler, StateLaborForceParticipationHandler
-from npp.api.handlers import EmploymentHandler, StateRenewableEnergyHandler, PopulationFamiliesHandler
-
+from npp.api.handlers import EmploymentHandler, StateRenewableEnergyHandler, PopulationFamiliesHandler, HousingUnitsHandler
 
 alternative_fuel_vehicles_handler = Resource(AlternativeFuelVehiclesHandler)
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
@@ -29,6 +28,7 @@ energy_production_estimates_handler = Resource(EnergyProductionEstimatesHandler)
 fips_county_congress_district_handler = Resource(FIPSCountyCongressDistrictHandler)
 fips_state_handler = Resource(FIPSStateHandler)
 health_insurance_handler = Resource(HealthInsuranceHandler)
+housing_units_handler = Resource(HousingUnitsHandler)
 irs_gross_collections_handler = Resource(IRSGrossCollectionsHandler)
 kids_health_insurance_handler = Resource(KidsHealthInsuranceHandler)
 median_household_income_4_member_handler = Resource(MedianHouseholdIncome4MemberHandler)
@@ -70,6 +70,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^employment.html$', 'direct_to_template', {'template': 'api/employment.html'}),
     (r'^fips_county_congressional.html$', 'direct_to_template', {'template': 'api/fips_county_congressional.html'}),
     (r'^health_insurance.html$', 'direct_to_template', {'template': 'api/health_insurance.html'}),
+    (r'^housing_units.html$', 'direct_to_template', {'template': 'api/housing_units.html'}),
     (r'^irs_gross_collections.html$', 'direct_to_template', {'template': 'api/irs_gross_collections.html'}),
     (r'^kids_health_insurance.html$', 'direct_to_template', {'template': 'api/kids_health_insurance.html'}),
     (r'^energy_consumption_state.html$', 'direct_to_template', {'template': 'api/energy_consumption_state.html'}),
@@ -129,6 +130,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^fips_state/list\.(?P<emitter_format>.+)', fips_state_handler),
     url(r'^health_insurance/$', health_insurance_handler),
     url(r'^health_insurance/list\.(?P<emitter_format>.+)', health_insurance_handler),
+    url(r'^housing_units/$', housing_units_handler),
+    url(r'^housing_units/list\.(?P<emitter_format>.+)', housing_units_handler),
     url(r'^irs_gross_collections/$', irs_gross_collections_handler),
     url(r'^irs_gross_collections/list\.(?P<emitter_format>.+)', irs_gross_collections_handler),
     url(r'^kids_health_insurance/$', kids_health_insurance_handler),

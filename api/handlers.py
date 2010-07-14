@@ -5,7 +5,7 @@ from npp.data.models import StateEmissions, IRSGrossCollections, VehicleRegistra
 from npp.data.models import StateUnemployment, CountyUnemployment, AlternativeFuelVehicles, PresidentsBudget, NewAIDSCases, MedicaidParticipation, SCHIPEnrollment
 from npp.data.models import MedicareEnrollment, HealthInsurance, KidsHealthInsurance, MilitaryPersonnel, StateGDP, StateGDPPre97, AverageTeacherSalary
 from npp.data.models import ShelterPopulation, ATCodes, BudgetCategorySubfunctions, SubfunctionsCFFR, MedianHouseholdIncome4Member, PeopleInPoverty
-from npp.data.models import StateLaborForceParticipation, Employment, StateRenewableEnergy, PopulationFamilies
+from npp.data.models import StateLaborForceParticipation, Employment, StateRenewableEnergy, PopulationFamilies, HousingUnits
 from django.conf import settings
 from piston.doc import generate_doc
 
@@ -141,6 +141,12 @@ class HealthInsuranceHandler(GenericHandler):
         allowed_keys = ('state', 'year')
         model = HealthInsurance
         super(HealthInsuranceHandler, self).__init__(allowed_keys, model)
+        
+class HousingUnitsHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year')
+        model = HousingUnits
+        super(HousingUnitsHandler, self).__init__(allowed_keys, model)
         
 class IRSGrossCollectionsHandler(GenericHandler):
     def __init__(self):

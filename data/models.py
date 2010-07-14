@@ -158,6 +158,11 @@ class HealthInsurance(models.Model):
     military_pct = models.FloatField()
     military_pct_se = models.FloatField()
     
+class HousingUnits(models.Model):
+    state = models.CharField(max_length=32)
+    year = models.IntegerField()
+    value = models.IntegerField(null=True)
+    
 class IRSGrossCollections(models.Model):
     year = models.IntegerField()
     state = models.CharField(max_length=255)

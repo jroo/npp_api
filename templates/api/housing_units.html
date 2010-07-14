@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>State Housing Units</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/housing_units/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'year'</div>
+		<div>Example: <a href="/api/housing_units/list.json?state=Utah&year=2008">http://data.nationalpriorities.org/api/housing_units/list.json?state=Utah&amp;year=2008</a></div>
+	</div>
+</div>
+{% endblock %}
