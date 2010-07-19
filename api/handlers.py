@@ -6,6 +6,7 @@ from npp.data.models import StateUnemployment, CountyUnemployment, AlternativeFu
 from npp.data.models import MedicareEnrollment, HealthInsurance, KidsHealthInsurance, MilitaryPersonnel, StateGDP, StateGDPPre97, AverageTeacherSalary
 from npp.data.models import ShelterPopulation, ATCodes, BudgetCategorySubfunctions, SubfunctionsCFFR, MedianHouseholdIncome4Member, PeopleInPoverty
 from npp.data.models import StateLaborForceParticipation, Employment, StateRenewableEnergy, PopulationFamilies, HousingUnits, OwnersRenters, RacePopulation1980s
+from npp.data.models import RacePopulation1990s
 from django.conf import settings
 from piston.doc import generate_doc
 
@@ -243,6 +244,12 @@ class RacePopulation1980sHandler(GenericHandler):
         allowed_keys = ('fips_state', 'year', 'race_code', 'sex')
         model = RacePopulation1980s
         super(RacePopulation1980sHandler, self).__init__(allowed_keys, model)
+        
+class RacePopulation1990sHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('area', 'year')
+        model = RacePopulation1990s
+        super(RacePopulation1990sHandler, self).__init__(allowed_keys, model)
         
 class SCHIPEnrollmentHandler(GenericHandler):
     def __init__(self):
