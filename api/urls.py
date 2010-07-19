@@ -9,6 +9,7 @@ from npp.api.handlers import SCHIPEnrollmentHandler, MedicareEnrollmentHandler, 
 from npp.api.handlers import StateGDPHandler, StateGDPPre97Handler, AverageTeacherSalaryHandler, ShelterPopulationHandler, ATCodesHandler, BudgetCategorySubfunctionsHandler
 from npp.api.handlers import SubfunctionsCFFRHandler, MedianHouseholdIncome4MemberHandler, PeopleInPovertyHandler, StateLaborForceParticipationHandler
 from npp.api.handlers import EmploymentHandler, StateRenewableEnergyHandler, PopulationFamiliesHandler, HousingUnitsHandler, OwnersRentersHandler
+from npp.api.handlers import RacePopulation1980sHandler
 
 alternative_fuel_vehicles_handler = Resource(AlternativeFuelVehiclesHandler)
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
@@ -42,6 +43,7 @@ owners_renters_handler = Resource(OwnersRentersHandler)
 people_in_poverty_handler = Resource(PeopleInPovertyHandler)
 population_families_handler = Resource(PopulationFamiliesHandler)
 presidents_budget_handler = Resource(PresidentsBudgetHandler)
+race_population_1980s_handler = Resource(RacePopulation1980sHandler)
 saipe_county_state_handler = Resource(SAIPECountyStateHandler)
 saipe_school_handler = Resource(SAIPESchoolHandler)
 schip_enrollment_handler = Resource(SCHIPEnrollmentHandler)
@@ -86,6 +88,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^owners_renters.html$', 'direct_to_template', {'template': 'api/owners_renters.html'}),
     (r'^people_in_poverty.html$', 'direct_to_template', {'template': 'api/people_in_poverty.html'}),
     (r'^population_families.html$', 'direct_to_template', {'template': 'api/population_families.html'}),
+    (r'^race_population_1980s.html$', 'direct_to_template', {'template': 'api/race_population_1980s.html'}),
     (r'^saipe_county_state.html$', 'direct_to_template', {'template': 'api/saipe_county_state.html'}),
     (r'^saipe_school.html$', 'direct_to_template', {'template': 'api/saipe_school.html'}),
     (r'^schip_enrollment.html$', 'direct_to_template', {'template': 'api/schip_enrollment.html'}),
@@ -166,6 +169,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^population_families/list\.(?P<emitter_format>.+)', population_families_handler),
     url(r'^presidents_budget/$', presidents_budget_handler),
     url(r'^presidents_budget/list\.(?P<emitter_format>.+)', presidents_budget_handler),
+    url(r'^race_population_1980s/$', race_population_1980s_handler),
+    url(r'^race_population_1980s/list\.(?P<emitter_format>.+)', race_population_1980s_handler),
     url(r'^saipe_county_state/$', saipe_county_state_handler),
     url(r'^saipe_county_state/list\.(?P<emitter_format>.+)', saipe_county_state_handler),
     url(r'^saipe_school/$', saipe_school_handler),
