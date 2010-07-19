@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>State Race Population</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/race_population_1980s/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'fips_state', 'year', 'race_code', 'sex'</div>
+		<div>Example: <a href="/api/race_population_1980s/list.json?fips_state=01&race_code=3">http://data.nationalpriorities.org/api/race_population_1980s/list.json?fips_state=01&amp;race_code=3</a></div>
+	</div>
+</div>
+{% endblock %}

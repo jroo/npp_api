@@ -136,6 +136,12 @@ class FIPSCountyCongressDistrictHandler(GenericHandler):
         model = FIPSCountyCongressDistrict
         super(FIPSCountyCongressDistrictHandler, self).__init__(allowed_keys, model)
         
+class FIPSStateHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('code', 'state')
+        model = FIPSState
+        super(FIPSStateHandler, self).__init__(allowed_keys, model)
+        
 class HealthInsuranceHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year')
@@ -304,12 +310,6 @@ class SubfunctionsCFFRHandler(GenericHandler):
             'at_code_3', 'at_code_4', 'at_code_5', 'at_code_6' ,'at_code_7', 'at_code_8')
         model = SubfunctionsCFFR
         super(SubfunctionsCFFRHandler, self).__init__(allowed_keys, model)
-        
-class FIPSStateHandler(GenericHandler):
-    def __init__(self):
-        allowed_keys = ('code', 'state')
-        model = FIPSState
-        super(FIPSStateHandler, self).__init__(allowed_keys, model)
         
 class SAIPESchoolHandler(GenericHandler):
     def __init__(self):
