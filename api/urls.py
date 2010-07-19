@@ -9,7 +9,7 @@ from npp.api.handlers import SCHIPEnrollmentHandler, MedicareEnrollmentHandler, 
 from npp.api.handlers import StateGDPHandler, StateGDPPre97Handler, AverageTeacherSalaryHandler, ShelterPopulationHandler, ATCodesHandler, BudgetCategorySubfunctionsHandler
 from npp.api.handlers import SubfunctionsCFFRHandler, MedianHouseholdIncome4MemberHandler, PeopleInPovertyHandler, StateLaborForceParticipationHandler
 from npp.api.handlers import EmploymentHandler, StateRenewableEnergyHandler, PopulationFamiliesHandler, HousingUnitsHandler, OwnersRentersHandler
-from npp.api.handlers import RacePopulation1980sHandler, RacePopulation1990sHandler
+from npp.api.handlers import RacePopulation1980sHandler, RacePopulation1990sHandler, StateCompletionRateHandler
 
 alternative_fuel_vehicles_handler = Resource(AlternativeFuelVehiclesHandler)
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
@@ -49,6 +49,7 @@ saipe_county_state_handler = Resource(SAIPECountyStateHandler)
 saipe_school_handler = Resource(SAIPESchoolHandler)
 schip_enrollment_handler = Resource(SCHIPEnrollmentHandler)
 shelter_population_handler = Resource(ShelterPopulationHandler)
+state_completion_rate_handler = Resource(StateCompletionRateHandler)
 state_gdp_handler = Resource(StateGDPHandler)
 state_gdp_pre97_handler = Resource(StateGDPPre97Handler)
 state_emissions_handler = Resource(StateEmissionsHandler)
@@ -96,6 +97,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^schip_enrollment.html$', 'direct_to_template', {'template': 'api/schip_enrollment.html'}),
     (r'^shelter_population.html$', 'direct_to_template', {'template': 'api/shelter_population.html'}),
     (r'^state_emissions.html$', 'direct_to_template', {'template': 'api/state_emissions.html'}),
+    (r'^state_completion_rate.html$', 'direct_to_template', {'template': 'api/state_completion_rate.html'}),
     (r'^state_gdp.html$', 'direct_to_template', {'template': 'api/state_gdp.html'}),
     (r'^state_gdp_pre97.html$', 'direct_to_template', {'template': 'api/state_gdp_pre97.html'}),
     (r'^state_labor_force_participation.html$', 'direct_to_template', {'template': 'api/state_labor_force_participation.html'}),
@@ -185,6 +187,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^shelter_population/list\.(?P<emitter_format>.+)', shelter_population_handler),
     url(r'^state_emissions/$', state_emissions_handler),
     url(r'^state_emissions/list\.(?P<emitter_format>.+)', state_emissions_handler),
+    url(r'^state_completion_rate/$', state_completion_rate_handler),
+    url(r'^state_completion_rate/list\.(?P<emitter_format>.+)', state_completion_rate_handler),
     url(r'^state_gdp/$', state_gdp_handler),
     url(r'^state_gdp/list\.(?P<emitter_format>.+)', state_gdp_handler),
     url(r'^state_gdp_pre97/$', state_gdp_pre97_handler),
