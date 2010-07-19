@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>State Race Population (1990's)</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/race_population_1990s/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'area', 'year'</div>
+		<div>Example: <a href="/api/race_population_1990s/list.json?area=DISTRICT%20OF%20COLUMBIA&year=1994">http://data.nationalpriorities.org/api/race_population_1990s/list.json?area=DISTRICT%20OF%20COLUMBIA&amp;year=1994</a></div>
+	</div>
+</div>
+{% endblock %}
