@@ -387,6 +387,12 @@ class SCHIPEnrollment(models.Model):
     state = models.CharField(max_length=32)
     year = models.IntegerField()
     value = models.IntegerField(null=True)
+    
+class StateCompletionRate(models.Model):
+    state = models.CharField(max_length=2)
+    year = models.IntegerField()
+    key = models.CharField(max_length=16)
+    value = models.IntegerField(null=True)
 
 class StateLaborForceParticipation(models.Model):
     state = models.CharField(max_length=32)
