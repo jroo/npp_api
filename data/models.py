@@ -371,6 +371,18 @@ class RacePopulation1980s(models.Model):
     age_80_84 = models.IntegerField()
     age_85_plus = models.IntegerField()
     
+class RacePopulation1990s(models.Model):
+    area = models.CharField(max_length=64)
+    year = models.IntegerField()
+    total = models.IntegerField()
+    total_white = models.IntegerField()
+    total_white_hispanic = models.IntegerField()
+    total_white_nonhispanic = models.IntegerField()
+    total_black = models.IntegerField()
+    total_american_indian = models.IntegerField()
+    total_asian_pacific_island = models.IntegerField()
+    total_hispanic = models.IntegerField()
+    
 class SCHIPEnrollment(models.Model):
     state = models.CharField(max_length=32)
     year = models.IntegerField()
