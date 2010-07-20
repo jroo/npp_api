@@ -577,6 +577,11 @@ class SubfunctionsCFFR(models.Model):
     at_code_6 = models.TextField(max_length=1, null=True)
     at_code_7 = models.TextField(max_length=1, null=True)
     at_code_8 = models.TextField(max_length=1, null=True)
+    
+class TeacherPupilRatio(models.Model):
+    state = models.CharField(max_length=2)
+    year = models.IntegerField()
+    value = models.FloatField()
  
 class VehicleRegistrations(models.Model):
     year = models.IntegerField()
