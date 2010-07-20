@@ -6,7 +6,7 @@ from npp.data.models import StateUnemployment, CountyUnemployment, AlternativeFu
 from npp.data.models import MedicareEnrollment, HealthInsurance, KidsHealthInsurance, MilitaryPersonnel, StateGDP, StateGDPPre97, AverageTeacherSalary
 from npp.data.models import ShelterPopulation, ATCodes, BudgetCategorySubfunctions, SubfunctionsCFFR, MedianHouseholdIncome4Member, PeopleInPoverty
 from npp.data.models import StateLaborForceParticipation, Employment, StateRenewableEnergy, PopulationFamilies, HousingUnits, OwnersRenters, RacePopulation1980s
-from npp.data.models import RacePopulation1990s, StateCompletionRate
+from npp.data.models import RacePopulation1990s, StateCompletionRate, TeacherPupilRatio
 from django.conf import settings
 from piston.doc import generate_doc
 
@@ -341,6 +341,12 @@ class ShelterPopulationHandler(GenericHandler):
         allowed_keys = ('state', 'year')
         model = ShelterPopulation
         super(ShelterPopulationHandler, self).__init__(allowed_keys, model)
+        
+class TeacherPupilRatioHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year')
+        model = TeacherPupilRatio
+        super(TeacherPupilRatioHandler, self).__init__(allowed_keys, model)
         
 class VehicleRegistrationsHandler(GenericHandler):
     def __init__(self):

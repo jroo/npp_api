@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>State Teacher Pupil Ratio</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/teacher_pupil_ratio/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'year'</div>
+		<div>Example: <a href="/api/teacher_pupil_ratio/list.json?state=OR&year=2008">http://data.nationalpriorities.org/api/teacher_pupil_ratio/list.json?state=OR&amp;year=2008</a></div>
+	</div>
+</div>
+{% endblock %}
