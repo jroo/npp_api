@@ -599,7 +599,12 @@ class TeacherPupilRatio(models.Model):
     state = models.CharField(max_length=2)
     year = models.IntegerField()
     value = models.FloatField()
- 
+    
+class TotalStudents(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=2)
+    value = models.IntegerField(null=True)
+     
 class VehicleRegistrations(models.Model):
     year = models.IntegerField()
     state = models.CharField(max_length=32)
