@@ -138,6 +138,12 @@ class CountyUnemployment(models.Model):
     unemployed = models.IntegerField(null=True)
     unemployment_rate = models.FloatField(null=True)
     
+class DiplomaRecipientTotal(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=2)
+    key = models.CharField(max_length=32)
+    value = models.IntegerField(null=True)
+    
 class Employment(models.Model):
     year = models.IntegerField()
     state = models.CharField(max_length=32)
