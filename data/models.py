@@ -199,6 +199,11 @@ class HealthInsurance(models.Model):
     military_se = models.FloatField()
     military_pct = models.FloatField()
     military_pct_se = models.FloatField()
+
+class HighSchoolDropouts(models.Model):
+    state = models.CharField(max_length=2)
+    year = models.IntegerField()
+    value = models.IntegerField(null=True)
     
 class HousingUnits(models.Model):
     state = models.CharField(max_length=32)

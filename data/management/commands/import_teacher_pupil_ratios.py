@@ -17,7 +17,7 @@ import csv
 # 1) Download source files from url listed above
 # 2) Convert source file to .csv with same formatting as npp csv
 # 3) change SOURCE_FILE variable to the the path of the source file you just created
-# 5) Run as Django management command from your project path "python manage.py import_teacher_pupil_ratio
+# 5) Run as Django management command from your project path "python manage.py import_teacher_pupil_ratio"
 
 SOURCE_FILE = '%s/education/teacher_pupil_ratio.csv' % (settings.LOCAL_DATA_ROOT)
 
