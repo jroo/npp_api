@@ -10,7 +10,7 @@ from npp.api.handlers import StateGDPHandler, StateGDPPre97Handler, AverageTeach
 from npp.api.handlers import SubfunctionsCFFRHandler, MedianHouseholdIncome4MemberHandler, PeopleInPovertyHandler, StateLaborForceParticipationHandler
 from npp.api.handlers import EmploymentHandler, StateRenewableEnergyHandler, PopulationFamiliesHandler, HousingUnitsHandler, OwnersRentersHandler
 from npp.api.handlers import RacePopulation1980sHandler, RacePopulation1990sHandler, StateCompletionRateHandler, TeacherPupilRatioHandler
-from npp.api.handlers import DiplomaRecipientTotalHandler, HighSchoolOtherHandler
+from npp.api.handlers import DiplomaRecipientTotalHandler, HighSchoolOtherHandler, TotalStudentsHandler
 
 alternative_fuel_vehicles_handler = Resource(AlternativeFuelVehiclesHandler)
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
@@ -63,6 +63,7 @@ state_postal_codes_handler = Resource(StatePostalCodesHandler)
 state_renewable_energy_handler = Resource(StateRenewableEnergyHandler)
 state_unemployment_handler = Resource(StateUnemploymentHandler)
 teacher_pupil_ratio_handler = Resource(TeacherPupilRatioHandler)
+total_students_handler = Resource(TotalStudentsHandler)
 subfunctions_cffr_handler = Resource(SubfunctionsCFFRHandler)
 vehicle_registrations_handler = Resource(VehicleRegistrationsHandler)
 
@@ -114,6 +115,8 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^state_vehicle_registrations.html$', 'direct_to_template', {'template':'api/state_vehicle_registrations.html'}),
     (r'^subfunctions_cffr.html$', 'direct_to_template', {'template': 'api/subfunctions_cffr.html'}),
     (r'^teacher_pupil_ratio.html$', 'direct_to_template', {'template': 'api/teacher_pupil_ratio.html'}),
+    (r'^total_students.html$', 'direct_to_template', {'template': 'api/total_students.html'}),
+
 
     #api urls
     url(r'^alternative_fuel_vehicles/$', alternative_fuel_vehicles_handler),
@@ -222,4 +225,6 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^subfunctions_cffr/list\.(?P<emitter_format>.+)', subfunctions_cffr_handler),
     url(r'^teacher_pupil_ratio/$', teacher_pupil_ratio_handler),
     url(r'^teacher_pupil_ratio/list\.(?P<emitter_format>.+)', teacher_pupil_ratio_handler),
+    url(r'^total_students/$', total_students_handler),
+    url(r'^total_students/list\.(?P<emitter_format>.+)', total_students_handler),
 )

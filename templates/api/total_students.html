@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>Total Students</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/total_students/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'year'</div>
+		<div>Example: <a href="/api/total_students/list.json?state=NE&year=2008">http://data.nationalpriorities.org/api/total_students/list.json?state=NE&amp;year=2008</a></div>
+	</div>
+</div>
+{% endblock %}

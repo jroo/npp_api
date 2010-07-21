@@ -155,6 +155,12 @@ class Employment(models.Model):
     black_unemployed = models.FloatField(null=True)
     hispanic_unemployed = models.FloatField(null=True)
     
+class EnrollmentRace(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=2)
+    key = models.CharField(max_length=32)
+    value = models.IntegerField(null=True)
+    
 class FIPSCountyCongressDistrict(models.Model):
     state_code = models.CharField(max_length=2)
     county_code = models.CharField(max_length=3)
