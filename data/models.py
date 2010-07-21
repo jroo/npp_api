@@ -211,6 +211,12 @@ class HighSchoolDropouts(models.Model):
     year = models.IntegerField()
     value = models.IntegerField(null=True)
     
+class HighSchoolOther(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=2)
+    key = models.CharField(max_length=32)
+    value = models.IntegerField(null=True)
+    
 class HousingUnits(models.Model):
     state = models.CharField(max_length=32)
     year = models.IntegerField()
