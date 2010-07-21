@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>High School Dropouts</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/high_school_dropouts/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'year'</div>
+		<div>Example: <a href="/api/high_school_dropouts/list.json?state=AK&year=2007">http://data.nationalpriorities.org/api/high_school_dropouts/list.json?state=AK&amp;year=2007</a></div>
+	</div>
+</div>
+{% endblock %}
