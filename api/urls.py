@@ -10,7 +10,7 @@ from npp.api.handlers import StateGDPHandler, StateGDPPre97Handler, AverageTeach
 from npp.api.handlers import SubfunctionsCFFRHandler, MedianHouseholdIncome4MemberHandler, PeopleInPovertyHandler, StateLaborForceParticipationHandler
 from npp.api.handlers import EmploymentHandler, StateRenewableEnergyHandler, PopulationFamiliesHandler, HousingUnitsHandler, OwnersRentersHandler
 from npp.api.handlers import RacePopulation1980sHandler, RacePopulation1990sHandler, StateCompletionRateHandler, TeacherPupilRatioHandler
-from npp.api.handlers import DiplomaRecipientTotalHandler, HighSchoolOtherHandler, TotalStudentsHandler
+from npp.api.handlers import DiplomaRecipientTotalHandler, HighSchoolOtherHandler, TotalStudentsHandler, EnrollmentRaceHandler
 
 alternative_fuel_vehicles_handler = Resource(AlternativeFuelVehiclesHandler)
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
@@ -28,6 +28,7 @@ employment_handler = Resource(EmploymentHandler)
 energy_consumption_handler = Resource(EnergyConsumptionHandler)
 energy_expenditures_handler = Resource(EnergyExpendituresHandler)
 energy_production_estimates_handler = Resource(EnergyProductionEstimatesHandler)
+enrollment_race_handler = Resource(EnrollmentRaceHandler)
 fips_county_congress_district_handler = Resource(FIPSCountyCongressDistrictHandler)
 fips_state_handler = Resource(FIPSStateHandler)
 health_insurance_handler = Resource(HealthInsuranceHandler)
@@ -88,6 +89,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^energy_consumption_state.html$', 'direct_to_template', {'template': 'api/energy_consumption_state.html'}),
     (r'^energy_expenditures_state.html$', 'direct_to_template', {'template': 'api/energy_expenditures_state.html'}),
     (r'^energy_production_estimates.html$', 'direct_to_template', {'template': 'api/energy_production_estimates.html'}),
+    (r'^enrollment_race.html$', 'direct_to_template', {'template': 'api/enrollment_race.html'}),
     (r'^nces_school_district.html$', 'direct_to_template', {'template': 'api/nces_school_district.html'}),
     (r'^median_household_income_4_member.html$', 'direct_to_template', {'template': 'api/median_household_income_4_member.html'}),
     (r'^medicaid_participation.html$', 'direct_to_template', {'template': 'api/medicaid_participation.html'}),
@@ -145,6 +147,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^diploma_recipient_total/list\.(?P<emitter_format>.+)', diploma_recipient_total_handler),
     url(r'^employment/$', employment_handler),
     url(r'^employment/list\.(?P<emitter_format>.+)', employment_handler),
+    url(r'^enrollment_race/', enrollment_race_handler),
+    url(r'^enrollment_race/list\.(?P<emitter_format>.+)', enrollment_race_handler),
     url(r'^fips_county_congress_district/$', fips_county_congress_district_handler),
     url(r'^fips_county_congress_district/list\.(?P<emitter_format>.+)', fips_county_congress_district_handler),
     url(r'^fips_state/$', fips_state_handler),

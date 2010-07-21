@@ -6,7 +6,7 @@ from npp.data.models import StateUnemployment, CountyUnemployment, AlternativeFu
 from npp.data.models import MedicareEnrollment, HealthInsurance, KidsHealthInsurance, MilitaryPersonnel, StateGDP, StateGDPPre97, AverageTeacherSalary
 from npp.data.models import ShelterPopulation, ATCodes, BudgetCategorySubfunctions, SubfunctionsCFFR, MedianHouseholdIncome4Member, PeopleInPoverty
 from npp.data.models import StateLaborForceParticipation, Employment, StateRenewableEnergy, PopulationFamilies, HousingUnits, OwnersRenters, RacePopulation1980s
-from npp.data.models import RacePopulation1990s, StateCompletionRate, TeacherPupilRatio, DiplomaRecipientTotal, HighSchoolOther, TotalStudents
+from npp.data.models import RacePopulation1990s, StateCompletionRate, TeacherPupilRatio, DiplomaRecipientTotal, HighSchoolOther, TotalStudents, EnrollmentRace
 from django.conf import settings
 from piston.doc import generate_doc
 
@@ -128,8 +128,14 @@ class EnergyConsumptionHandler(GenericHandler):
 class EnergyExpendituresHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('id', 'msn', 'year', 'value', 'state')
-        model = AnnualStateEnergyConsumption
+        model = AnnualStateEnergyExpenditures
         super(EnergyExpendituresHandler, self).__init__(allowed_keys, model)
+        
+class EnrollmentRaceHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year', 'key')
+        model = EnrollmentRace
+        super(EnrollmentRaceHandler, self).__init__(allowed_keys, model)
         
 class EnergyProductionEstimatesHandler(GenericHandler):
     def __init__(self):
