@@ -45,6 +45,7 @@ saipe_county_state_handler = Resource(SAIPECountyStateHandler)
 saipe_school_handler = Resource(SAIPESchoolHandler)
 schip_enrollment_handler = Resource(SCHIPEnrollmentHandler)
 shelter_population_handler = Resource(ShelterPopulationHandler)
+special_ed_funding_handler = Resource(SpecialEdFundingHandler)
 state_completion_rate_handler = Resource(StateCompletionRateHandler)
 state_gdp_handler = Resource(StateGDPHandler)
 state_gdp_pre97_handler = Resource(StateGDPPre97Handler)
@@ -100,6 +101,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^saipe_school.html$', 'direct_to_template', {'template': 'api/saipe_school.html'}),
     (r'^schip_enrollment.html$', 'direct_to_template', {'template': 'api/schip_enrollment.html'}),
     (r'^shelter_population.html$', 'direct_to_template', {'template': 'api/shelter_population.html'}),
+    (r'^special_ed_funding.html$', 'direct_to_template', {'template': 'api/special_ed_funding.html'}),
     (r'^state_emissions.html$', 'direct_to_template', {'template': 'api/state_emissions.html'}),
     (r'^state_completion_rate.html$', 'direct_to_template', {'template': 'api/state_completion_rate.html'}),
     (r'^state_gdp.html$', 'direct_to_template', {'template': 'api/state_gdp.html'}),
@@ -203,6 +205,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^schip_enrollment/list\.(?P<emitter_format>.+)', schip_enrollment_handler),
     url(r'^shelter_population/$', shelter_population_handler),
     url(r'^shelter_population/list\.(?P<emitter_format>.+)', shelter_population_handler),
+    url(r'^special_ed_funding/$', special_ed_funding_handler),
+    url(r'^special_ed_funding/list\.(?P<emitter_format>.+)', special_ed_funding_handler),
     url(r'^state_emissions/$', state_emissions_handler),
     url(r'^state_emissions/list\.(?P<emitter_format>.+)', state_emissions_handler),
     url(r'^state_completion_rate/$', state_completion_rate_handler),
