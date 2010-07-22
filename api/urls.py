@@ -56,6 +56,7 @@ state_postal_codes_handler = Resource(StatePostalCodesHandler)
 state_renewable_energy_handler = Resource(StateRenewableEnergyHandler)
 state_unemployment_handler = Resource(StateUnemploymentHandler)
 teacher_pupil_ratio_handler = Resource(TeacherPupilRatioHandler)
+title_i_funding_handler = Resource(TitleIFundingHandler)
 total_students_handler = Resource(TotalStudentsHandler)
 subfunctions_cffr_handler = Resource(SubfunctionsCFFRHandler)
 vehicle_registrations_handler = Resource(VehicleRegistrationsHandler)
@@ -111,6 +112,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^state_vehicle_registrations.html$', 'direct_to_template', {'template':'api/state_vehicle_registrations.html'}),
     (r'^subfunctions_cffr.html$', 'direct_to_template', {'template': 'api/subfunctions_cffr.html'}),
     (r'^teacher_pupil_ratio.html$', 'direct_to_template', {'template': 'api/teacher_pupil_ratio.html'}),
+    (r'^title_i_funding.html$', 'direct_to_template', {'template': 'api/title_i_funding.html'}),
     (r'^total_students.html$', 'direct_to_template', {'template': 'api/total_students.html'}),
 
 
@@ -227,6 +229,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^subfunctions_cffr/list\.(?P<emitter_format>.+)', subfunctions_cffr_handler),
     url(r'^teacher_pupil_ratio/$', teacher_pupil_ratio_handler),
     url(r'^teacher_pupil_ratio/list\.(?P<emitter_format>.+)', teacher_pupil_ratio_handler),
+    url(r'^title_i_funding/$', title_i_funding_handler),
+    url(r'^title_i_funding/list\.(?P<emitter_format>.+)', title_i_funding_handler),
     url(r'^total_students/$', total_students_handler),
     url(r'^total_students/list\.(?P<emitter_format>.+)', total_students_handler),
 )

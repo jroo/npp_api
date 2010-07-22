@@ -330,7 +330,14 @@ class NewAIDSCases(models.Model):
     state = models.CharField(max_length=32)
     year = models.IntegerField()
     value = models.IntegerField(null=True)
-
+    
+class OwnersRenters(models.Model):
+    state = models.CharField(max_length=32)
+    year = models.IntegerField()
+    total = models.IntegerField()
+    owner_occupied = models.IntegerField()
+    renter_occupied = models.IntegerField()
+    
 class PeopleInPoverty(models.Model):
     year = models.IntegerField()
     state = models.CharField(max_length=32)
@@ -339,13 +346,6 @@ class PeopleInPoverty(models.Model):
     value_standard_error = models.IntegerField()
     percent = models.FloatField()
     percent_standard_error = models.FloatField()
-    
-class OwnersRenters(models.Model):
-    state = models.CharField(max_length=32)
-    year = models.IntegerField()
-    total = models.IntegerField()
-    owner_occupied = models.IntegerField()
-    renter_occupied = models.IntegerField()
     
 class PopulationFamilies(models.Model):
     year = models.IntegerField()
@@ -611,6 +611,13 @@ class TeacherPupilRatio(models.Model):
     state = models.CharField(max_length=2)
     year = models.IntegerField()
     value = models.FloatField()
+    
+class TitleIFunding(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=2)
+    agency_name = models.CharField(max_length=128)
+    agency_id = models.CharField(max_length=7)
+    amount = models.IntegerField(null=True)
     
 class TotalStudents(models.Model):
     year = models.IntegerField()
