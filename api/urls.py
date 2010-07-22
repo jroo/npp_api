@@ -1,16 +1,6 @@
 from django.conf.urls.defaults import *
 from piston.resource import Resource
-from npp.api.handlers import EnergyConsumptionHandler, EnergyExpendituresHandler, EnergyProductionEstimatesHandler, MSNCodeHandler, StatePostalCodesHandler, FIPSStateHandler
-from npp.api.handlers import ANSICountyStateHandler, CFFRHandler, FIPSCountyCongressDistrictHandler, NCESSchoolDistrictHandler, CFFRAgencyHandler, CFFRGeoHandler
-from npp.api.handlers import CFFRObjectCodeHandler, CFFRProgramHandler, SAIPESchoolHandler, StateEmissionsHandler, IRSGrossCollectionsHandler, VehicleRegistrationsHandler
-from npp.api.handlers import StateMedianIncomeHandler, StatePopulationEstimatesHandler, SAIPECountyStateHandler, StateUnemploymentHandler
-from npp.api.handlers import CountyUnemploymentHandler, AlternativeFuelVehiclesHandler, PresidentsBudgetHandler, NewAIDSCasesHandler, MedicaidParticipationHandler
-from npp.api.handlers import SCHIPEnrollmentHandler, MedicareEnrollmentHandler, HealthInsuranceHandler, KidsHealthInsuranceHandler, MilitaryPersonnelHandler
-from npp.api.handlers import StateGDPHandler, StateGDPPre97Handler, AverageTeacherSalaryHandler, ShelterPopulationHandler, ATCodesHandler, BudgetCategorySubfunctionsHandler
-from npp.api.handlers import SubfunctionsCFFRHandler, MedianHouseholdIncome4MemberHandler, PeopleInPovertyHandler, StateLaborForceParticipationHandler
-from npp.api.handlers import EmploymentHandler, StateRenewableEnergyHandler, PopulationFamiliesHandler, HousingUnitsHandler, OwnersRentersHandler
-from npp.api.handlers import RacePopulation1980sHandler, RacePopulation1990sHandler, StateCompletionRateHandler, TeacherPupilRatioHandler
-from npp.api.handlers import DiplomaRecipientTotalHandler, HighSchoolOtherHandler, TotalStudentsHandler, EnrollmentRaceHandler, HighSchoolDropoutsHandler
+from npp.api.handlers import *
 
 alternative_fuel_vehicles_handler = Resource(AlternativeFuelVehiclesHandler)
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
@@ -24,6 +14,7 @@ cffr_object_code_handler = Resource(CFFRObjectCodeHandler)
 cffr_program_handler = Resource(CFFRProgramHandler)
 county_unemployment_handler = Resource(CountyUnemploymentHandler)
 diploma_recipient_total_handler = Resource(DiplomaRecipientTotalHandler)
+dropouts_race_handler = Resource(DropoutsRaceHandler)
 employment_handler = Resource(EmploymentHandler)
 energy_consumption_handler = Resource(EnergyConsumptionHandler)
 energy_expenditures_handler = Resource(EnergyExpendituresHandler)
@@ -80,6 +71,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^cffr.html$', 'direct_to_template', {'template': 'api/cffr.html'}),
     (r'^county_unemployment.html$', 'direct_to_template', {'template': 'api/county_unemployment.html'}),
     (r'^diploma_recipient_total.html$', 'direct_to_template', {'template': 'api/diploma_recipient_total.html'}),
+    (r'^dropouts_race.html$', 'direct_to_template', {'template': 'api/dropouts_race.html'}),
     (r'^employment.html$', 'direct_to_template', {'template': 'api/employment.html'}),
     (r'^fips_county_congressional.html$', 'direct_to_template', {'template': 'api/fips_county_congressional.html'}),
     (r'^health_insurance.html$', 'direct_to_template', {'template': 'api/health_insurance.html'}),
@@ -147,6 +139,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^county_unemployment/list\.(?P<emitter_format>.+)', county_unemployment_handler),
     url(r'^diploma_recipient_total/$', diploma_recipient_total_handler),
     url(r'^diploma_recipient_total/list\.(?P<emitter_format>.+)', diploma_recipient_total_handler),
+    url(r'^dropouts_race/$', dropouts_race_handler),
+    url(r'^dropouts_race/list\.(?P<emitter_format>.+)', dropouts_race_handler),
     url(r'^employment/$', employment_handler),
     url(r'^employment/list\.(?P<emitter_format>.+)', employment_handler),
     url(r'^enrollment_race/', enrollment_race_handler),

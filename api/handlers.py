@@ -1,13 +1,5 @@
 from piston.handler import BaseHandler, AnonymousBaseHandler
-from npp.data.models import AnnualStateEnergyConsumption, AnnualStateEnergyExpenditures, CFFR, StateEnergyProductionEstimates, MSNCodes, StatePostalCodes, FIPSState
-from npp.data.models import ANSICountyState, FIPSCountyCongressDistrict, NCESSchoolDistrict, CFFRGeo, CFFRAgency, CFFRObjectCode, CFFRProgram, SAIPESchool
-from npp.data.models import StateEmissions, IRSGrossCollections, VehicleRegistrations, StateMedianIncome, StatePopulationEstimates, SAIPECountyState
-from npp.data.models import StateUnemployment, CountyUnemployment, AlternativeFuelVehicles, PresidentsBudget, NewAIDSCases, MedicaidParticipation, SCHIPEnrollment
-from npp.data.models import MedicareEnrollment, HealthInsurance, KidsHealthInsurance, MilitaryPersonnel, StateGDP, StateGDPPre97, AverageTeacherSalary
-from npp.data.models import ShelterPopulation, ATCodes, BudgetCategorySubfunctions, SubfunctionsCFFR, MedianHouseholdIncome4Member, PeopleInPoverty
-from npp.data.models import StateLaborForceParticipation, Employment, StateRenewableEnergy, PopulationFamilies, HousingUnits, OwnersRenters, RacePopulation1980s
-from npp.data.models import RacePopulation1990s, StateCompletionRate, TeacherPupilRatio, DiplomaRecipientTotal, HighSchoolOther, TotalStudents, EnrollmentRace
-from npp.data.models import HighSchoolDropouts
+from npp.data.models import *
 from django.conf import settings
 from piston.doc import generate_doc
 
@@ -113,6 +105,12 @@ class DiplomaRecipientTotalHandler(GenericHandler):
         allowed_keys = ('state', 'year', 'key')
         model = DiplomaRecipientTotal
         super(DiplomaRecipientTotalHandler, self).__init__(allowed_keys, model)
+        
+class DropoutsRaceHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year', 'key')
+        model = DropoutsRace
+        super(DropoutsRaceHandler, self).__init__(allowed_keys, model)
         
 class EmploymentHandler(GenericHandler):
     def __init__(self):
