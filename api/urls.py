@@ -20,6 +20,7 @@ energy_consumption_handler = Resource(EnergyConsumptionHandler)
 energy_expenditures_handler = Resource(EnergyExpendituresHandler)
 energy_production_estimates_handler = Resource(EnergyProductionEstimatesHandler)
 enrollment_race_handler = Resource(EnrollmentRaceHandler)
+expenditure_per_pupil_handler = Resource(ExpenditurePerPupilHandler)
 fips_county_congress_district_handler = Resource(FIPSCountyCongressDistrictHandler)
 fips_state_handler = Resource(FIPSStateHandler)
 health_insurance_handler = Resource(HealthInsuranceHandler)
@@ -75,6 +76,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^diploma_recipient_total.html$', 'direct_to_template', {'template': 'api/diploma_recipient_total.html'}),
     (r'^dropouts_race.html$', 'direct_to_template', {'template': 'api/dropouts_race.html'}),
     (r'^employment.html$', 'direct_to_template', {'template': 'api/employment.html'}),
+    (r'^expenditure_per_pupil.html$', 'direct_to_template', {'template': 'api/expenditure_per_pupil.html'}),
     (r'^fips_county_congressional.html$', 'direct_to_template', {'template': 'api/fips_county_congressional.html'}),
     (r'^health_insurance.html$', 'direct_to_template', {'template': 'api/health_insurance.html'}),
     (r'^high_school_dropouts.html$', 'direct_to_template', {'template': 'api/high_school_dropouts.html'}),
@@ -149,6 +151,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^employment/list\.(?P<emitter_format>.+)', employment_handler),
     url(r'^enrollment_race/', enrollment_race_handler),
     url(r'^enrollment_race/list\.(?P<emitter_format>.+)', enrollment_race_handler),
+    url(r'^expenditure_per_pupil/$', expenditure_per_pupil_handler),
+    url(r'^expenditure_per_pupil/list\.(?P<emitter_format>.+)', expenditure_per_pupil_handler),
     url(r'^fips_county_congress_district/$', fips_county_congress_district_handler),
     url(r'^fips_county_congress_district/list\.(?P<emitter_format>.+)', fips_county_congress_district_handler),
     url(r'^fips_state/$', fips_state_handler),
