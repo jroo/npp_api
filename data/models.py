@@ -352,6 +352,13 @@ class MSNCodes(models.Model):
     description = models.TextField()
     unit = models.CharField(max_length=255)
     
+class NativeEdSpending(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=2)
+    agency_name = models.CharField(max_length=128)
+    agency_id = models.CharField(max_length=7)
+    amount = models.IntegerField(null=True)
+    
 class NCESSchoolDistrict(models.Model):
     state = models.CharField(max_length=2)
     district_name = models.CharField(max_length=255)

@@ -38,6 +38,7 @@ medicaid_participation_handler = Resource(MedicaidParticipationHandler)
 medicare_enrollment_handler = Resource(MedicareEnrollmentHandler)
 military_personnel_handler = Resource(MilitaryPersonnelHandler)
 msn_code_handler = Resource(MSNCodeHandler)
+native_ed_spending_handler = Resource(NativeEdSpendingHandler)
 new_aids_cases_handler = Resource(NewAIDSCasesHandler)
 nces_school_district_handler = Resource(NCESSchoolDistrictHandler)
 owners_renters_handler = Resource(OwnersRentersHandler)
@@ -102,6 +103,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^medicaid_participation.html$', 'direct_to_template', {'template': 'api/medicaid_participation.html'}),
     (r'^medicare_enrollment.html$', 'direct_to_template', {'template': 'api/medicare_enrollment.html'}),
     (r'^military_personnel.html$', 'direct_to_template', {'template': 'api/military_personnel.html'}),
+    (r'^native_ed_spending.html$', 'direct_to_template', {'template': 'api/native_ed_spending.html'}),
     (r'^new_aids_cases.html$', 'direct_to_template', {'template': 'api/new_aids_cases.html'}),
     (r'^owners_renters.html$', 'direct_to_template', {'template': 'api/owners_renters.html'}),
     (r'^people_in_poverty.html$', 'direct_to_template', {'template': 'api/people_in_poverty.html'}),
@@ -204,6 +206,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^military_personnel/list\.(?P<emitter_format>.+)', military_personnel_handler),
     url(r'^msn_codes/$', msn_code_handler),
     url(r'^msn_codes/list\.(?P<emitter_format>.+)', msn_code_handler),
+    url(r'^native_ed_spending/$', native_ed_spending_handler),
+    url(r'^native_ed_spending/list\.(?P<emitter_format>.+)', native_ed_spending_handler),
     url(r'^nces_school_district/$', nces_school_district_handler),
     url(r'^nces_school_district/list\.(?P<emitter_format>.+)', nces_school_district_handler),
     url(r'^new_aids_cases/$', new_aids_cases_handler),

@@ -250,6 +250,12 @@ class MSNCodeHandler(GenericHandler):
         model = MSNCodes
         super(MSNCodeHandler, self).__init__(allowed_keys, model)
         
+class NativeEdSpendingHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year', 'agency_name', 'agency_id')
+        model = NativeEdSpending
+        super(NativeEdSpendingHandler, self).__init__(allowed_keys, model)
+        
 class NewAIDSCasesHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year')
