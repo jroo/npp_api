@@ -64,6 +64,7 @@ title_i_funding_handler = Resource(TitleIFundingHandler)
 total_students_handler = Resource(TotalStudentsHandler)
 subfunctions_cffr_handler = Resource(SubfunctionsCFFRHandler)
 vehicle_registrations_handler = Resource(VehicleRegistrationsHandler)
+vocational_ed_spending_handler = Resource(VocationalEdSpendingHandler)
 
 urlpatterns = patterns('django.views.generic.simple',
     #documentation urls
@@ -122,6 +123,8 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^teacher_pupil_ratio.html$', 'direct_to_template', {'template': 'api/teacher_pupil_ratio.html'}),
     (r'^title_i_funding.html$', 'direct_to_template', {'template': 'api/title_i_funding.html'}),
     (r'^total_students.html$', 'direct_to_template', {'template': 'api/total_students.html'}),
+    (r'^vocational_ed_spending.html$', 'direct_to_template', {'template': 'api/vocational_ed_spending.html'}),
+
 
 
     #api urls
@@ -247,6 +250,6 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^teacher_pupil_ratio/list\.(?P<emitter_format>.+)', teacher_pupil_ratio_handler),
     url(r'^title_i_funding/$', title_i_funding_handler),
     url(r'^title_i_funding/list\.(?P<emitter_format>.+)', title_i_funding_handler),
-    url(r'^total_students/$', total_students_handler),
-    url(r'^total_students/list\.(?P<emitter_format>.+)', total_students_handler),
+    url(r'^vocational_ed_spending/$', vocational_ed_spending_handler),
+    url(r'^vocational_ed_spending/list\.(?P<emitter_format>.+)', vocational_ed_spending_handler),
 )

@@ -412,3 +412,9 @@ class VehicleRegistrationsHandler(GenericHandler):
         allowed_keys = ('state', 'year')
         model = VehicleRegistrations
         super(VehicleRegistrationsHandler, self).__init__(allowed_keys, model)
+        
+class VocationalEdSpendingHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year', 'agency_name', 'agency_id')
+        model = VocationalEdSpending
+        super(VocationalEdSpendingHandler, self).__init__(allowed_keys, model)
