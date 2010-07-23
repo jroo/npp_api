@@ -32,6 +32,7 @@ high_school_dropouts_handler = Resource(HighSchoolDropoutsHandler)
 housing_units_handler = Resource(HousingUnitsHandler)
 irs_gross_collections_handler = Resource(IRSGrossCollectionsHandler)
 kids_health_insurance_handler = Resource(KidsHealthInsuranceHandler)
+math_science_spending_handler = Resource(MathScienceSpendingHandler)
 median_household_income_4_member_handler = Resource(MedianHouseholdIncome4MemberHandler)
 medicaid_participation_handler = Resource(MedicaidParticipationHandler)
 medicare_enrollment_handler = Resource(MedicareEnrollmentHandler)
@@ -96,6 +97,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^irs_gross_collections.html$', 'direct_to_template', {'template': 'api/irs_gross_collections.html'}),
     (r'^kids_health_insurance.html$', 'direct_to_template', {'template': 'api/kids_health_insurance.html'}),
     (r'^nces_school_district.html$', 'direct_to_template', {'template': 'api/nces_school_district.html'}),
+    (r'^math_science_spending.html$', 'direct_to_template', {'template': 'api/math_science_spending.html'}),
     (r'^median_household_income_4_member.html$', 'direct_to_template', {'template': 'api/median_household_income_4_member.html'}),
     (r'^medicaid_participation.html$', 'direct_to_template', {'template': 'api/medicaid_participation.html'}),
     (r'^medicare_enrollment.html$', 'direct_to_template', {'template': 'api/medicare_enrollment.html'}),
@@ -162,6 +164,12 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^drug_free_school_spending/list\.(?P<emitter_format>.+)', drug_free_school_spending_handler),
     url(r'^employment/$', employment_handler),
     url(r'^employment/list\.(?P<emitter_format>.+)', employment_handler),
+    url(r'^energy_consumption/$', energy_consumption_handler),
+    url(r'^energy_consumption/list\.(?P<emitter_format>.+)', energy_consumption_handler),
+    url(r'^energy_expenditures/$', energy_expenditures_handler),
+    url(r'^energy_expenditures/list\.(?P<emitter_format>.+)', energy_expenditures_handler),
+    url(r'^energy_production_estimates/', energy_production_estimates_handler),
+    url(r'^energy_production_estimates/list\.(?P<emitter_format>.+)', energy_production_estimates_handler),
     url(r'^enrollment_race/', enrollment_race_handler),
     url(r'^enrollment_race/list\.(?P<emitter_format>.+)', enrollment_race_handler),
     url(r'^expenditure_per_pupil/$', expenditure_per_pupil_handler),
@@ -184,12 +192,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^irs_gross_collections/list\.(?P<emitter_format>.+)', irs_gross_collections_handler),
     url(r'^kids_health_insurance/$', kids_health_insurance_handler),
     url(r'^kids_health_insurance/list\.(?P<emitter_format>.+)', kids_health_insurance_handler),
-    url(r'^energy_consumption/$', energy_consumption_handler),
-    url(r'^energy_consumption/list\.(?P<emitter_format>.+)', energy_consumption_handler),
-    url(r'^energy_expenditures/$', energy_expenditures_handler),
-    url(r'^energy_expenditures/list\.(?P<emitter_format>.+)', energy_expenditures_handler),
-    url(r'^energy_production_estimates/', energy_production_estimates_handler),
-    url(r'^energy_production_estimates/list\.(?P<emitter_format>.+)', energy_production_estimates_handler),
+    url(r'^math_science_spending/$', math_science_spending_handler),
+    url(r'^math_science_spending/list\.(?P<emitter_format>.+)', math_science_spending_handler),
     url(r'^median_household_income_4_member/$', median_household_income_4_member_handler),
     url(r'^median_household_income_4_member/list\.(?P<emitter_format>.+)', median_household_income_4_member_handler),
     url(r'^medicaid_participation/$', medicaid_participation_handler),

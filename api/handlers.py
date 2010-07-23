@@ -213,6 +213,12 @@ class KidsHealthInsuranceHandler(GenericHandler):
         allowed_keys = ('state', 'year')
         model = KidsHealthInsurance
         super(KidsHealthInsuranceHandler, self).__init__(allowed_keys, model)
+        
+class MathScienceSpendingHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year', 'agency_name', 'agency_id')
+        model = MathScienceSpending
+        super(MathScienceSpendingHandler, self).__init__(allowed_keys, model)
 
 class MedicaidParticipationHandler(GenericHandler):
     def __init__(self):
