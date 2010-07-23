@@ -149,6 +149,13 @@ class DropoutsRace(models.Model):
     state = models.CharField(max_length=2)
     key = models.CharField(max_length=32)
     value = models.IntegerField(null=True)
+
+class DrugFreeSchoolSpending(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=2)
+    agency_name = models.CharField(max_length=128)
+    agency_id = models.CharField(max_length=7)
+    amount = models.IntegerField(null=True)
     
 class Employment(models.Model):
     year = models.IntegerField()

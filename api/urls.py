@@ -15,6 +15,7 @@ cffr_program_handler = Resource(CFFRProgramHandler)
 county_unemployment_handler = Resource(CountyUnemploymentHandler)
 diploma_recipient_total_handler = Resource(DiplomaRecipientTotalHandler)
 dropouts_race_handler = Resource(DropoutsRaceHandler)
+drug_free_school_spending_handler = Resource(DrugFreeSchoolSpendingHandler)
 employment_handler = Resource(EmploymentHandler)
 energy_consumption_handler = Resource(EnergyConsumptionHandler)
 energy_expenditures_handler = Resource(EnergyExpendituresHandler)
@@ -76,6 +77,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^county_unemployment.html$', 'direct_to_template', {'template': 'api/county_unemployment.html'}),
     (r'^diploma_recipient_total.html$', 'direct_to_template', {'template': 'api/diploma_recipient_total.html'}),
     (r'^dropouts_race.html$', 'direct_to_template', {'template': 'api/dropouts_race.html'}),
+    (r'^drug_free_school_spending.html$', 'direct_to_template', {'template': 'api/drug_free_school_spending.html'}),
     (r'^employment.html$', 'direct_to_template', {'template': 'api/employment.html'}),
     (r'^energy_consumption_state.html$', 'direct_to_template', {'template': 'api/energy_consumption_state.html'}),
     (r'^energy_expenditures_state.html$', 'direct_to_template', {'template': 'api/energy_expenditures_state.html'}),
@@ -149,6 +151,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^diploma_recipient_total/list\.(?P<emitter_format>.+)', diploma_recipient_total_handler),
     url(r'^dropouts_race/$', dropouts_race_handler),
     url(r'^dropouts_race/list\.(?P<emitter_format>.+)', dropouts_race_handler),
+    url(r'^drug_free_school_spending/$', drug_free_school_spending_handler),
+    url(r'^drug_free_school_spending/list\.(?P<emitter_format>.+)', drug_free_school_spending_handler),
     url(r'^employment/$', employment_handler),
     url(r'^employment/list\.(?P<emitter_format>.+)', employment_handler),
     url(r'^enrollment_race/', enrollment_race_handler),

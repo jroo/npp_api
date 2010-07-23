@@ -111,6 +111,12 @@ class DropoutsRaceHandler(GenericHandler):
         allowed_keys = ('state', 'year', 'key')
         model = DropoutsRace
         super(DropoutsRaceHandler, self).__init__(allowed_keys, model)
+    
+class DrugFreeSchoolSpendingHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year', 'agency_name', 'agency_id')
+        model = DrugFreeSchoolSpending
+        super(DrugFreeSchoolSpendingHandler, self).__init__(allowed_keys, model)
         
 class EmploymentHandler(GenericHandler):
     def __init__(self):
