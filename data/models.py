@@ -36,6 +36,13 @@ class AverageTeacherSalary(models.Model):
     year = models.IntegerField()
     value = models.IntegerField()
     
+class BilingualEdSpending(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=2)
+    agency_name = models.CharField(max_length=128)
+    agency_id = models.CharField(max_length=7)
+    amount = models.IntegerField(null=True)
+    
 class BudgetCategorySubfunctions(models.Model):
     subfunction = models.TextField(max_length=3)
     npp_budget_category = models.TextField(max_length=64)

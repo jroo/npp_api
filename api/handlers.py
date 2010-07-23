@@ -58,6 +58,12 @@ class AverageTeacherSalaryHandler(GenericHandler):
         model = AverageTeacherSalary
         super(AverageTeacherSalaryHandler, self).__init__(allowed_keys, model)
         
+class BilingualEdSpendingHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year', 'agency_name', 'agency_id')
+        model = BilingualEdSpending
+        super(BilingualEdSpendingHandler, self).__init__(allowed_keys, model)
+        
 class BudgetCategorySubfunctionsHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('subfunction')

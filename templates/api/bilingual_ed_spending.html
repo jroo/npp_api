@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>Federal Bilingual Education Spending by School District</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/bilingual_ed_spending/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'year', 'agency_id', 'agency_name'</div>
+		<div>Example: <a href="/api/bilingual_ed_spending/list.json?state=ND&year=2007">http://data.nationalpriorities.org/api/bilingual_ed_spending/list.json?state=ND&amp;year=2007</a></div>
+	</div>
+</div>
+{% endblock %}

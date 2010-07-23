@@ -6,6 +6,7 @@ alternative_fuel_vehicles_handler = Resource(AlternativeFuelVehiclesHandler)
 ansi_county_state_handler = Resource(ANSICountyStateHandler)
 at_codes_handler = Resource(ATCodesHandler)
 average_teacher_salary_handler = Resource(AverageTeacherSalaryHandler)
+bilingual_ed_spending_handler = Resource(BilingualEdSpendingHandler)
 budget_category_subfunctions_handler = Resource(BudgetCategorySubfunctionsHandler)
 cffr_handler = Resource(CFFRHandler)
 cffr_agency_handler = Resource(CFFRAgencyHandler)
@@ -73,6 +74,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^ansi_county_state.html$', 'direct_to_template', {'template': 'api/ansi_county_state.html'}),
     (r'^at_codes.html$', 'direct_to_template', {'template': 'api/at_codes.html'}),
     (r'^average_teacher_salary.html$', 'direct_to_template', {'template': 'api/average_teacher_salary.html'}),
+    (r'^bilingual_ed_spending.html$', 'direct_to_template', {'template': 'api/bilingual_ed_spending.html'}),
     (r'^budget_category_subfunctions.html$', 'direct_to_template', {'template': 'api/budget_category_subfunctions.html'}),
     (r'^cffr.html$', 'direct_to_template', {'template': 'api/cffr.html'}),
     (r'^county_unemployment.html$', 'direct_to_template', {'template': 'api/county_unemployment.html'}),
@@ -136,6 +138,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^at_codes/list\.(?P<emitter_format>.+)', at_codes_handler),
     url(r'^average_teacher_salary/$', average_teacher_salary_handler),
     url(r'^average_teacher_salary/list\.(?P<emitter_format>.+)', average_teacher_salary_handler),
+    url(r'^bilingual_ed_spending/$', bilingual_ed_spending_handler),
+    url(r'^bilingual_ed_spending/list\.(?P<emitter_format>.+)', bilingual_ed_spending_handler),
     url(r'^budget_category_subfunctions/$', budget_category_subfunctions_handler),
     url(r'^budget_category_subfunctions/list\.(?P<emitter_format>.+)', budget_category_subfunctions_handler),
     url(r'^cffr/$', cffr_handler),
