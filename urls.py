@@ -6,6 +6,7 @@ from django.conf.urls.defaults import *
 
 urlpatterns = patterns('django.views.generic.simple',
     (r'^$', 'direct_to_template', {'template': 'data/index.html'}),
+    (r'^sandbox/$', 'direct_to_template', {'template': 'sandbox/index.html'}),
     (r'^api/', include('npp.api.urls')),
 
     # Example:
