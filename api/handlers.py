@@ -148,6 +148,12 @@ class ExpenditurePerPupilHandler(GenericHandler):
         model = ExpenditurePerPupil
         super(ExpenditurePerPupilHandler, self).__init__(allowed_keys, model)
         
+class FCNASpendingHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year', 'agency_name', 'agency_id')
+        model = FCNASpending
+        super(FCNASpendingHandler, self).__init__(allowed_keys, model)
+        
 class FIPSCountyCongressDistrictHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state_code', 'county_code', 'district_code', 'congress')

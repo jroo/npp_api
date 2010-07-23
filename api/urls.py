@@ -21,6 +21,7 @@ energy_expenditures_handler = Resource(EnergyExpendituresHandler)
 energy_production_estimates_handler = Resource(EnergyProductionEstimatesHandler)
 enrollment_race_handler = Resource(EnrollmentRaceHandler)
 expenditure_per_pupil_handler = Resource(ExpenditurePerPupilHandler)
+fcna_spending_handler = Resource(FCNASpendingHandler)
 fips_county_congress_district_handler = Resource(FIPSCountyCongressDistrictHandler)
 fips_state_handler = Resource(FIPSStateHandler)
 health_insurance_handler = Resource(HealthInsuranceHandler)
@@ -76,7 +77,12 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^diploma_recipient_total.html$', 'direct_to_template', {'template': 'api/diploma_recipient_total.html'}),
     (r'^dropouts_race.html$', 'direct_to_template', {'template': 'api/dropouts_race.html'}),
     (r'^employment.html$', 'direct_to_template', {'template': 'api/employment.html'}),
+    (r'^energy_consumption_state.html$', 'direct_to_template', {'template': 'api/energy_consumption_state.html'}),
+    (r'^energy_expenditures_state.html$', 'direct_to_template', {'template': 'api/energy_expenditures_state.html'}),
+    (r'^energy_production_estimates.html$', 'direct_to_template', {'template': 'api/energy_production_estimates.html'}),
+    (r'^enrollment_race.html$', 'direct_to_template', {'template': 'api/enrollment_race.html'}),
     (r'^expenditure_per_pupil.html$', 'direct_to_template', {'template': 'api/expenditure_per_pupil.html'}),
+    (r'^fcna_spending.html$', 'direct_to_template', {'template': 'api/fcna_spending.html'}),
     (r'^fips_county_congressional.html$', 'direct_to_template', {'template': 'api/fips_county_congressional.html'}),
     (r'^health_insurance.html$', 'direct_to_template', {'template': 'api/health_insurance.html'}),
     (r'^high_school_dropouts.html$', 'direct_to_template', {'template': 'api/high_school_dropouts.html'}),
@@ -84,10 +90,6 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^housing_units.html$', 'direct_to_template', {'template': 'api/housing_units.html'}),
     (r'^irs_gross_collections.html$', 'direct_to_template', {'template': 'api/irs_gross_collections.html'}),
     (r'^kids_health_insurance.html$', 'direct_to_template', {'template': 'api/kids_health_insurance.html'}),
-    (r'^energy_consumption_state.html$', 'direct_to_template', {'template': 'api/energy_consumption_state.html'}),
-    (r'^energy_expenditures_state.html$', 'direct_to_template', {'template': 'api/energy_expenditures_state.html'}),
-    (r'^energy_production_estimates.html$', 'direct_to_template', {'template': 'api/energy_production_estimates.html'}),
-    (r'^enrollment_race.html$', 'direct_to_template', {'template': 'api/enrollment_race.html'}),
     (r'^nces_school_district.html$', 'direct_to_template', {'template': 'api/nces_school_district.html'}),
     (r'^median_household_income_4_member.html$', 'direct_to_template', {'template': 'api/median_household_income_4_member.html'}),
     (r'^medicaid_participation.html$', 'direct_to_template', {'template': 'api/medicaid_participation.html'}),
@@ -153,6 +155,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^enrollment_race/list\.(?P<emitter_format>.+)', enrollment_race_handler),
     url(r'^expenditure_per_pupil/$', expenditure_per_pupil_handler),
     url(r'^expenditure_per_pupil/list\.(?P<emitter_format>.+)', expenditure_per_pupil_handler),
+    url(r'^fcna_spending/', fcna_spending_handler),
+    url(r'^fcna_spending/list\.(?P<emitter_format>.+)', fcna_spending_handler),
     url(r'^fips_county_congress_district/$', fips_county_congress_district_handler),
     url(r'^fips_county_congress_district/list\.(?P<emitter_format>.+)', fips_county_congress_district_handler),
     url(r'^fips_state/$', fips_state_handler),
