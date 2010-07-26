@@ -24,6 +24,7 @@ energy_production_estimates_handler = Resource(EnergyProductionEstimatesHandler)
 enrollment_race_handler = Resource(EnrollmentRaceHandler)
 expenditure_per_pupil_handler = Resource(ExpenditurePerPupilHandler)
 fcna_spending_handler = Resource(FCNASpendingHandler)
+federal_impact_aid_handler = Resource(FederalImpactAidHandler)
 fips_county_congress_district_handler = Resource(FIPSCountyCongressDistrictHandler)
 fips_state_handler = Resource(FIPSStateHandler)
 health_insurance_handler = Resource(HealthInsuranceHandler)
@@ -90,6 +91,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^enrollment_race.html$', 'direct_to_template', {'template': 'api/enrollment_race.html'}),
     (r'^expenditure_per_pupil.html$', 'direct_to_template', {'template': 'api/expenditure_per_pupil.html'}),
     (r'^fcna_spending.html$', 'direct_to_template', {'template': 'api/fcna_spending.html'}),
+    (r'^federal_impact_aid.html$', 'direct_to_template', {'template': 'api/federal_impact_aid.html'}),
     (r'^fips_county_congressional.html$', 'direct_to_template', {'template': 'api/fips_county_congressional.html'}),
     (r'^health_insurance.html$', 'direct_to_template', {'template': 'api/health_insurance.html'}),
     (r'^high_school_dropouts.html$', 'direct_to_template', {'template': 'api/high_school_dropouts.html'}),
@@ -178,6 +180,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^expenditure_per_pupil/list\.(?P<emitter_format>.+)', expenditure_per_pupil_handler),
     url(r'^fcna_spending/', fcna_spending_handler),
     url(r'^fcna_spending/list\.(?P<emitter_format>.+)', fcna_spending_handler),
+    url(r'^federal_impact_aid/', federal_impact_aid_handler),
+    url(r'^federal_impact_aid/list\.(?P<emitter_format>.+)', federal_impact_aid_handler),
     url(r'^fips_county_congress_district/$', fips_county_congress_district_handler),
     url(r'^fips_county_congress_district/list\.(?P<emitter_format>.+)', fips_county_congress_district_handler),
     url(r'^fips_state/$', fips_state_handler),

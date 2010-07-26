@@ -166,6 +166,12 @@ class FCNASpendingHandler(GenericHandler):
         model = FCNASpending
         super(FCNASpendingHandler, self).__init__(allowed_keys, model)
         
+class FederalImpactAidHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year', 'agency_name', 'agency_id')
+        model = FederalImpactAid
+        super(FederalImpactAidHandler, self).__init__(allowed_keys, model)
+        
 class FIPSCountyCongressDistrictHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state_code', 'county_code', 'district_code', 'congress')

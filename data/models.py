@@ -195,6 +195,13 @@ class FCNASpending(models.Model):
     agency_id = models.CharField(max_length=7)
     amount = models.IntegerField(null=True)
     
+class FederalImpactAid(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=2)
+    agency_name = models.CharField(max_length=128)
+    agency_id = models.CharField(max_length=7)
+    amount = models.IntegerField(null=True)
+    
 class FIPSCountyCongressDistrict(models.Model):
     state_code = models.CharField(max_length=2)
     county_code = models.CharField(max_length=3)
