@@ -274,6 +274,12 @@ class NCESSchoolDistrictHandler(GenericHandler):
         model = NCESSchoolDistrict
         super(NCESSchoolDistrictHandler, self).__init__(allowed_keys, model)
         
+class OtherFederalRevenueHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year', 'agency_name', 'agency_id')
+        model = FederalImpactAid
+        super(OtherFederalRevenueHandler, self).__init__(allowed_keys, model)
+        
 class OwnersRentersHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year')

@@ -43,6 +43,7 @@ native_ed_spending_handler = Resource(NativeEdSpendingHandler)
 new_aids_cases_handler = Resource(NewAIDSCasesHandler)
 nces_school_district_handler = Resource(NCESSchoolDistrictHandler)
 owners_renters_handler = Resource(OwnersRentersHandler)
+other_federal_revenue_handler = Resource(OtherFederalRevenueHandler)
 people_in_poverty_handler = Resource(PeopleInPovertyHandler)
 population_families_handler = Resource(PopulationFamiliesHandler)
 presidents_budget_handler = Resource(PresidentsBudgetHandler)
@@ -107,6 +108,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^military_personnel.html$', 'direct_to_template', {'template': 'api/military_personnel.html'}),
     (r'^native_ed_spending.html$', 'direct_to_template', {'template': 'api/native_ed_spending.html'}),
     (r'^new_aids_cases.html$', 'direct_to_template', {'template': 'api/new_aids_cases.html'}),
+    (r'^other_federal_revenue.html$', 'direct_to_template', {'template': 'api/other_federal_revenue.html'}),
     (r'^owners_renters.html$', 'direct_to_template', {'template': 'api/owners_renters.html'}),
     (r'^people_in_poverty.html$', 'direct_to_template', {'template': 'api/people_in_poverty.html'}),
     (r'^population_families.html$', 'direct_to_template', {'template': 'api/population_families.html'}),
@@ -216,6 +218,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^nces_school_district/list\.(?P<emitter_format>.+)', nces_school_district_handler),
     url(r'^new_aids_cases/$', new_aids_cases_handler),
     url(r'^new_aids_cases/list\.(?P<emitter_format>.+)', new_aids_cases_handler),
+    url(r'^other_federal_revenue/$', other_federal_revenue_handler),
+    url(r'^other_federal_revenue/list\.(?P<emitter_format>.+)', other_federal_revenue_handler),
     url(r'^owners_renters/$', owners_renters_handler),
     url(r'^owners_renters/list\.(?P<emitter_format>.+)', owners_renters_handler),
     url(r'^people_in_poverty/$', people_in_poverty_handler),
