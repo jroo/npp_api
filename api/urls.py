@@ -41,6 +41,7 @@ math_science_spending_handler = Resource(MathScienceSpendingHandler)
 median_household_income_4_member_handler = Resource(MedianHouseholdIncome4MemberHandler)
 medicaid_participation_handler = Resource(MedicaidParticipationHandler)
 medicare_enrollment_handler = Resource(MedicareEnrollmentHandler)
+migrant_students_handler = Resource(MigrantStudentsHandler)
 military_personnel_handler = Resource(MilitaryPersonnelHandler)
 msn_code_handler = Resource(MSNCodeHandler)
 native_ed_spending_handler = Resource(NativeEdSpendingHandler)
@@ -114,6 +115,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^median_household_income_4_member.html$', 'direct_to_template', {'template': 'api/median_household_income_4_member.html'}),
     (r'^medicaid_participation.html$', 'direct_to_template', {'template': 'api/medicaid_participation.html'}),
     (r'^medicare_enrollment.html$', 'direct_to_template', {'template': 'api/medicare_enrollment.html'}),
+    (r'^migrant_students.html$', 'direct_to_template', {'template': 'api/migrant_students.html'}),
     (r'^military_personnel.html$', 'direct_to_template', {'template': 'api/military_personnel.html'}),
     (r'^native_ed_spending.html$', 'direct_to_template', {'template': 'api/native_ed_spending.html'}),
     (r'^new_aids_cases.html$', 'direct_to_template', {'template': 'api/new_aids_cases.html'}),
@@ -226,6 +228,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^medicaid_participation/list\.(?P<emitter_format>.+)', medicaid_participation_handler),
     url(r'^medicare_enrollment/$', medicare_enrollment_handler),
     url(r'^medicare_enrollment/list\.(?P<emitter_format>.+)', medicare_enrollment_handler),
+    url(r'^migrant_students/$', migrant_students_handler),
+    url(r'^migrant_students/list\.(?P<emitter_format>.+)', migrant_students_handler),
     url(r'^military_personnel/$', military_personnel_handler),
     url(r'^military_personnel/list\.(?P<emitter_format>.+)', military_personnel_handler),
     url(r'^msn_codes/$', msn_code_handler),
