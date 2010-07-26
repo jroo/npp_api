@@ -190,6 +190,12 @@ class FreeLunchEligibleHandler(GenericHandler):
         model = FreeLunchEligible
         super(FreeLunchEligibleHandler, self).__init__(allowed_keys, model)
         
+class FreeReducedLunchEligibleHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year', 'agency_name', 'agency_id')
+        model = FreeReducedLunchEligible
+        super(FreeReducedLunchEligibleHandler, self).__init__(allowed_keys, model)
+        
 class HealthInsuranceHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year')
