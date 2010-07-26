@@ -364,6 +364,12 @@ class SCHIPEnrollmentHandler(GenericHandler):
         model = SCHIPEnrollment
         super(SCHIPEnrollmentHandler, self).__init__(allowed_keys, model)
         
+class SNAPBenefitsRecipientsHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state_fips', 'county_fips', 'name', 'year')
+        model = SNAPBenefitsRecipients
+        super(SNAPBenefitsRecipientsHandler, self).__init__(allowed_keys, model)
+        
 class StateCompletionRateHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year', 'key')

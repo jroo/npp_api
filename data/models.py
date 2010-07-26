@@ -4,9 +4,6 @@ class AlternativeFuelVehicles(models.Model):
     state = models.CharField(max_length=32)
     year = models.IntegerField()
     value = models.IntegerField()
-    
-    def fips_state(self):
-        return "999"
 
 class AnnualStateEnergyConsumption(models.Model):
     state = models.CharField(max_length=2)
@@ -633,6 +630,13 @@ class ShelterPopulation(models.Model):
     state = models.CharField(max_length=32)
     value = models.IntegerField()
     percent = models.FloatField(null=True)
+    
+class SNAPBenefitsRecipients(models.Model):
+    state_fips = models.CharField(max_length=2)
+    county_fips = models.CharField(max_length=3)
+    name = models.CharField(max_length=128)
+    year = models.IntegerField()
+    value = models.IntegerField(null=True)
     
 class SpecialEdFunding(models.Model):
     year = models.IntegerField()

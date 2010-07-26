@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>SNAP Benefits (Foodstamps) Recipients by County and State</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/snap_benefits_recipients/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state_fips', 'county_fips', 'name', 'year'</div>
+		<div>Example: <a href="/api/snap_benefits_recipients/list.json?name=West Virginia&year=2007">http://data.nationalpriorities.org/api/snap_benefits_recipients/list.json?name=West Virginia&amp;year=2007</a></div>
+	</div>
+</div>
+{% endblock %}
