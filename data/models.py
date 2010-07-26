@@ -230,6 +230,12 @@ class FreeReducedLunchEligible(models.Model):
     agency_id = models.CharField(max_length=7)
     amount = models.IntegerField(null=True)
     
+class FreeReducedLunchEligibleCounty(models.Model):
+    year = models.IntegerField()
+    county_name = models.CharField(max_length=128, null=True)
+    state = models.CharField(max_length=2, null=True)
+    amount = models.IntegerField(null=True)
+    
 class HealthInsurance(models.Model):
     state = models.CharField(max_length=64)
     year = models.IntegerField()

@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>Free and Reduced Lunch Eligible by County</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/free_reduced_lunch_eligible_county/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'county_name', 'year'</div>
+		<div>Example: <a href="/api/free_reduced_lunch_eligible_county/list.json?state=NC&year=2007">http://data.nationalpriorities.org/api/free_reduced_lunch_eligible_county/list.json?state=NC&amp;year=2007</a></div>
+	</div>
+</div>
+{% endblock %}
