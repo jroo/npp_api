@@ -212,6 +212,13 @@ class FIPSState(models.Model):
     state = models.CharField(max_length=2)
     code = models.CharField(max_length=64)
     
+class FreeLunchEligible(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=2)
+    agency_name = models.CharField(max_length=128)
+    agency_id = models.CharField(max_length=7)
+    amount = models.IntegerField(null=True)
+    
 class HealthInsurance(models.Model):
     state = models.CharField(max_length=64)
     year = models.IntegerField()

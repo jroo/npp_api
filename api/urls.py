@@ -27,6 +27,7 @@ fcna_spending_handler = Resource(FCNASpendingHandler)
 federal_impact_aid_handler = Resource(FederalImpactAidHandler)
 fips_county_congress_district_handler = Resource(FIPSCountyCongressDistrictHandler)
 fips_state_handler = Resource(FIPSStateHandler)
+free_lunch_eligible_handler = Resource(FreeLunchEligibleHandler)
 health_insurance_handler = Resource(HealthInsuranceHandler)
 high_school_other_handler = Resource(HighSchoolOtherHandler)
 high_school_dropouts_handler = Resource(HighSchoolDropoutsHandler)
@@ -95,6 +96,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^fcna_spending.html$', 'direct_to_template', {'template': 'api/fcna_spending.html'}),
     (r'^federal_impact_aid.html$', 'direct_to_template', {'template': 'api/federal_impact_aid.html'}),
     (r'^fips_county_congressional.html$', 'direct_to_template', {'template': 'api/fips_county_congressional.html'}),
+    (r'^free_lunch_eligible.html$', 'direct_to_template', {'template': 'api/free_lunch_eligible.html'}),
     (r'^health_insurance.html$', 'direct_to_template', {'template': 'api/health_insurance.html'}),
     (r'^high_school_dropouts.html$', 'direct_to_template', {'template': 'api/high_school_dropouts.html'}),
     (r'^high_school_other.html$', 'direct_to_template', {'template': 'api/high_school_other.html'}),
@@ -190,6 +192,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^fips_county_congress_district/list\.(?P<emitter_format>.+)', fips_county_congress_district_handler),
     url(r'^fips_state/$', fips_state_handler),
     url(r'^fips_state/list\.(?P<emitter_format>.+)', fips_state_handler),
+    url(r'^free_lunch_eligible/$', free_lunch_eligible_handler),
+    url(r'^free_lunch_eligible/list\.(?P<emitter_format>.+)', free_lunch_eligible_handler),
     url(r'^health_insurance/$', health_insurance_handler),
     url(r'^health_insurance/list\.(?P<emitter_format>.+)', health_insurance_handler),
     url(r'^high_school_dropouts/$', high_school_dropouts_handler),

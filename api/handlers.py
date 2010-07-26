@@ -183,6 +183,12 @@ class FIPSStateHandler(GenericHandler):
         allowed_keys = ('code', 'state')
         model = FIPSState
         super(FIPSStateHandler, self).__init__(allowed_keys, model)
+
+class FreeLunchEligibleHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year', 'agency_name', 'agency_id')
+        model = FreeLunchEligible
+        super(FreeLunchEligibleHandler, self).__init__(allowed_keys, model)
         
 class HealthInsuranceHandler(GenericHandler):
     def __init__(self):
