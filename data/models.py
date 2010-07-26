@@ -408,6 +408,13 @@ class PopulationFamilies(models.Model):
     state = models.CharField(max_length=32)
     value = models.IntegerField()
     
+class PupilTeacherDistrict(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=2)
+    agency_name = models.CharField(max_length=128)
+    agency_id = models.CharField(max_length=7)
+    amount = models.FloatField(null=True)
+    
 class PresidentsBudget(models.Model):
     budget_type = models.CharField(max_length=32)
     source_category_code = models.IntegerField(null=True)

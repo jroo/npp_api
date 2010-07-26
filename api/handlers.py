@@ -277,7 +277,7 @@ class NCESSchoolDistrictHandler(GenericHandler):
 class OtherFederalRevenueHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year', 'agency_name', 'agency_id')
-        model = FederalImpactAid
+        model = OtherFederalRevenue
         super(OtherFederalRevenueHandler, self).__init__(allowed_keys, model)
         
 class OwnersRentersHandler(GenericHandler):
@@ -296,7 +296,13 @@ class PopulationFamiliesHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year')
         model = PopulationFamilies
-        super(PopulationFamiliesHandler, self).__init__(allowed_keys, model) 
+        super(PopulationFamiliesHandler, self).__init__(allowed_keys, model)
+
+class PupilTeacherDistrictHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year', 'agency_name', 'agency_id')
+        model = PupilTeacherDistrict
+        super(PupilTeacherDistrictHandler, self).__init__(allowed_keys, model) 
                
 class PresidentsBudgetHandler(GenericHandler):
     def __init__(self):

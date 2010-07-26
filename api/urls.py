@@ -47,6 +47,7 @@ other_federal_revenue_handler = Resource(OtherFederalRevenueHandler)
 people_in_poverty_handler = Resource(PeopleInPovertyHandler)
 population_families_handler = Resource(PopulationFamiliesHandler)
 presidents_budget_handler = Resource(PresidentsBudgetHandler)
+pupil_teacher_district_handler = Resource(PupilTeacherDistrictHandler)
 race_population_1980s_handler = Resource(RacePopulation1980sHandler)
 race_population_1990s_handler = Resource(RacePopulation1990sHandler)
 saipe_county_state_handler = Resource(SAIPECountyStateHandler)
@@ -112,6 +113,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^owners_renters.html$', 'direct_to_template', {'template': 'api/owners_renters.html'}),
     (r'^people_in_poverty.html$', 'direct_to_template', {'template': 'api/people_in_poverty.html'}),
     (r'^population_families.html$', 'direct_to_template', {'template': 'api/population_families.html'}),
+    (r'^pupil_teacher_district.html$', 'direct_to_template', {'template': 'api/pupil_teacher_district.html'}),
     (r'^race_population_1980s.html$', 'direct_to_template', {'template': 'api/race_population_1980s.html'}),
     (r'^race_population_1990s.html$', 'direct_to_template', {'template': 'api/race_population_1990s.html'}),
     (r'^saipe_county_state.html$', 'direct_to_template', {'template': 'api/saipe_county_state.html'}),
@@ -228,6 +230,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^population_families/list\.(?P<emitter_format>.+)', population_families_handler),
     url(r'^presidents_budget/$', presidents_budget_handler),
     url(r'^presidents_budget/list\.(?P<emitter_format>.+)', presidents_budget_handler),
+    url(r'^pupil_teacher_district/$', pupil_teacher_district_handler),
+    url(r'^pupil_teacher_district/list\.(?P<emitter_format>.+)', pupil_teacher_district_handler),
     url(r'^race_population_1980s/$', race_population_1980s_handler),
     url(r'^race_population_1980s/list\.(?P<emitter_format>.+)', race_population_1980s_handler),
     url(r'^race_population_1990s/$', race_population_1990s_handler),

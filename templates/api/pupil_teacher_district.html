@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>Pupil/Teacher Ratio by School District</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/pupil_teacher_district/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'year', 'agency_id', 'agency_name'</div>
+		<div>Example: <a href="/api/pupil_teacher_district/list.json?state=MN&year=2007">http://data.nationalpriorities.org/api/pupil_teacher_district/list.json?state=MN&amp;year=2007</a></div>
+	</div>
+</div>
+{% endblock %}
