@@ -17,6 +17,7 @@ county_unemployment_handler = Resource(CountyUnemploymentHandler)
 diploma_recipient_total_handler = Resource(DiplomaRecipientTotalHandler)
 dropouts_race_handler = Resource(DropoutsRaceHandler)
 drug_free_school_spending_handler = Resource(DrugFreeSchoolSpendingHandler)
+ell_students_district_handler = Resource(ELLStudentsDistrictHandler)
 employment_handler = Resource(EmploymentHandler)
 energy_consumption_handler = Resource(EnergyConsumptionHandler)
 energy_expenditures_handler = Resource(EnergyExpendituresHandler)
@@ -89,6 +90,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^diploma_recipient_total.html$', 'direct_to_template', {'template': 'api/diploma_recipient_total.html'}),
     (r'^dropouts_race.html$', 'direct_to_template', {'template': 'api/dropouts_race.html'}),
     (r'^drug_free_school_spending.html$', 'direct_to_template', {'template': 'api/drug_free_school_spending.html'}),
+    (r'^ell_students_district.html$', 'direct_to_template', {'template': 'api/ell_students_district.html'}),
     (r'^employment.html$', 'direct_to_template', {'template': 'api/employment.html'}),
     (r'^energy_consumption_state.html$', 'direct_to_template', {'template': 'api/energy_consumption_state.html'}),
     (r'^energy_expenditures_state.html$', 'direct_to_template', {'template': 'api/energy_expenditures_state.html'}),
@@ -176,6 +178,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^dropouts_race/list\.(?P<emitter_format>.+)', dropouts_race_handler),
     url(r'^drug_free_school_spending/$', drug_free_school_spending_handler),
     url(r'^drug_free_school_spending/list\.(?P<emitter_format>.+)', drug_free_school_spending_handler),
+    url(r'^ell_students_district/$', ell_students_district_handler),
+    url(r'^ell_students_district/list\.(?P<emitter_format>.+)', ell_students_district_handler),
     url(r'^employment/$', employment_handler),
     url(r'^employment/list\.(?P<emitter_format>.+)', employment_handler),
     url(r'^energy_consumption/$', energy_consumption_handler),
