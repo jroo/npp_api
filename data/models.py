@@ -283,6 +283,13 @@ class HousingUnits(models.Model):
     year = models.IntegerField()
     value = models.IntegerField(null=True)
     
+class IndividualEducationPrograms(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=2)
+    agency_name = models.CharField(max_length=128)
+    agency_id = models.CharField(max_length=7)
+    amount = models.IntegerField(null=True)
+    
 class IRSGrossCollections(models.Model):
     year = models.IntegerField()
     state = models.CharField(max_length=255)

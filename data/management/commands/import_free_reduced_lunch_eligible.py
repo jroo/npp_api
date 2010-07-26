@@ -8,7 +8,7 @@ import csv
 # import_free_reduced_lunch_eligible.py
 # Updated 7/26/2010, Joshua Ruihley, Sunlight Foundation
 
-# Imports Title I Funding Data
+# Imports Free and Reduced Lunch Eligible by School District Data
 # source info: http://nces.ed.gov/ccd/bat/index.asp (accurate as of 7/26/2010)
 # npp csv: http://assets.nationalpriorities.org/raw_data/education/free_reduced_lunch_eligible.csv (updated 7/26/2010)
 # destination model:  FreeReducedLunchEligible

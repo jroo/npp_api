@@ -33,6 +33,7 @@ health_insurance_handler = Resource(HealthInsuranceHandler)
 high_school_other_handler = Resource(HighSchoolOtherHandler)
 high_school_dropouts_handler = Resource(HighSchoolDropoutsHandler)
 housing_units_handler = Resource(HousingUnitsHandler)
+individual_education_programs_handler = Resource(IndividualEducationProgramsHandler)
 irs_gross_collections_handler = Resource(IRSGrossCollectionsHandler)
 kids_health_insurance_handler = Resource(KidsHealthInsuranceHandler)
 math_science_spending_handler = Resource(MathScienceSpendingHandler)
@@ -103,6 +104,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^high_school_dropouts.html$', 'direct_to_template', {'template': 'api/high_school_dropouts.html'}),
     (r'^high_school_other.html$', 'direct_to_template', {'template': 'api/high_school_other.html'}),
     (r'^housing_units.html$', 'direct_to_template', {'template': 'api/housing_units.html'}),
+    (r'^individual_education_programs.html$', 'direct_to_template', {'template': 'api/individual_education_programs.html'}),
     (r'^irs_gross_collections.html$', 'direct_to_template', {'template': 'api/irs_gross_collections.html'}),
     (r'^kids_health_insurance.html$', 'direct_to_template', {'template': 'api/kids_health_insurance.html'}),
     (r'^nces_school_district.html$', 'direct_to_template', {'template': 'api/nces_school_district.html'}),
@@ -206,6 +208,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^high_school_other/list\.(?P<emitter_format>.+)', high_school_other_handler),
     url(r'^housing_units/$', housing_units_handler),
     url(r'^housing_units/list\.(?P<emitter_format>.+)', housing_units_handler),
+    url(r'^individual_education_programs/$', individual_education_programs_handler),
+    url(r'^individual_education_programs/list\.(?P<emitter_format>.+)', individual_education_programs_handler),
     url(r'^irs_gross_collections/$', irs_gross_collections_handler),
     url(r'^irs_gross_collections/list\.(?P<emitter_format>.+)', irs_gross_collections_handler),
     url(r'^kids_health_insurance/$', kids_health_insurance_handler),

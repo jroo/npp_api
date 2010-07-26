@@ -8,7 +8,7 @@ import csv
 # import_math_science_spending.py
 # Updated 7/23/2010, Joshua Ruihley, Sunlight Foundation
 
-# Imports Title I Funding Data
+# Imports Math/Science Spending Data
 # source info: http://nces.ed.gov/ccd/bat/index.asp (accurate as of 7/23/2010)
 # npp csv: http://assets.nationalpriorities.org/raw_data/education/math_science_spending.csv (updated 7/23/2010)
 # destination model:  MathScienceSpending

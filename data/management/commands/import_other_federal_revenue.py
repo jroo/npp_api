@@ -8,7 +8,7 @@ import csv
 # import_other_federal_revenue.py
 # Updated 7/26/2010, Joshua Ruihley, Sunlight Foundation
 
-# Imports Title I Funding Data
+# Imports Other Federal Revenue By School District Data
 # source info: http://nces.ed.gov/ccd/bat/index.asp (accurate as of 7/26/2010)
 # npp csv: http://assets.nationalpriorities.org/raw_data/education/other_federal_revenue.csv (updated 7/26/2010)
 # destination model:  OtherFederalRevenue

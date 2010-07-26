@@ -8,7 +8,7 @@ import csv
 # import_special_ed_funding.py
 # Updated 7/22/2010, Joshua Ruihley, Sunlight Foundation
 
-# Imports Title I Funding Data
+# Imports Special Education Funding Data
 # source info: http://nces.ed.gov/ccd/bat/index.asp (accurate as of 7/22/2010)
 # npp csv: http://assets.nationalpriorities.org/raw_data/education/special_ed_funding.csv (updated 7/22/2010)
 # destination model:  SpecialEdFunding

@@ -8,7 +8,7 @@ import csv
 # import_vocational_ed_spending.py
 # Updated 7/23/2010, Joshua Ruihley, Sunlight Foundation
 
-# Imports Title I Funding Data
+# Imports Vocational Education Spending Data
 # source info: http://nces.ed.gov/ccd/bat/index.asp (accurate as of 7/23/2010)
 # npp csv: http://assets.nationalpriorities.org/raw_data/education/vocational_ed_spending.csv (updated 7/23/2010)
 # destination model:  VocationalEdSpending

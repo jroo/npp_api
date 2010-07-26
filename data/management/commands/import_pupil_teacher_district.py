@@ -8,7 +8,7 @@ import csv
 # import_pupil_teacher_district.py
 # Updated 7/26/2010, Joshua Ruihley, Sunlight Foundation
 
-# Imports Title I Funding Data
+# Imports Pupil/Teacher Ratio by District Data
 # source info: http://nces.ed.gov/ccd/bat/index.asp (accurate as of 7/26/2010)
 # npp csv: http://assets.nationalpriorities.org/raw_data/education/pupil_teacher_district.csv (updated 7/26/2010)
 # destination model:  PupilTeacherDistrict

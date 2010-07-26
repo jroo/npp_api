@@ -220,6 +220,12 @@ class HousingUnitsHandler(GenericHandler):
         model = HousingUnits
         super(HousingUnitsHandler, self).__init__(allowed_keys, model)
         
+class IndividualEducationProgramsHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year', 'agency_name', 'agency_id')
+        model = IndividualEducationPrograms
+        super(IndividualEducationProgramsHandler, self).__init__(allowed_keys, model)
+        
 class IRSGrossCollectionsHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year')

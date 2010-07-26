@@ -8,7 +8,7 @@ import csv
 # import_federal_impact_aid.py
 # Updated 7/26/2010, Joshua Ruihley, Sunlight Foundation
 
-# Imports Title I Funding Data
+# Imports Federal Impact Aid Data
 # source info: http://nces.ed.gov/ccd/bat/index.asp (accurate as of 7/26/2010)
 # npp csv: http://assets.nationalpriorities.org/raw_data/education/federal_impact_aid.csv (updated 7/26/2010)
 # destination model:  FederalImpactAid
