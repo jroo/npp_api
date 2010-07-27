@@ -236,6 +236,11 @@ class FreeReducedLunchEligibleCounty(models.Model):
     state = models.CharField(max_length=2, null=True)
     amount = models.IntegerField(null=True)
     
+class HalfPints(models.Model):
+    state = models.CharField(max_length=32)
+    year = models.IntegerField()
+    value = models.IntegerField()
+    
 class HealthInsurance(models.Model):
     state = models.CharField(max_length=64)
     year = models.IntegerField()

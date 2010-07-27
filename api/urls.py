@@ -31,6 +31,7 @@ fips_state_handler = Resource(FIPSStateHandler)
 free_lunch_eligible_handler = Resource(FreeLunchEligibleHandler)
 free_reduced_lunch_eligible_handler = Resource(FreeReducedLunchEligibleHandler)
 free_reduced_lunch_eligible_county_handler = Resource(FreeReducedLunchEligibleCountyHandler)
+half_pints_handler = Resource(HalfPintsHandler)
 health_insurance_handler = Resource(HealthInsuranceHandler)
 high_school_other_handler = Resource(HighSchoolOtherHandler)
 high_school_dropouts_handler = Resource(HighSchoolDropoutsHandler)
@@ -109,6 +110,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^free_lunch_eligible.html$', 'direct_to_template', {'template': 'api/free_lunch_eligible.html'}),
     (r'^free_reduced_lunch_eligible.html$', 'direct_to_template', {'template': 'api/free_reduced_lunch_eligible.html'}),
     (r'^free_reduced_lunch_eligible_county.html$', 'direct_to_template', {'template': 'api/free_reduced_lunch_eligible_county.html'}),
+    (r'^half_pints.html$', 'direct_to_template', {'template': 'api/half_pints.html'}),
     (r'^health_insurance.html$', 'direct_to_template', {'template': 'api/health_insurance.html'}),
     (r'^high_school_dropouts.html$', 'direct_to_template', {'template': 'api/high_school_dropouts.html'}),
     (r'^high_school_other.html$', 'direct_to_template', {'template': 'api/high_school_other.html'}),
@@ -218,6 +220,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^free_reduced_lunch_eligible/list\.(?P<emitter_format>.+)', free_reduced_lunch_eligible_handler),
     url(r'^free_reduced_lunch_eligible_county/$', free_reduced_lunch_eligible_county_handler),
     url(r'^free_reduced_lunch_eligible_county/list\.(?P<emitter_format>.+)', free_reduced_lunch_eligible_county_handler),
+    url(r'^half_pints/$', half_pints_handler),
+    url(r'^half_pints/list\.(?P<emitter_format>.+)', half_pints_handler),
     url(r'^health_insurance/$', health_insurance_handler),
     url(r'^health_insurance/list\.(?P<emitter_format>.+)', health_insurance_handler),
     url(r'^high_school_dropouts/$', high_school_dropouts_handler),
