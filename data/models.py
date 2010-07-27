@@ -658,6 +658,11 @@ class SNAPBenefitsRecipients(models.Model):
     name = models.CharField(max_length=128)
     year = models.IntegerField()
     value = models.IntegerField(null=True)
+    
+class SNAPParticipationHouseholds(models.Model):
+    state = models.CharField(max_length=32)
+    year = models.IntegerField()
+    value = models.IntegerField()
 
 class SNAPParticipationPeople(models.Model):
     state = models.CharField(max_length=32)

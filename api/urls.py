@@ -63,6 +63,7 @@ schip_enrollment_handler = Resource(SCHIPEnrollmentHandler)
 school_breakfast_participation_handler = Resource(SchoolBreakfastParticipationHandler)
 school_lunch_participation_handler = Resource(SchoolLunchParticipationHandler)
 snap_benefits_recipients_handler = Resource(SNAPBenefitsRecipientsHandler)
+snap_participation_households_handler = Resource(SNAPParticipationHouseholdsHandler)
 snap_participation_people_handler = Resource(SNAPParticipationPeopleHandler)
 shelter_population_handler = Resource(ShelterPopulationHandler)
 special_ed_funding_handler = Resource(SpecialEdFundingHandler)
@@ -143,6 +144,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^shelter_population.html$', 'direct_to_template', {'template': 'api/shelter_population.html'}),
     (r'^special_ed_funding.html$', 'direct_to_template', {'template': 'api/special_ed_funding.html'}),
     (r'^snap_benefits_recipients.html$', 'direct_to_template', {'template': 'api/snap_benefits_recipients.html'}),
+    (r'^snap_participation_households.html$', 'direct_to_template', {'template': 'api/snap_participation_households.html'}),
     (r'^snap_participation_people.html$', 'direct_to_template', {'template': 'api/snap_participation_people.html'}),
     (r'^state_emissions.html$', 'direct_to_template', {'template': 'api/state_emissions.html'}),
     (r'^state_completion_rate.html$', 'direct_to_template', {'template': 'api/state_completion_rate.html'}),
@@ -290,6 +292,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^special_ed_funding/list\.(?P<emitter_format>.+)', special_ed_funding_handler),
     url(r'^snap_benefits_recipients/$', snap_benefits_recipients_handler),
     url(r'^snap_benefits_recipients/list\.(?P<emitter_format>.+)', snap_benefits_recipients_handler),
+    url(r'^snap_participation_households/$', snap_participation_households_handler),
+    url(r'^snap_participation_households/list\.(?P<emitter_format>.+)', snap_participation_households_handler),
     url(r'^snap_participation_people/$', snap_participation_people_handler),
     url(r'^snap_participation_people/list\.(?P<emitter_format>.+)', snap_participation_people_handler),
     url(r'^state_emissions/$', state_emissions_handler),
