@@ -455,6 +455,12 @@ class SAIPECountyStateHandler(GenericHandler):
         model = SAIPECountyState
         super(SAIPECountyStateHandler, self).__init__(allowed_keys, model)
         
+class SchoolLunchParticipationHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year')
+        model = SchoolLunchParticipation
+        super(SchoolLunchParticipationHandler, self).__init__(allowed_keys, model)
+        
 class ShelterPopulationHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year')
