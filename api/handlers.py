@@ -412,6 +412,12 @@ class SNAPBenefitsRecipientsHandler(GenericHandler):
         model = SNAPBenefitsRecipients
         super(SNAPBenefitsRecipientsHandler, self).__init__(allowed_keys, model)
         
+class SNAPMonthlyBenefitsPersonHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year')
+        model = SNAPMonthlyBenefitsPerson
+        super(SNAPMonthlyBenefitsPersonHandler, self).__init__(allowed_keys, model)
+        
 class SNAPParticipationHouseholdsHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year')
