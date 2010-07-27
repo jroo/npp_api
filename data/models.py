@@ -631,6 +631,11 @@ class SAIPECountyState(models.Model):
     state_postal_abbreviation = models.CharField(max_length=2)
     file_tag = models.CharField(max_length=22)
     
+class SchoolBreakfastParticipation(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=32)
+    value = models.IntegerField()
+    
 class SchoolLunchParticipation(models.Model):
     year = models.IntegerField()
     state = models.CharField(max_length=32)

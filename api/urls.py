@@ -59,6 +59,7 @@ race_population_1990s_handler = Resource(RacePopulation1990sHandler)
 saipe_county_state_handler = Resource(SAIPECountyStateHandler)
 saipe_school_handler = Resource(SAIPESchoolHandler)
 schip_enrollment_handler = Resource(SCHIPEnrollmentHandler)
+school_breakfast_participation_handler = Resource(SchoolBreakfastParticipationHandler)
 school_lunch_participation_handler = Resource(SchoolLunchParticipationHandler)
 snap_benefits_recipients_handler = Resource(SNAPBenefitsRecipientsHandler)
 shelter_population_handler = Resource(ShelterPopulationHandler)
@@ -133,6 +134,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^saipe_county_state.html$', 'direct_to_template', {'template': 'api/saipe_county_state.html'}),
     (r'^saipe_school.html$', 'direct_to_template', {'template': 'api/saipe_school.html'}),
     (r'^schip_enrollment.html$', 'direct_to_template', {'template': 'api/schip_enrollment.html'}),
+    (r'^school_breakfast_participation.html$', 'direct_to_template', {'template': 'api/school_breakfast_participation.html'}),
     (r'^school_lunch_participation.html$', 'direct_to_template', {'template': 'api/school_lunch_participation.html'}),
     (r'^shelter_population.html$', 'direct_to_template', {'template': 'api/shelter_population.html'}),
     (r'^special_ed_funding.html$', 'direct_to_template', {'template': 'api/special_ed_funding.html'}),
@@ -270,6 +272,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^saipe_school/list\.(?P<emitter_format>.+)', saipe_school_handler),
     url(r'^schip_enrollment/$', schip_enrollment_handler),
     url(r'^schip_enrollment/list\.(?P<emitter_format>.+)', schip_enrollment_handler),
+    url(r'^school_breakfast_participation/$', school_breakfast_participation_handler),
+    url(r'^school_breakfast_participation/list\.(?P<emitter_format>.+)', school_breakfast_participation_handler),
     url(r'^school_lunch_participation/$', school_lunch_participation_handler),
     url(r'^school_lunch_participation/list\.(?P<emitter_format>.+)', school_lunch_participation_handler),
     url(r'^shelter_population/$', shelter_population_handler),
