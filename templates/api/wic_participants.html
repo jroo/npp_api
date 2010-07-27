@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>WIC Participants by State</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/wic_participants/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'place', 'state', 'year', 'type'</div>
+		<div>Example: <a href="/api/wic_participants/list.json?state=SC&year=2007">http://data.nationalpriorities.org/api/wic_participants/list.json?state=SC&amp;year=2007</a></div>
+	</div>
+</div>
+{% endblock %}

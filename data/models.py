@@ -799,3 +799,17 @@ class VocationalEdSpending(models.Model):
     agency_name = models.CharField(max_length=128)
     agency_id = models.CharField(max_length=7)
     amount = models.IntegerField(null=True)
+    
+class WICBenefits(models.Model):
+    place = models.CharField(max_length=64)
+    state = models.CharField(max_length=32)
+    type = models.CharField(max_length=32)
+    year = models.IntegerField()
+    value = models.FloatField(null=True)
+    
+class WICParticipants(models.Model):
+    place = models.CharField(max_length=64)
+    state = models.CharField(max_length=32)
+    type = models.CharField(max_length=32)
+    year = models.IntegerField()
+    value = models.IntegerField(null=True)

@@ -538,3 +538,15 @@ class VocationalEdSpendingHandler(GenericHandler):
         allowed_keys = ('state', 'year', 'agency_name', 'agency_id')
         model = VocationalEdSpending
         super(VocationalEdSpendingHandler, self).__init__(allowed_keys, model)
+        
+class WICBenefits(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('place', 'state', 'year', 'type')
+        model = VocationalEdSpending
+        super(WICBenefits, self).__init__(allowed_keys, model)
+        
+class WICParticipants(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('place', 'state', 'year', 'type')
+        model = VocationalEdSpending
+        super(WICParticipants, self).__init__(allowed_keys, model)

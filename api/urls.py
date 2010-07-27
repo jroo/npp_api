@@ -85,6 +85,8 @@ total_students_handler = Resource(TotalStudentsHandler)
 subfunctions_cffr_handler = Resource(SubfunctionsCFFRHandler)
 vehicle_registrations_handler = Resource(VehicleRegistrationsHandler)
 vocational_ed_spending_handler = Resource(VocationalEdSpendingHandler)
+wic_benefits_handler = Resource(WICBenefits)
+wic_participants_handler = Resource(WICParticipants)
 
 urlpatterns = patterns('django.views.generic.simple',
     #documentation urls
@@ -164,8 +166,8 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^title_i_funding.html$', 'direct_to_template', {'template': 'api/title_i_funding.html'}),
     (r'^total_students.html$', 'direct_to_template', {'template': 'api/total_students.html'}),
     (r'^vocational_ed_spending.html$', 'direct_to_template', {'template': 'api/vocational_ed_spending.html'}),
-
-
+    (r'^wic_benefits.html$', 'direct_to_template', {'template': 'api/wic_benefits.html'}),
+    (r'^wic_participants.html$', 'direct_to_template', {'template': 'api/wic_participants.html'}),
 
     #api urls
     url(r'^alternative_fuel_vehicles/$', alternative_fuel_vehicles_handler),
@@ -332,4 +334,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^title_i_funding/list\.(?P<emitter_format>.+)', title_i_funding_handler),
     url(r'^vocational_ed_spending/$', vocational_ed_spending_handler),
     url(r'^vocational_ed_spending/list\.(?P<emitter_format>.+)', vocational_ed_spending_handler),
+    url(r'^wic_benefits/$', wic_benefits_handler),
+    url(r'^wic_benefits/list\.(?P<emitter_format>.+)', wic_benefits_handler),
+    url(r'^wic_participants/$', wic_participants_handler),
+    url(r'^wic_participants/list\.(?P<emitter_format>.+)', wic_participants_handler),
 )
