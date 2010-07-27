@@ -732,6 +732,11 @@ class SubfunctionsCFFR(models.Model):
     at_code_7 = models.TextField(max_length=1, null=True)
     at_code_8 = models.TextField(max_length=1, null=True)
     
+class SummerLunchParticipation(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=32)
+    value = models.IntegerField()
+    
 class TeacherPupilRatio(models.Model):
     state = models.CharField(max_length=2)
     year = models.IntegerField()

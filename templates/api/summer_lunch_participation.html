@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>Summer Lunch Participation by State</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/summer_lunch_participation/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'year'</div>
+		<div>Example: <a href="/api/summer_lunch_participation/list.json?state=South Carolina&year=2009">http://data.nationalpriorities.org/api/summer_lunch_participation/list.json?state=South Carolina&amp;year=2009</a></div>
+	</div>
+</div>
+{% endblock %}

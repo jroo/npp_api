@@ -74,6 +74,7 @@ state_population_estimates_handler = Resource(StatePopulationEstimatesHandler)
 state_postal_codes_handler = Resource(StatePostalCodesHandler)
 state_renewable_energy_handler = Resource(StateRenewableEnergyHandler)
 state_unemployment_handler = Resource(StateUnemploymentHandler)
+summer_lunch_participation_handler = Resource(SummerLunchParticipationHandler)
 teacher_pupil_ratio_handler = Resource(TeacherPupilRatioHandler)
 title_i_funding_handler = Resource(TitleIFundingHandler)
 total_students_handler = Resource(TotalStudentsHandler)
@@ -149,6 +150,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^state_renewable_energy.html$', 'direct_to_template', {'template': 'api/state_renewable_energy.html'}),
     (r'^state_unemployment.html$', 'direct_to_template', {'template': 'api/state_unemployment.html'}),
     (r'^state_vehicle_registrations.html$', 'direct_to_template', {'template':'api/state_vehicle_registrations.html'}),
+    (r'^summer_lunch_participation.html$', 'direct_to_template', {'template': 'api/summer_lunch_participation.html'}),
     (r'^subfunctions_cffr.html$', 'direct_to_template', {'template': 'api/subfunctions_cffr.html'}),
     (r'^teacher_pupil_ratio.html$', 'direct_to_template', {'template': 'api/teacher_pupil_ratio.html'}),
     (r'^title_i_funding.html$', 'direct_to_template', {'template': 'api/title_i_funding.html'}),
@@ -306,6 +308,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^state_vehicle_registrations/list\.(?P<emitter_format>.+)', vehicle_registrations_handler),
     url(r'^subfunctions_cffr/$', subfunctions_cffr_handler),
     url(r'^subfunctions_cffr/list\.(?P<emitter_format>.+)', subfunctions_cffr_handler),
+    url(r'^summer_lunch_participation/$', summer_lunch_participation_handler),
+    url(r'^summer_lunch_participation/list\.(?P<emitter_format>.+)', summer_lunch_participation_handler),
     url(r'^teacher_pupil_ratio/$', teacher_pupil_ratio_handler),
     url(r'^teacher_pupil_ratio/list\.(?P<emitter_format>.+)', teacher_pupil_ratio_handler),
     url(r'^title_i_funding/$', title_i_funding_handler),
