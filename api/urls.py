@@ -13,6 +13,7 @@ cffr_agency_handler = Resource(CFFRAgencyHandler)
 cffr_geo_handler = Resource(CFFRGeoHandler)
 cffr_object_code_handler = Resource(CFFRObjectCodeHandler)
 cffr_program_handler = Resource(CFFRProgramHandler)
+children_poverty_handler = Resource(ChildrenPovertyHandler)
 county_unemployment_handler = Resource(CountyUnemploymentHandler)
 diploma_recipient_total_handler = Resource(DiplomaRecipientTotalHandler)
 dropouts_race_handler = Resource(DropoutsRaceHandler)
@@ -100,6 +101,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^bilingual_ed_spending.html$', 'direct_to_template', {'template': 'api/bilingual_ed_spending.html'}),
     (r'^budget_category_subfunctions.html$', 'direct_to_template', {'template': 'api/budget_category_subfunctions.html'}),
     (r'^cffr.html$', 'direct_to_template', {'template': 'api/cffr.html'}),
+    (r'^children_poverty.html$', 'direct_to_template', {'template': 'api/children_poverty.html'}),
     (r'^county_unemployment.html$', 'direct_to_template', {'template': 'api/county_unemployment.html'}),
     (r'^diploma_recipient_total.html$', 'direct_to_template', {'template': 'api/diploma_recipient_total.html'}),
     (r'^dropouts_race.html$', 'direct_to_template', {'template': 'api/dropouts_race.html'}),
@@ -172,7 +174,9 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^vocational_ed_spending.html$', 'direct_to_template', {'template': 'api/vocational_ed_spending.html'}),
     (r'^wic_benefits.html$', 'direct_to_template', {'template': 'api/wic_benefits.html'}),
     (r'^wic_participants.html$', 'direct_to_template', {'template': 'api/wic_participants.html'}),
+)
 
+urlpatterns += patterns('',
     #api urls
     url(r'^alternative_fuel_vehicles/$', alternative_fuel_vehicles_handler),
     url(r'^alternative_fuel_vehicles/list\.(?P<emitter_format>.+)', alternative_fuel_vehicles_handler),
@@ -196,6 +200,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^cffrobjectcode/list\.(?P<emitter_format>.+)', cffr_object_code_handler), 
     url(r'^cffrprogram/$', cffr_program_handler),
     url(r'^cffrprogram/list\.(?P<emitter_format>.+)', cffr_program_handler),
+    url(r'^children_poverty/', children_poverty_handler),
+    url(r'^children_poverty/list\.(?P<emitter_format>.+)', children_poverty_handler),
     url(r'^county_unemployment/$', county_unemployment_handler),
     url(r'^county_unemployment/list\.(?P<emitter_format>.+)', county_unemployment_handler),
     url(r'^diploma_recipient_total/$', diploma_recipient_total_handler),

@@ -87,7 +87,17 @@ class CFFRProgram(models.Model):
     year = models.IntegerField()
     program_id_code = models.CharField(max_length=6)
     program_name = models.CharField(max_length=74)
-
+    
+class ChildrenPoverty(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=32)
+    age_range = models.CharField(max_length=16)
+    total = models.IntegerField()
+    below_income_level = models.IntegerField()
+    low_income_100_124_pct = models.IntegerField()
+    low_income_125_149_pct = models.IntegerField()
+    low_income_above_150_pct = models.IntegerField()
+    
 class CountyPopulationEstimates(models.Model):
     year = models.IntegerField()
     geo_id = models.CharField(max_length=12)

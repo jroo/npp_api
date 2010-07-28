@@ -8,7 +8,7 @@ import csv
 # import_families_poverty.py
 # Updated 7/28/2010, Joshua Ruihley, Sunlight Foundation
 
-# Imports Census Data on Retired and Disabled not in Labor Force
+# Imports Census Data on Number of Families in poverty
 # source info: http://dataferrett.census.gov/TheDataWeb/launchDFA.html (accurate as of 7/28/2010)
 # npp csv: http://assets.nationalpriorities.org/raw_data/census.gov/ferrett/families_poverty.csv (updated 7/28/2010)
 # destination model:  FamiliesPoverty

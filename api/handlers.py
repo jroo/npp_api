@@ -100,6 +100,12 @@ class CFFRProgramHandler(GenericHandler):
         model = CFFRProgram
         super(CFFRProgramHandler, self).__init__(allowed_keys, model)
         
+class ChildrenPovertyHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year', 'age_range')
+        model = ChildrenPoverty
+        super(ChildrenPovertyHandler, self).__init__(allowed_keys, model)
+        
 class CountyUnemploymentHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state_fips', 'county_fips', 'year')

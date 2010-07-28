@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>Children in Poverty by State</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/children_poverty/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'year', 'age_range'</div>
+		<div>Example: <a href="/api/children_poverty/list.json?state=FL&year=2009">http://data.nationalpriorities.org/api/children_poverty/list.json?state=FL&amp;year=2009</a></div>
+	</div>
+</div>
+{% endblock %}
