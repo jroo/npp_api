@@ -518,6 +518,18 @@ class RacePopulation1990s(models.Model):
     total_asian_pacific_island = models.IntegerField()
     total_hispanic = models.IntegerField()
     
+class RetiredDisabledNILF(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=32)
+    total = models.IntegerField()
+    employed_at_work = models.IntegerField()
+    employed_absent = models.IntegerField()
+    employed_on_layoff = models.IntegerField()
+    unemployed_looking = models.IntegerField()
+    retired_not_in_labor_force = models.IntegerField()
+    disabled_not_in_labor_force = models.IntegerField()
+    other_not_in_labor_force = models.IntegerField()
+    
 class SCHIPEnrollment(models.Model):
     state = models.CharField(max_length=32)
     year = models.IntegerField()

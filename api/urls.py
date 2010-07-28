@@ -57,6 +57,7 @@ presidents_budget_handler = Resource(PresidentsBudgetHandler)
 pupil_teacher_district_handler = Resource(PupilTeacherDistrictHandler)
 race_population_1980s_handler = Resource(RacePopulation1980sHandler)
 race_population_1990s_handler = Resource(RacePopulation1990sHandler)
+retired_disabled_nilf_handler = Resource(RetiredDisabledNILFHandler)
 saipe_county_state_handler = Resource(SAIPECountyStateHandler)
 saipe_school_handler = Resource(SAIPESchoolHandler)
 schip_enrollment_handler = Resource(SCHIPEnrollmentHandler)
@@ -139,6 +140,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^pupil_teacher_district.html$', 'direct_to_template', {'template': 'api/pupil_teacher_district.html'}),
     (r'^race_population_1980s.html$', 'direct_to_template', {'template': 'api/race_population_1980s.html'}),
     (r'^race_population_1990s.html$', 'direct_to_template', {'template': 'api/race_population_1990s.html'}),
+    (r'^retired_disabled_nilf.html$', 'direct_to_template', {'template': 'api/retired_disabled_nilf.html'}),
     (r'^saipe_county_state.html$', 'direct_to_template', {'template': 'api/saipe_county_state.html'}),
     (r'^saipe_school.html$', 'direct_to_template', {'template': 'api/saipe_school.html'}),
     (r'^schip_enrollment.html$', 'direct_to_template', {'template': 'api/schip_enrollment.html'}),
@@ -280,6 +282,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^race_population_1980s/list\.(?P<emitter_format>.+)', race_population_1980s_handler),
     url(r'^race_population_1990s/$', race_population_1990s_handler),
     url(r'^race_population_1990s/list\.(?P<emitter_format>.+)', race_population_1990s_handler),
+    url(r'^retired_disabled_nilf/$', retired_disabled_nilf_handler),
+    url(r'^retired_disabled_nilf/list\.(?P<emitter_format>.+)', retired_disabled_nilf_handler),
     url(r'^saipe_county_state/$', saipe_county_state_handler),
     url(r'^saipe_county_state/list\.(?P<emitter_format>.+)', saipe_county_state_handler),
     url(r'^saipe_school/$', saipe_school_handler),

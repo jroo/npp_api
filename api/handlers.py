@@ -370,6 +370,12 @@ class RacePopulation1990sHandler(GenericHandler):
         model = RacePopulation1990s
         super(RacePopulation1990sHandler, self).__init__(allowed_keys, model)
         
+class RetiredDisabledNILFHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year')
+        model = RetiredDisabledNILF
+        super(RetiredDisabledNILFHandler, self).__init__(allowed_keys, model)
+        
 class SAIPESchoolHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('id', 'year', 'fips_state', 'ccd_district_id', 'district_name')
