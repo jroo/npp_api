@@ -24,6 +24,7 @@ energy_expenditures_handler = Resource(EnergyExpendituresHandler)
 energy_production_estimates_handler = Resource(EnergyProductionEstimatesHandler)
 enrollment_race_handler = Resource(EnrollmentRaceHandler)
 expenditure_per_pupil_handler = Resource(ExpenditurePerPupilHandler)
+families_poverty_handler = Resource(FamiliesPovertyHandler)
 fcna_spending_handler = Resource(FCNASpendingHandler)
 federal_impact_aid_handler = Resource(FederalImpactAidHandler)
 fips_county_congress_district_handler = Resource(FIPSCountyCongressDistrictHandler)
@@ -110,6 +111,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^energy_production_estimates.html$', 'direct_to_template', {'template': 'api/energy_production_estimates.html'}),
     (r'^enrollment_race.html$', 'direct_to_template', {'template': 'api/enrollment_race.html'}),
     (r'^expenditure_per_pupil.html$', 'direct_to_template', {'template': 'api/expenditure_per_pupil.html'}),
+    (r'^families_poverty.html$', 'direct_to_template', {'template': 'api/families_poverty.html'}),
     (r'^fcna_spending.html$', 'direct_to_template', {'template': 'api/fcna_spending.html'}),
     (r'^federal_impact_aid.html$', 'direct_to_template', {'template': 'api/federal_impact_aid.html'}),
     (r'^fips_county_congressional.html$', 'direct_to_template', {'template': 'api/fips_county_congressional.html'}),
@@ -216,6 +218,8 @@ urlpatterns = patterns('django.views.generic.simple',
     url(r'^enrollment_race/list\.(?P<emitter_format>.+)', enrollment_race_handler),
     url(r'^expenditure_per_pupil/$', expenditure_per_pupil_handler),
     url(r'^expenditure_per_pupil/list\.(?P<emitter_format>.+)', expenditure_per_pupil_handler),
+    url(r'^families_poverty/', families_poverty_handler),
+    url(r'^families_poverty/list\.(?P<emitter_format>.+)', families_poverty_handler),
     url(r'^fcna_spending/', fcna_spending_handler),
     url(r'^fcna_spending/list\.(?P<emitter_format>.+)', fcna_spending_handler),
     url(r'^federal_impact_aid/', federal_impact_aid_handler),

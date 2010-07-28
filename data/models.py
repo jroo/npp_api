@@ -192,6 +192,15 @@ class ExpenditurePerPupil(models.Model):
     agency_id = models.CharField(max_length=7)
     amount = models.IntegerField(null=True)
     
+class FamiliesPoverty(models.Model):
+    year = models.IntegerField()
+    state = models.CharField(max_length=32)
+    total = models.IntegerField()
+    below_income_level = models.IntegerField()
+    low_income_100_124_pct = models.IntegerField()
+    low_income_125_149_pct = models.IntegerField()
+    low_income_above_150_pct = models.IntegerField()
+    
 class FCNASpending(models.Model):
     year = models.IntegerField()
     state = models.CharField(max_length=2)
