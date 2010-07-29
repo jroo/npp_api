@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>County Population Estimates</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/county_population_estimates/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'year', 'geo_id', 'geo_id2', 'sum_level', 'geo_name'</div>
+		<div>Example: <a href="/api/county_population_estimates/list.json?geo_id=05000US48085">http://data.nationalpriorities.org/api/county_population_estimates/list.json?geo_id=05000US48085</a></div>
+	</div>
+</div>
+{% endblock %}

@@ -14,6 +14,7 @@ cffr_geo_handler = Resource(CFFRGeoHandler)
 cffr_object_code_handler = Resource(CFFRObjectCodeHandler)
 cffr_program_handler = Resource(CFFRProgramHandler)
 children_poverty_handler = Resource(ChildrenPovertyHandler)
+county_population_estimates_handler = Resource(CountyPopulationEstimatesHandler)
 county_unemployment_handler = Resource(CountyUnemploymentHandler)
 diploma_recipient_total_handler = Resource(DiplomaRecipientTotalHandler)
 dropouts_race_handler = Resource(DropoutsRaceHandler)
@@ -103,6 +104,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^budget_category_subfunctions.html$', 'direct_to_template', {'template': 'api/budget_category_subfunctions.html'}),
     (r'^cffr.html$', 'direct_to_template', {'template': 'api/cffr.html'}),
     (r'^children_poverty.html$', 'direct_to_template', {'template': 'api/children_poverty.html'}),
+    (r'^county_population_estimates.html$', 'direct_to_template', {'template': 'api/county_population_estimates.html'}),
     (r'^county_unemployment.html$', 'direct_to_template', {'template': 'api/county_unemployment.html'}),
     (r'^diploma_recipient_total.html$', 'direct_to_template', {'template': 'api/diploma_recipient_total.html'}),
     (r'^dropouts_race.html$', 'direct_to_template', {'template': 'api/dropouts_race.html'}),
@@ -204,6 +206,8 @@ urlpatterns += patterns('',
     url(r'^cffrprogram/list\.(?P<emitter_format>.+)', cffr_program_handler),
     url(r'^children_poverty/', children_poverty_handler),
     url(r'^children_poverty/list\.(?P<emitter_format>.+)', children_poverty_handler),
+    url(r'^county_population_estimates/$', county_population_estimates_handler),
+    url(r'^county_population_estimates/list\.(?P<emitter_format>.+)', county_population_estimates_handler),
     url(r'^county_unemployment/$', county_unemployment_handler),
     url(r'^county_unemployment/list\.(?P<emitter_format>.+)', county_unemployment_handler),
     url(r'^diploma_recipient_total/$', diploma_recipient_total_handler),

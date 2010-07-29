@@ -106,6 +106,12 @@ class ChildrenPovertyHandler(GenericHandler):
         model = ChildrenPoverty
         super(ChildrenPovertyHandler, self).__init__(allowed_keys, model)
         
+class CountyPopulationEstimatesHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('year', 'geo_id', 'geo_id2', 'sum_level', 'geo_name')
+        model = CountyPopulationEstimates
+        super(CountyPopulationEstimatesHandler, self).__init__(allowed_keys, model)
+        
 class CountyUnemploymentHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state_fips', 'county_fips', 'year')
