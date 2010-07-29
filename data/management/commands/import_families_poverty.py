@@ -21,7 +21,6 @@ import csv
 # 5) Run as Django management command from your project path "python manage.py import_families_poverty"
 
 YEAR = 2009
-print YEAR
 SOURCE_FILE = '%s/census.gov/ferrett/families_poverty_%s.csv' % (settings.LOCAL_DATA_ROOT, YEAR)
 
 class Command(NoArgsCommand):

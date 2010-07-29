@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>Head Start Enrollment</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/head_start_enrollment/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'year'</div>
+		<div>Example: <a href="/api/head_start_enrollment/list.json?state=VIRGINIA&year=2007">http://data.nationalpriorities.org/api/head_start_enrollment/list.json?state=VIRGINIA&amp;year=2007</a></div>
+	</div>
+</div>
+{% endblock %}

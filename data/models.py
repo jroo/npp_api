@@ -260,6 +260,12 @@ class HalfPints(models.Model):
     year = models.IntegerField()
     value = models.IntegerField()
     
+class HeadStartEnrollment(models.Model):
+    state = models.CharField(max_length=32)
+    year = models.IntegerField()
+    funding = models.IntegerField()
+    enrollment = models.IntegerField()
+    
 class HealthInsurance(models.Model):
     state = models.CharField(max_length=64)
     year = models.IntegerField()

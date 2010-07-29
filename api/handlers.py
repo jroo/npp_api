@@ -225,6 +225,12 @@ class HalfPintsHandler(GenericHandler):
         allowed_keys = ('state', 'year')
         model = HalfPints
         super(HalfPintsHandler, self).__init__(allowed_keys, model)
+        
+class HeadStartEnrollmentHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('state', 'year')
+        model = HeadStartEnrollment
+        super(HeadStartEnrollmentHandler, self).__init__(allowed_keys, model)
                 
 class HealthInsuranceHandler(GenericHandler):
     def __init__(self):
