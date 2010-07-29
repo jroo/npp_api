@@ -24,6 +24,7 @@ employment_handler = Resource(EmploymentHandler)
 energy_consumption_handler = Resource(EnergyConsumptionHandler)
 energy_expenditures_handler = Resource(EnergyExpendituresHandler)
 energy_production_estimates_handler = Resource(EnergyProductionEstimatesHandler)
+enrolled_students_district_handler = Resource(EnrolledStudentsDistrictHandler)
 enrollment_race_handler = Resource(EnrollmentRaceHandler)
 expenditure_per_pupil_handler = Resource(ExpenditurePerPupilHandler)
 families_poverty_handler = Resource(FamiliesPovertyHandler)
@@ -114,6 +115,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^energy_consumption_state.html$', 'direct_to_template', {'template': 'api/energy_consumption_state.html'}),
     (r'^energy_expenditures_state.html$', 'direct_to_template', {'template': 'api/energy_expenditures_state.html'}),
     (r'^energy_production_estimates.html$', 'direct_to_template', {'template': 'api/energy_production_estimates.html'}),
+    (r'^enrolled_students_district.html$', 'direct_to_template', {'template': 'api/enrolled_students_district.html'}),
     (r'^enrollment_race.html$', 'direct_to_template', {'template': 'api/enrollment_race.html'}),
     (r'^expenditure_per_pupil.html$', 'direct_to_template', {'template': 'api/expenditure_per_pupil.html'}),
     (r'^families_poverty.html$', 'direct_to_template', {'template': 'api/families_poverty.html'}),
@@ -226,6 +228,8 @@ urlpatterns += patterns('',
     url(r'^energy_expenditures/list\.(?P<emitter_format>.+)', energy_expenditures_handler),
     url(r'^energy_production_estimates/', energy_production_estimates_handler),
     url(r'^energy_production_estimates/list\.(?P<emitter_format>.+)', energy_production_estimates_handler),
+    url(r'^enrolled_students_district/', enrolled_students_district_handler),
+    url(r'^enrolled_students_district/list\.(?P<emitter_format>.+)', enrolled_students_district_handler),
     url(r'^enrollment_race/', enrollment_race_handler),
     url(r'^enrollment_race/list\.(?P<emitter_format>.+)', enrollment_race_handler),
     url(r'^expenditure_per_pupil/$', expenditure_per_pupil_handler),

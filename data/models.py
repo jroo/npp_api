@@ -189,6 +189,12 @@ class Employment(models.Model):
     black_unemployed = models.FloatField(null=True)
     hispanic_unemployed = models.FloatField(null=True)
     
+class EnrolledStudentsDistrict(models.Model):
+    year = models.CharField(max_length=9)
+    state = models.CharField(max_length=2)
+    agency_name = models.CharField(max_length=64)
+    value = models.IntegerField(null=True)
+    
 class EnrollmentRace(models.Model):
     year = models.IntegerField()
     state = models.CharField(max_length=2)

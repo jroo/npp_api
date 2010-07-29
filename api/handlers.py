@@ -154,6 +154,12 @@ class EnergyExpendituresHandler(GenericHandler):
         model = AnnualStateEnergyExpenditures
         super(EnergyExpendituresHandler, self).__init__(allowed_keys, model)
         
+class EnrolledStudentsDistrictHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('year', 'state', )
+        model = EnrolledStudentsDistrict
+        super(EnrolledStudentsDistrictHandler, self).__init__(allowed_keys, model)
+        
 class EnrollmentRaceHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year', 'key')
