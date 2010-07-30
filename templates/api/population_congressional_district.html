@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>Population by Congressional District</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/population_congressional_district/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'year', 'district'</div>
+		<div>Example: <a href="/api/population_congressional_district/list.json?state=Texas">http://data.nationalpriorities.org/api/population_congressional_district/list.json?state=Texas</a></div>
+	</div>
+</div>
+{% endblock %}

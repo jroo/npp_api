@@ -57,6 +57,7 @@ nces_school_district_handler = Resource(NCESSchoolDistrictHandler)
 owners_renters_handler = Resource(OwnersRentersHandler)
 other_federal_revenue_handler = Resource(OtherFederalRevenueHandler)
 people_in_poverty_handler = Resource(PeopleInPovertyHandler)
+population_congressional_district_handler = Resource(PopulationCongressionalDistrictHandler)
 population_families_handler = Resource(PopulationFamiliesHandler)
 presidents_budget_handler = Resource(PresidentsBudgetHandler)
 pupil_teacher_district_handler = Resource(PupilTeacherDistrictHandler)
@@ -146,6 +147,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^other_federal_revenue.html$', 'direct_to_template', {'template': 'api/other_federal_revenue.html'}),
     (r'^owners_renters.html$', 'direct_to_template', {'template': 'api/owners_renters.html'}),
     (r'^people_in_poverty.html$', 'direct_to_template', {'template': 'api/people_in_poverty.html'}),
+    (r'^population_congressional_district.html$', 'direct_to_template', {'template': 'api/population_congressional_district.html'}),
     (r'^population_families.html$', 'direct_to_template', {'template': 'api/population_families.html'}),
     (r'^pupil_teacher_district.html$', 'direct_to_template', {'template': 'api/pupil_teacher_district.html'}),
     (r'^race_population_1980s.html$', 'direct_to_template', {'template': 'api/race_population_1980s.html'}),
@@ -294,6 +296,8 @@ urlpatterns += patterns('',
     url(r'^owners_renters/list\.(?P<emitter_format>.+)', owners_renters_handler),
     url(r'^people_in_poverty/$', people_in_poverty_handler),
     url(r'^people_in_poverty/list\.(?P<emitter_format>.+)', people_in_poverty_handler),
+    url(r'^population_congressional_district/$', population_congressional_district_handler),
+    url(r'^population_congressional_district/list\.(?P<emitter_format>.+)', population_congressional_district_handler),
     url(r'^population_families/$', population_families_handler),
     url(r'^population_families/list\.(?P<emitter_format>.+)', population_families_handler),
     url(r'^presidents_budget/$', presidents_budget_handler),

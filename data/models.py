@@ -479,6 +479,19 @@ class PeopleInPoverty(models.Model):
     percent = models.FloatField()
     percent_standard_error = models.FloatField()
     
+class PopulationCongressionalDistrict(models.Model):
+    year = models.IntegerField()
+    district = models.IntegerField()
+    state = models.CharField(max_length=32)
+    white_alone = models.IntegerField()
+    black_alone = models.IntegerField()
+    american_indian_alaskan_alone = models.IntegerField()
+    asian_alone = models.IntegerField()
+    hawaiian_pacific_island_alone = models.IntegerField()
+    other_alone = models.IntegerField()
+    two_or_more_races = models.IntegerField()
+    households = models.IntegerField()
+    
 class PopulationFamilies(models.Model):
     year = models.IntegerField()
     state = models.CharField(max_length=32)
