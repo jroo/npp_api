@@ -465,8 +465,10 @@ class OwnersRenters(models.Model):
     state = models.CharField(max_length=32)
     year = models.IntegerField()
     total = models.IntegerField()
-    owner_occupied = models.IntegerField()
-    renter_occupied = models.IntegerField()
+    not_in_universe = models.IntegerField()
+    owned = models.IntegerField()
+    rented = models.IntegerField()
+    rented_no_cash = models.IntegerField()
     
 class PeopleInPoverty(models.Model):
     year = models.IntegerField()
