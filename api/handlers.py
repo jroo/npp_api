@@ -136,6 +136,12 @@ class DrugFreeSchoolSpendingHandler(GenericHandler):
         model = DrugFreeSchoolSpending
         super(DrugFreeSchoolSpendingHandler, self).__init__(allowed_keys, model)
         
+class EducationalAttainmentHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('year', 'state', 'gender', 'value_type', 'category')
+        model = EducationalAttainment
+        super(EducationalAttainmentHandler, self).__init__(allowed_keys, model)
+        
 class EmploymentHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year')

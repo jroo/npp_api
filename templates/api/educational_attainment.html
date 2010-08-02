@@ -1,0 +1,12 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h1>Educational Attainment by State</h1>
+
+<div class="api_urls">
+	<div><span class="api_urls_header">URL Format: http://data.nationalpriorities.org/api/educational_attainment/list.&lt;format&gt;?...</div>
+		<div>Allowed Keys: 'state', 'year', 'gender', 'value_type', 'category'</div>
+		<div>Example: <a href="/api/educational_attainment/list.json?state=Texas">http://data.nationalpriorities.org/api/educational_attainment/list.json?state=Texas</a></div>
+	</div>
+</div>
+{% endblock %}

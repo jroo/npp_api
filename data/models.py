@@ -171,6 +171,14 @@ class DrugFreeSchoolSpending(models.Model):
     agency_id = models.CharField(max_length=7)
     amount = models.IntegerField(null=True)
     
+class EducationalAttainment(models.Model):
+    year = models.IntegerField()
+    state = models.TextField(max_length=32)
+    gender = models.TextField(max_length=16)
+    value_type = models.TextField(max_length=16)
+    category = models.TextField(max_length=64)
+    value = models.IntegerField(null=True)
+    
 class ELLStudentsDistrict(models.Model):
     year = models.IntegerField()
     state = models.CharField(max_length=2)
