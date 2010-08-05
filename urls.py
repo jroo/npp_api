@@ -4,11 +4,9 @@ from django.conf.urls.defaults import *
 # from django.contrib import admin
 # admin.autodiscover()
 
-urlpatterns = patterns('django.views.generic.simple',
-    (r'^$', 'direct_to_template', {'template': 'data/index.html'}),
-    (r'^sandbox/$', 'direct_to_template', {'template': 'sandbox/index.html'}),
-    (r'^api/', include('npp.api.urls')),
-
+urlpatterns = patterns('',
+    (r'^search/(?P<source>\w+)/$', 'npp.data.views.source_search'),
+    (r'^result/(?P<source>\w+)/$', 'npp.data.views.result'),
     # Example:
     # (r'^npp/', include('npp.foo.urls')),
 
@@ -18,4 +16,11 @@ urlpatterns = patterns('django.views.generic.simple',
 
     # Uncomment the next line to enable the admin:
     # (r'^admin/', include(admin.site.urls)),
+)
+
+urlpatterns += patterns('django.views.generic.simple',
+    (r'^$', 'direct_to_template', {'template': 'data/index.html'}),
+    (r'^sandbox/$', 'direct_to_template', {'template': 'sandbox/index.html'}),
+    (r'^api/', include('npp.api.urls')),
+    (r'^search/$', 'direct_to_template', {'template':'data/search_index.html'}),
 )

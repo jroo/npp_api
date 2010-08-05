@@ -1,0 +1,13 @@
+{% extends "api/api_base.html" %}
+
+{% block content %}
+<h4>{{ source.source_name }}</h4>
+<form action="/result/{{ source.source_name }}/" method="GET">
+	{% for key in source.allowed_keys %}
+		<div>
+			{{ key }}: <input type="text" size="30" name="{{ key }}">
+		</div>
+	{% endfor %}
+	<input type="submit">
+</form>
+{% endblock %}

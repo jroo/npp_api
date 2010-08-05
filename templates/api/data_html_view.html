@@ -1,0 +1,34 @@
+{% extends "api/api_base_data.html" %}
+
+{% block content %}
+<div class="results_content">
+	<table class="data_view">
+		<tr class="header_row"> 
+			{% for col in data.header_row %}
+			<td>{{ col }}</td>
+			{% endfor %}
+		</tr>
+		{% for row in data.data %}
+		<tr class="data_row">
+			{% for value in row %}
+			<td>{{ value }}</td>
+			{% endfor %}
+		</tr>
+		{% endfor %}
+	</table>
+
+	<div>
+		{% if page_info.prev_page %} <a href="{{ page_info.query_string_no_page }}&page={{ page_info.prev_page }}">previous</a> {% endif %}
+		Page {{ page_info.page_num }}
+		<a href="{{ page_info.query_string_no_page }}&page={{ page_info.next_page }}">next</a>
+	</div>
+
+	<div>
+		View this page in 
+		<a href="{{ page_info.csv_path }}{{ page_info.query_string }}">CSV</a>, 
+		<a href="{{ page_info.xml_path }}{{ page_info.query_string }}">XML</a>, 
+		<a href="{{ page_info.json_path }}{{ page_info.query_string }}">JSON</a>
+	</div>
+</div>
+
+{% endblock %}

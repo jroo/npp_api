@@ -1,1 +1,38 @@
-# Create your views here.
+from django.http import HttpResponseNotFound, HttpResponseRedirect
+from django.shortcuts import render_to_response
+import api.handlers
+import urllib
+
+def _underscore_to_camelcase(string):
+    word_list = string.split('_')
+    for i, word in enumerate(word_list):
+        word_list[i] = word.capitalize()
+    return ''.join(word_list)
+    
+def _create_query_string(response_get):
+    query_dict = {}
+    for k,v in response_get.items():
+        if v != "":
+            query_dict[k] = v
+
+    query_string = '&'.join([k+'='+urllib.quote(str(v)) for (k,v) in query_dict.items()])
+    if query_string:
+        query_string = "?%s" % query_string
+    
+    return query_string
+
+def source_search(request, source):
+    try:
+        dummy_class = getattr(api.handlers, "%sHandler" % _underscore_to_camelcase(source))
+        dummy_obj = dummy_class()
+        
+        source_info = {}
+        source_info["source_name"] = source
+        source_info["allowed_keys"] = dummy_obj.get_allowed_keys()
+        return render_to_response('data/source_search.html', {'source':source_info})
+    except:
+        return HttpResponseNotFound('<h1>Page not found</h1>')
+        
+def result(request, source):
+    query_string = _create_query_string(request.GET)
+    return HttpResponseRedirect('/api/%s/list.html%s' % (source, query_string))

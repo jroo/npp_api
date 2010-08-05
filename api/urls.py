@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import *
 from piston.resource import Resource
 from npp.api.handlers import *
+from npp.api.emitters import *
 
 alternative_fuel_vehicles_handler = Resource(AlternativeFuelVehiclesHandler)
 ansi_county_state_handler = Resource(ANSICountyStateHandler)

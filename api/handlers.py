@@ -20,6 +20,9 @@ class GenericHandler(BaseHandler):
         self.fields = fields
 
     allowed_methods = ('GET',)
+    
+    def get_allowed_keys(self):
+        return self.allowed_keys
 
     def read(self, request):
         bound = page_limits(request.GET)
