@@ -1,12 +1,39 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-	<head>
-		<meta name="keywords" content="" />
-		<meta name="description" content="" />
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>National Priorities Project Data</title>
-</head>
-<body>
-	Hi there.  You're at the site where all of the data that we work with will soon be made public.  In the meantime, <a href="http://github.com/jroo/npp">watch us build it</a>.
-</body>
-</html>
+{% extends "api/api_base.html" %}
+
+{% block content %}
+	<div id="welcome">
+		<p>Welcome to the <a href="http://nationalpriorities.org">NPP</a> data repository.  Here, you're able to search the data that we work with and export it to formats that you prefer to work with like CSV, XML and JSON.  We're constantly updating the data and the presentation of this site so keep checking back for more.</p>
+		<p>Are you a developer?  Check out our <a href="/api/">API</a> for documentation on programmatic access to our data.</p>
+		<form action="/search/source_select/">
+			<div id="category_select">
+				<h2>Choose Data Category</h2>
+				<select id="category" name="category">
+					<option value="0">All Categories</option>
+					{% for category in categories %}
+					<option value="{{category.id}}">{{ category.title }}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<h2>Choose Data Set</h2>
+			<select id="source" name="source">
+				{% for source in sources %}
+				<option value="{{source.string_id}}">{{ source.title }}</option>
+				{% endfor %}
+			</select>
+			<div>
+				<input type="submit">
+			</div>
+		</form>
+{% endblock %}
+
+{% block js %}
+	<script type="text/javascript" src="http://assets.nationalpriorities.org/data_site/v1/js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="http://assets.nationalpriorities.org/data_site/v1/js/search.js"></script>
+	<script type="text/javascript">
+		SOURCE_LIST = []
+		SOURCE_LIST[0] = [ {% for source in sources %} { optionValue:'{{ source.string_id }}', optionDisplay: '{{ source.title }}' }, {% endfor %}];
+		{% for category in category_sources %}
+		SOURCE_LIST[{{ category.id }}] = [ {% for source in category.sources %} { optionValue:'{{ source.string_id }}', optionDisplay: '{{ source.title }}' }, {% endfor %}];
+		{% endfor %}
+	</script>
+{% endblock %}

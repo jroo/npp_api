@@ -43,17 +43,17 @@ class AlternativeFuelVehiclesHandler(GenericHandler):
         model = AlternativeFuelVehicles
         super(AlternativeFuelVehiclesHandler, self).__init__(allowed_keys, model)
         
-class ANSICountyStateHandler(GenericHandler):
+class AnsiCountyStateHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'ansi_state', 'code', 'county', 'ansi_class')
-        model = ANSICountyState
-        super(ANSICountyStateHandler, self).__init__(allowed_keys, model)
+        model = AnsiCountyState
+        super(AnsiCountyStateHandler, self).__init__(allowed_keys, model)
         
-class ATCodesHandler(GenericHandler):
+class AtCodesHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('code')
-        model = ATCodes
-        super(ATCodesHandler, self).__init__(allowed_keys, model)
+        model = AtCodes
+        super(AtCodesHandler, self).__init__(allowed_keys, model)
         
 class AverageTeacherSalaryHandler(GenericHandler):
     def __init__(self):
@@ -73,35 +73,35 @@ class BudgetCategorySubfunctionsHandler(GenericHandler):
         model = BudgetCategorySubfunctions
         super(BudgetCategorySubfunctionsHandler, self).__init__(allowed_keys, model)
         
-class CFFRHandler(GenericHandler):
+class CffrHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('id', 'year', 'state_code', 'county_code', 'place_code', 'state_postal', 'congressional_district', 'program_code', 'object_type', 'agency_code', 'funding_sign')
-        model = CFFR
-        super(CFFRHandler, self).__init__(allowed_keys, model)
+        model = Cffr
+        super(CffrHandler, self).__init__(allowed_keys, model)
         
-class CFFRAgencyHandler(GenericHandler):
+class CffrAgencyHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('id', 'year', 'agency_code', 'agency_name')
-        model = CFFRAgency
-        super(CFFRAgencyHandler, self).__init__(allowed_keys, model)
+        model = CffrAgency
+        super(CffrAgencyHandler, self).__init__(allowed_keys, model)
         
-class CFFRGeoHandler(GenericHandler):
+class CffrGeoHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('id', 'year', 'state_code', 'county_code', 'place_code', 'place_name', 'state_gu', 'type_gu', 'county_gu', 'place_gu', 'split_gu', 'congress_district')
-        model = CFFRGeo
-        super(CFFRGeoHandler, self).__init__(allowed_keys, model)
+        model = CffrGeo
+        super(CffrGeoHandler, self).__init__(allowed_keys, model)
         
-class CFFRObjectCodeHandler(GenericHandler):
+class CffrObjectCodeHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('id', 'object_code', 'category')
-        model = CFFRObjectCode
-        super(CFFRObjectCodeHandler, self).__init__(allowed_keys, model)
+        model = CffrObjectCode
+        super(CffrObjectCodeHandler, self).__init__(allowed_keys, model)
         
-class CFFRProgramHandler(GenericHandler):
+class CffrProgramHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('id', 'year', 'program_id_code', 'program_name')
-        model = CFFRProgram
-        super(CFFRProgramHandler, self).__init__(allowed_keys, model)
+        model = CffrProgram
+        super(CffrProgramHandler, self).__init__(allowed_keys, model)
         
 class ChildrenPovertyHandler(GenericHandler):
     def __init__(self):
@@ -181,11 +181,11 @@ class EnergyProductionEstimatesHandler(GenericHandler):
         model = StateEnergyProductionEstimates
         super(EnergyProductionEstimatesHandler, self).__init__(allowed_keys, model)
 
-class ELLStudentsDistrictHandler(GenericHandler):
+class EllStudentsDistrictHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year', 'agency_name', 'agency_id')
-        model = ELLStudentsDistrict
-        super(ELLStudentsDistrictHandler, self).__init__(allowed_keys, model)
+        model = EllStudentsDistrict
+        super(EllStudentsDistrictHandler, self).__init__(allowed_keys, model)
         
 class ExpenditurePerPupilHandler(GenericHandler):
     def __init__(self):
@@ -199,11 +199,11 @@ class FamiliesPovertyHandler(GenericHandler):
         model = FamiliesPoverty
         super(FamiliesPovertyHandler, self).__init__(allowed_keys, model)
         
-class FCNASpendingHandler(GenericHandler):
+class FcnaSpendingHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year', 'agency_name', 'agency_id')
-        model = FCNASpending
-        super(FCNASpendingHandler, self).__init__(allowed_keys, model)
+        model = FcnaSpending
+        super(FcnaSpendingHandler, self).__init__(allowed_keys, model)
         
 class FederalImpactAidHandler(GenericHandler):
     def __init__(self):
@@ -211,17 +211,17 @@ class FederalImpactAidHandler(GenericHandler):
         model = FederalImpactAid
         super(FederalImpactAidHandler, self).__init__(allowed_keys, model)
         
-class FIPSCountyCongressDistrictHandler(GenericHandler):
+class FipsCountyCongressDistrictHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state_code', 'county_code', 'district_code', 'congress')
-        model = FIPSCountyCongressDistrict
-        super(FIPSCountyCongressDistrictHandler, self).__init__(allowed_keys, model)
+        model = FipsCountyCongressDistrict
+        super(FipsCountyCongressDistrictHandler, self).__init__(allowed_keys, model)
         
-class FIPSStateHandler(GenericHandler):
+class FipsStateHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('code', 'state')
-        model = FIPSState
-        super(FIPSStateHandler, self).__init__(allowed_keys, model)
+        model = FipsState
+        super(FipsStateHandler, self).__init__(allowed_keys, model)
 
 class FreeLunchEligibleHandler(GenericHandler):
     def __init__(self):
@@ -283,11 +283,11 @@ class IndividualEducationProgramsHandler(GenericHandler):
         model = IndividualEducationPrograms
         super(IndividualEducationProgramsHandler, self).__init__(allowed_keys, model)
         
-class IRSGrossCollectionsHandler(GenericHandler):
+class IrsGrossCollectionsHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year')
-        model = IRSGrossCollections
-        super(IRSGrossCollectionsHandler, self).__init__(allowed_keys, model)
+        model = IrsGrossCollections
+        super(IrsGrossCollectionsHandler, self).__init__(allowed_keys, model)
         
 class KidsHealthInsuranceHandler(GenericHandler):
     def __init__(self):
@@ -331,11 +331,11 @@ class MilitaryPersonnelHandler(GenericHandler):
         model = MilitaryPersonnel
         super(MilitaryPersonnelHandler, self).__init__(allowed_keys, model)
         
-class MSNCodeHandler(GenericHandler):
+class MsnCodeHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('msn', 'description', 'unit')
-        model = MSNCodes
-        super(MSNCodeHandler, self).__init__(allowed_keys, model)
+        model = MsnCodes
+        super(MsnCodeHandler, self).__init__(allowed_keys, model)
         
 class NativeEdSpendingHandler(GenericHandler):
     def __init__(self):
@@ -343,17 +343,17 @@ class NativeEdSpendingHandler(GenericHandler):
         model = NativeEdSpending
         super(NativeEdSpendingHandler, self).__init__(allowed_keys, model)
         
-class NewAIDSCasesHandler(GenericHandler):
+class NewAidsCasesHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year')
-        model = NewAIDSCases
-        super(NewAIDSCasesHandler, self).__init__(allowed_keys, model)
+        model = NewAidsCases
+        super(NewAidsCasesHandler, self).__init__(allowed_keys, model)
         
-class NCESSchoolDistrictHandler(GenericHandler):
+class NcesSchoolDistrictHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'district_name', 'county_name', 'county_code', 'state_code', 'congress_code', 'district_code')
-        model = NCESSchoolDistrict
-        super(NCESSchoolDistrictHandler, self).__init__(allowed_keys, model)
+        model = NcesSchoolDistrict
+        super(NcesSchoolDistrictHandler, self).__init__(allowed_keys, model)
         
 class OtherFederalRevenueHandler(GenericHandler):
     def __init__(self):
@@ -415,29 +415,29 @@ class RacePopulation1990sHandler(GenericHandler):
         model = RacePopulation1990s
         super(RacePopulation1990sHandler, self).__init__(allowed_keys, model)
         
-class RetiredDisabledNILFHandler(GenericHandler):
+class RetiredDisabledNilfHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year')
-        model = RetiredDisabledNILF
-        super(RetiredDisabledNILFHandler, self).__init__(allowed_keys, model)
+        model = RetiredDisabledNilf
+        super(RetiredDisabledNilfHandler, self).__init__(allowed_keys, model)
         
-class SAIPESchoolHandler(GenericHandler):
+class SaipeSchoolHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('id', 'year', 'fips_state', 'ccd_district_id', 'district_name')
-        model = SAIPESchool
-        super(SAIPESchoolHandler, self).__init__(allowed_keys, model)
+        model = SaipeSchool
+        super(SaipeSchoolHandler, self).__init__(allowed_keys, model)
         
-class SAIPECountyStateHandler(GenericHandler):
+class SaipeCountyStateHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('id', 'year', 'fips_state', 'fips_county', 'state_county_name', 'state_postal_abbreviation')
-        model = SAIPECountyState
-        super(SAIPECountyStateHandler, self).__init__(allowed_keys, model)
+        model = SaipeCountyState
+        super(SaipeCountyStateHandler, self).__init__(allowed_keys, model)
         
-class SCHIPEnrollmentHandler(GenericHandler):
+class SchipEnrollmentHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year')
-        model = SCHIPEnrollment
-        super(SCHIPEnrollmentHandler, self).__init__(allowed_keys, model)
+        model = SchipEnrollment
+        super(SchipEnrollmentHandler, self).__init__(allowed_keys, model)
 
 class SchoolBreakfastParticipationHandler(GenericHandler):
     def __init__(self):
@@ -457,29 +457,29 @@ class ShelterPopulationHandler(GenericHandler):
         model = ShelterPopulation
         super(ShelterPopulationHandler, self).__init__(allowed_keys, model)
         
-class SNAPBenefitsRecipientsHandler(GenericHandler):
+class SnapBenefitsRecipientsHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state_fips', 'county_fips', 'name', 'year')
-        model = SNAPBenefitsRecipients
-        super(SNAPBenefitsRecipientsHandler, self).__init__(allowed_keys, model)
+        model = SnapBenefitsRecipients
+        super(SnapBenefitsRecipientsHandler, self).__init__(allowed_keys, model)
         
-class SNAPMonthlyBenefitsPersonHandler(GenericHandler):
+class SnapMonthlyBenefitsPersonHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year')
-        model = SNAPMonthlyBenefitsPerson
-        super(SNAPMonthlyBenefitsPersonHandler, self).__init__(allowed_keys, model)
+        model = SnapMonthlyBenefitsPerson
+        super(SnapMonthlyBenefitsPersonHandler, self).__init__(allowed_keys, model)
         
-class SNAPParticipationHouseholdsHandler(GenericHandler):
+class SnapParticipationHouseholdsHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year')
-        model = SNAPParticipationHouseholds
-        super(SNAPParticipationHouseholdsHandler, self).__init__(allowed_keys, model)
+        model = SnapParticipationHouseholds
+        super(SnapParticipationHouseholdsHandler, self).__init__(allowed_keys, model)
         
-class SNAPParticipationPeopleHandler(GenericHandler):
+class SnapParticipationPeopleHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year')
-        model = SNAPParticipationPeople
-        super(SNAPParticipationPeopleHandler, self).__init__(allowed_keys, model)
+        model = SnapParticipationPeople
+        super(SnapParticipationPeopleHandler, self).__init__(allowed_keys, model)
         
 class SpecialEdFundingHandler(GenericHandler):
     def __init__(self):
@@ -499,17 +499,17 @@ class StateEmissionsHandler(GenericHandler):
         model = StateEmissions
         super(StateEmissionsHandler, self).__init__(allowed_keys, model)
         
-class StateGDPHandler(GenericHandler):
+class StateGdpHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year')
-        model = StateGDP
-        super(StateGDPHandler, self).__init__(allowed_keys, model)
+        model = StateGdp
+        super(StateGdpHandler, self).__init__(allowed_keys, model)
 
-class StateGDPPre97Handler(GenericHandler):
+class StateGdpPre97Handler(GenericHandler):
     def __init__(self):
         allowed_keys = ('state', 'year')
-        model = StateGDP
-        super(StateGDPPre97Handler, self).__init__(allowed_keys, model)
+        model = StateGdp
+        super(StateGdpPre97Handler, self).__init__(allowed_keys, model)
 
 class StateLaborForceParticipationHandler(GenericHandler):
     def __init__(self):
@@ -547,12 +547,12 @@ class StateUnemploymentHandler(GenericHandler):
         model = StateUnemployment
         super(StateUnemploymentHandler, self).__init__(allowed_keys, model)
         
-class SubfunctionsCFFRHandler(GenericHandler):
+class SubfunctionsCffrHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('subfunction_number', 'cfda_program_code', 'at_code_1', 'at_code_2',
             'at_code_3', 'at_code_4', 'at_code_5', 'at_code_6' ,'at_code_7', 'at_code_8')
-        model = SubfunctionsCFFR
-        super(SubfunctionsCFFRHandler, self).__init__(allowed_keys, model)
+        model = SubfunctionsCffr
+        super(SubfunctionsCffrHandler, self).__init__(allowed_keys, model)
         
 class SummerLunchParticipationHandler(GenericHandler):
     def __init__(self):
@@ -590,14 +590,14 @@ class VocationalEdSpendingHandler(GenericHandler):
         model = VocationalEdSpending
         super(VocationalEdSpendingHandler, self).__init__(allowed_keys, model)
         
-class WICBenefits(GenericHandler):
+class WicBenefitsHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('place', 'state', 'year', 'type')
-        model = VocationalEdSpending
-        super(WICBenefits, self).__init__(allowed_keys, model)
+        model = WicBenefits
+        super(WicBenefitsHandler, self).__init__(allowed_keys, model)
         
-class WICParticipants(GenericHandler):
+class WicParticipantsHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('place', 'state', 'year', 'type')
-        model = VocationalEdSpending
-        super(WICParticipants, self).__init__(allowed_keys, model)
+        model = WicParticipants
+        super(WicParticipantsHandler, self).__init__(allowed_keys, model)

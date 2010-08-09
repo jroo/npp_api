@@ -1,4 +1,23 @@
 {% extends "api/api_base.html" %}
 
-{% block "content" %}
+{% block content %}
+	<p>Welcome to the National Priorities Project Data Repository.  This is where we make available the data that we use for our reports and tools.  Feel free to play around and check back often as we're always updating our data.</p>
+	<p>If you're a developer, check out our <a href="/api/">API</a> where we offer feeds of our data in XML and JSON.</p>
+	<h1>Search our Data Sets</h1>
+	<div id="category_select">
+		<h4>Choose Category</h4>
+		<select name="category">
+		{% for category in categories %}
+			{{ category }}
+		{% endfor %}
+		</select>
+	</div>
+	<h4>Choose Data Set</h4>
+	<select name="data_set">
+	</select>
+{% endblock %}
+
+{% block js %}
+	<script type="text/javascript" src="http://assets.nationalpriorities.org/data_site/v1/js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="http://assets.nationalpriorities.org/data_site/v1/js/search.js"></script>
 {% endblock %}

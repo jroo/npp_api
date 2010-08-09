@@ -1,5 +1,21 @@
 from django.db import models
 
+class Category(models.Model):
+    title = models.CharField(max_length=32)
+    
+    def __unicode__(self):
+        return self.title
+    
+class Source(models.Model):
+    title = models.CharField(max_length=128)
+    category = models.ForeignKey(Category)
+    string_id = models.CharField(max_length=64)
+    
+    def __unicode__(self):
+        return self.title
+    
+### data types
+
 class AlternativeFuelVehicles(models.Model):
     state = models.CharField(max_length=32)
     year = models.IntegerField()
@@ -17,14 +33,14 @@ class AnnualStateEnergyExpenditures(models.Model):
     year = models.IntegerField()
     value = models.FloatField(null=True)
     
-class ANSICountyState(models.Model):
+class AnsiCountyState(models.Model):
     state = models.CharField(max_length=2)
     ansi_state = models.CharField(max_length=2)
     code = models.CharField(max_length=3)
     county = models.CharField(max_length=255)
     ansi_class = models.CharField(max_length=2)
     
-class ATCodes(models.Model):
+class AtCodes(models.Model):
     code = models.CharField(max_length=1)
     assistance_type = models.CharField(max_length=64)
     
@@ -44,7 +60,7 @@ class BudgetCategorySubfunctions(models.Model):
     subfunction = models.TextField(max_length=3)
     npp_budget_category = models.TextField(max_length=64)
 
-class CFFR(models.Model):
+class Cffr(models.Model):
     year = models.IntegerField()
     state_code = models.CharField(max_length=2)
     county_code = models.CharField(max_length=3)
@@ -60,12 +76,12 @@ class CFFR(models.Model):
     funding_sign =  models.CharField(max_length=1)
     amount =  models.IntegerField()
     
-class CFFRAgency(models.Model):
+class CffrAgency(models.Model):
     year = models.IntegerField()
     agency_code = models.CharField(max_length=4)
     agency_name = models.CharField(max_length=90)
     
-class CFFRGeo(models.Model):
+class CffrGeo(models.Model):
     year = models.IntegerField()
     state_code = models.CharField(max_length=2)
     county_code = models.CharField(max_length=3)
@@ -79,11 +95,11 @@ class CFFRGeo(models.Model):
     population =  models.IntegerField(null=True)
     congress_district =  models.CharField(max_length=34, null=True)
     
-class CFFRObjectCode(models.Model):
+class CffrObjectCode(models.Model):
     object_code = models.CharField(max_length=2)
     category = models.CharField(max_length=80)
 
-class CFFRProgram(models.Model):
+class CffrProgram(models.Model):
     year = models.IntegerField()
     program_id_code = models.CharField(max_length=6)
     program_name = models.CharField(max_length=74)
@@ -179,7 +195,7 @@ class EducationalAttainment(models.Model):
     category = models.TextField(max_length=64)
     value = models.IntegerField(null=True)
     
-class ELLStudentsDistrict(models.Model):
+class EllStudentsDistrict(models.Model):
     year = models.IntegerField()
     state = models.CharField(max_length=2)
     agency_name = models.CharField(max_length=128)
@@ -225,7 +241,7 @@ class FamiliesPoverty(models.Model):
     low_income_125_149_pct = models.IntegerField()
     low_income_above_150_pct = models.IntegerField()
     
-class FCNASpending(models.Model):
+class FcnaSpending(models.Model):
     year = models.IntegerField()
     state = models.CharField(max_length=2)
     agency_name = models.CharField(max_length=128)
@@ -239,13 +255,13 @@ class FederalImpactAid(models.Model):
     agency_id = models.CharField(max_length=7)
     amount = models.IntegerField(null=True)
     
-class FIPSCountyCongressDistrict(models.Model):
+class FipsCountyCongressDistrict(models.Model):
     state_code = models.CharField(max_length=2)
     county_code = models.CharField(max_length=3)
     district_code = models.CharField(max_length=2)
     congress = models.IntegerField()
     
-class FIPSState(models.Model):
+class FipsState(models.Model):
     state = models.CharField(max_length=2)
     code = models.CharField(max_length=64)
     
@@ -344,7 +360,7 @@ class IndividualEducationPrograms(models.Model):
     agency_id = models.CharField(max_length=7)
     amount = models.IntegerField(null=True)
     
-class IRSGrossCollections(models.Model):
+class IrsGrossCollections(models.Model):
     year = models.IntegerField()
     state = models.CharField(max_length=255)
     total_collections = models.IntegerField()
@@ -436,7 +452,7 @@ class MilitaryPersonnel(models.Model):
     civilian_personnel = models.IntegerField(null=True)
     reserve_national_guard_personnel = models.IntegerField(null=True)
 
-class MSNCodes(models.Model):
+class MsnCodes(models.Model):
     msn = models.CharField(max_length=5)
     description = models.TextField()
     unit = models.CharField(max_length=255)
@@ -448,7 +464,7 @@ class NativeEdSpending(models.Model):
     agency_id = models.CharField(max_length=7)
     amount = models.IntegerField(null=True)
     
-class NCESSchoolDistrict(models.Model):
+class NcesSchoolDistrict(models.Model):
     state = models.CharField(max_length=2)
     district_name = models.CharField(max_length=255)
     county_name = models.CharField(max_length=255)
@@ -457,7 +473,7 @@ class NCESSchoolDistrict(models.Model):
     congress_code = models.CharField(max_length=2)
     district_code = models.CharField(max_length=6)
     
-class NewAIDSCases(models.Model):
+class NewAidsCases(models.Model):
     state = models.CharField(max_length=32)
     year = models.IntegerField()
     value = models.IntegerField(null=True)
@@ -572,7 +588,7 @@ class RacePopulation1990s(models.Model):
     total_asian_pacific_island = models.IntegerField()
     total_hispanic = models.IntegerField()
     
-class RetiredDisabledNILF(models.Model):
+class RetiredDisabledNilf(models.Model):
     year = models.IntegerField()
     state = models.CharField(max_length=32)
     total = models.IntegerField()
@@ -584,7 +600,7 @@ class RetiredDisabledNILF(models.Model):
     disabled_not_in_labor_force = models.IntegerField()
     other_not_in_labor_force = models.IntegerField()
     
-class SCHIPEnrollment(models.Model):
+class SchipEnrollment(models.Model):
     state = models.CharField(max_length=32)
     year = models.IntegerField()
     value = models.IntegerField(null=True)
@@ -651,7 +667,7 @@ class StateRenewableEnergy(models.Model):
     renewable_total = models.FloatField()
     total = models.FloatField()
     
-class SAIPESchool(models.Model):
+class SaipeSchool(models.Model):
     year = models.IntegerField()
     fips_state = models.CharField(max_length=2)
     ccd_district_id = models.CharField(max_length=5)
@@ -661,7 +677,7 @@ class SAIPESchool(models.Model):
     relevant_population_poverty = models.IntegerField()
     file_stamp = models.CharField(max_length=21)
     
-class SAIPECountyState(models.Model):
+class SaipeCountyState(models.Model):
     year = models.IntegerField()
     fips_state = models.CharField(max_length=2)
     fips_county = models.CharField(max_length=3)
@@ -718,24 +734,24 @@ class ShelterPopulation(models.Model):
     value = models.IntegerField()
     percent = models.FloatField(null=True)
     
-class SNAPBenefitsRecipients(models.Model):
+class SnapBenefitsRecipients(models.Model):
     state_fips = models.CharField(max_length=2)
     county_fips = models.CharField(max_length=3)
     name = models.CharField(max_length=128)
     year = models.IntegerField()
     value = models.IntegerField(null=True)
     
-class SNAPMonthlyBenefitsPerson(models.Model):
+class SnapMonthlyBenefitsPerson(models.Model):
     state = models.CharField(max_length=32)
     year = models.IntegerField()
     value = models.FloatField()
     
-class SNAPParticipationHouseholds(models.Model):
+class SnapParticipationHouseholds(models.Model):
     state = models.CharField(max_length=32)
     year = models.IntegerField()
     value = models.IntegerField()
 
-class SNAPParticipationPeople(models.Model):
+class SnapParticipationPeople(models.Model):
     state = models.CharField(max_length=32)
     year = models.IntegerField()
     value = models.IntegerField()
@@ -762,7 +778,7 @@ class StateEnergyProductionEstimates(models.Model):
     year = models.IntegerField()
     value = models.FloatField(null=True)
     
-class StateGDP(models.Model):
+class StateGdp(models.Model):
     year = models.IntegerField()
     fips = models.IntegerField()
     state = models.CharField(max_length=32)
@@ -772,7 +788,7 @@ class StateGDP(models.Model):
     component = models.CharField(max_length=128)
     value = models.IntegerField()
 
-class StateGDPPre97(models.Model):
+class StateGdpPre97(models.Model):
     year = models.IntegerField()
     fips = models.IntegerField()
     state = models.CharField(max_length=32)
@@ -804,7 +820,7 @@ class StateUnemployment(models.Model):
     state = models.CharField(max_length=32)
     rate = models.FloatField()
     
-class SubfunctionsCFFR(models.Model):
+class SubfunctionsCffr(models.Model):
     subfunction_number = models.TextField(max_length=3)
     subfunction_name = models.TextField(max_length=64)
     cfda_program_code = models.TextField(max_length=8)
@@ -866,14 +882,14 @@ class VocationalEdSpending(models.Model):
     agency_id = models.CharField(max_length=7)
     amount = models.IntegerField(null=True)
     
-class WICBenefits(models.Model):
+class WicBenefits(models.Model):
     place = models.CharField(max_length=64)
     state = models.CharField(max_length=32)
     type = models.CharField(max_length=32)
     year = models.IntegerField()
     value = models.FloatField(null=True)
     
-class WICParticipants(models.Model):
+class WicParticipants(models.Model):
     place = models.CharField(max_length=64)
     state = models.CharField(max_length=32)
     type = models.CharField(max_length=32)

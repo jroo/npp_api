@@ -4,16 +4,16 @@ from npp.api.handlers import *
 from npp.api.emitters import *
 
 alternative_fuel_vehicles_handler = Resource(AlternativeFuelVehiclesHandler)
-ansi_county_state_handler = Resource(ANSICountyStateHandler)
-at_codes_handler = Resource(ATCodesHandler)
+ansi_county_state_handler = Resource(AnsiCountyStateHandler)
+at_codes_handler = Resource(AtCodesHandler)
 average_teacher_salary_handler = Resource(AverageTeacherSalaryHandler)
 bilingual_ed_spending_handler = Resource(BilingualEdSpendingHandler)
 budget_category_subfunctions_handler = Resource(BudgetCategorySubfunctionsHandler)
-cffr_handler = Resource(CFFRHandler)
-cffr_agency_handler = Resource(CFFRAgencyHandler)
-cffr_geo_handler = Resource(CFFRGeoHandler)
-cffr_object_code_handler = Resource(CFFRObjectCodeHandler)
-cffr_program_handler = Resource(CFFRProgramHandler)
+cffr_handler = Resource(CffrHandler)
+cffr_agency_handler = Resource(CffrAgencyHandler)
+cffr_geo_handler = Resource(CffrGeoHandler)
+cffr_object_code_handler = Resource(CffrObjectCodeHandler)
+cffr_program_handler = Resource(CffrProgramHandler)
 children_poverty_handler = Resource(ChildrenPovertyHandler)
 county_population_estimates_handler = Resource(CountyPopulationEstimatesHandler)
 county_unemployment_handler = Resource(CountyUnemploymentHandler)
@@ -21,7 +21,7 @@ diploma_recipient_total_handler = Resource(DiplomaRecipientTotalHandler)
 dropouts_race_handler = Resource(DropoutsRaceHandler)
 drug_free_school_spending_handler = Resource(DrugFreeSchoolSpendingHandler)
 educational_attainment_handler = Resource(EducationalAttainmentHandler)
-ell_students_district_handler = Resource(ELLStudentsDistrictHandler)
+ell_students_district_handler = Resource(EllStudentsDistrictHandler)
 employment_handler = Resource(EmploymentHandler)
 energy_consumption_handler = Resource(EnergyConsumptionHandler)
 energy_expenditures_handler = Resource(EnergyExpendituresHandler)
@@ -30,10 +30,10 @@ enrolled_students_district_handler = Resource(EnrolledStudentsDistrictHandler)
 enrollment_race_handler = Resource(EnrollmentRaceHandler)
 expenditure_per_pupil_handler = Resource(ExpenditurePerPupilHandler)
 families_poverty_handler = Resource(FamiliesPovertyHandler)
-fcna_spending_handler = Resource(FCNASpendingHandler)
+fcna_spending_handler = Resource(FcnaSpendingHandler)
 federal_impact_aid_handler = Resource(FederalImpactAidHandler)
-fips_county_congress_district_handler = Resource(FIPSCountyCongressDistrictHandler)
-fips_state_handler = Resource(FIPSStateHandler)
+fips_county_congress_district_handler = Resource(FipsCountyCongressDistrictHandler)
+fips_state_handler = Resource(FipsStateHandler)
 free_lunch_eligible_handler = Resource(FreeLunchEligibleHandler)
 free_reduced_lunch_eligible_handler = Resource(FreeReducedLunchEligibleHandler)
 free_reduced_lunch_eligible_county_handler = Resource(FreeReducedLunchEligibleCountyHandler)
@@ -44,7 +44,7 @@ high_school_other_handler = Resource(HighSchoolOtherHandler)
 high_school_dropouts_handler = Resource(HighSchoolDropoutsHandler)
 housing_units_handler = Resource(HousingUnitsHandler)
 individual_education_programs_handler = Resource(IndividualEducationProgramsHandler)
-irs_gross_collections_handler = Resource(IRSGrossCollectionsHandler)
+irs_gross_collections_handler = Resource(IrsGrossCollectionsHandler)
 kids_health_insurance_handler = Resource(KidsHealthInsuranceHandler)
 math_science_spending_handler = Resource(MathScienceSpendingHandler)
 median_household_income_4_member_handler = Resource(MedianHouseholdIncome4MemberHandler)
@@ -52,10 +52,10 @@ medicaid_participation_handler = Resource(MedicaidParticipationHandler)
 medicare_enrollment_handler = Resource(MedicareEnrollmentHandler)
 migrant_students_handler = Resource(MigrantStudentsHandler)
 military_personnel_handler = Resource(MilitaryPersonnelHandler)
-msn_code_handler = Resource(MSNCodeHandler)
+msn_code_handler = Resource(MsnCodeHandler)
 native_ed_spending_handler = Resource(NativeEdSpendingHandler)
-new_aids_cases_handler = Resource(NewAIDSCasesHandler)
-nces_school_district_handler = Resource(NCESSchoolDistrictHandler)
+new_aids_cases_handler = Resource(NewAidsCasesHandler)
+nces_school_district_handler = Resource(NcesSchoolDistrictHandler)
 owners_renters_handler = Resource(OwnersRentersHandler)
 other_federal_revenue_handler = Resource(OtherFederalRevenueHandler)
 people_in_poverty_handler = Resource(PeopleInPovertyHandler)
@@ -65,21 +65,21 @@ presidents_budget_handler = Resource(PresidentsBudgetHandler)
 pupil_teacher_district_handler = Resource(PupilTeacherDistrictHandler)
 race_population_1980s_handler = Resource(RacePopulation1980sHandler)
 race_population_1990s_handler = Resource(RacePopulation1990sHandler)
-retired_disabled_nilf_handler = Resource(RetiredDisabledNILFHandler)
-saipe_county_state_handler = Resource(SAIPECountyStateHandler)
-saipe_school_handler = Resource(SAIPESchoolHandler)
-schip_enrollment_handler = Resource(SCHIPEnrollmentHandler)
+retired_disabled_nilf_handler = Resource(RetiredDisabledNilfHandler)
+saipe_county_state_handler = Resource(SaipeCountyStateHandler)
+saipe_school_handler = Resource(SaipeSchoolHandler)
+schip_enrollment_handler = Resource(SchipEnrollmentHandler)
 school_breakfast_participation_handler = Resource(SchoolBreakfastParticipationHandler)
 school_lunch_participation_handler = Resource(SchoolLunchParticipationHandler)
-snap_benefits_recipients_handler = Resource(SNAPBenefitsRecipientsHandler)
-snap_monthly_benefits_person_handler = Resource(SNAPMonthlyBenefitsPersonHandler)
-snap_participation_households_handler = Resource(SNAPParticipationHouseholdsHandler)
-snap_participation_people_handler = Resource(SNAPParticipationPeopleHandler)
+snap_benefits_recipients_handler = Resource(SnapBenefitsRecipientsHandler)
+snap_monthly_benefits_person_handler = Resource(SnapMonthlyBenefitsPersonHandler)
+snap_participation_households_handler = Resource(SnapParticipationHouseholdsHandler)
+snap_participation_people_handler = Resource(SnapParticipationPeopleHandler)
 shelter_population_handler = Resource(ShelterPopulationHandler)
 special_ed_funding_handler = Resource(SpecialEdFundingHandler)
 state_completion_rate_handler = Resource(StateCompletionRateHandler)
-state_gdp_handler = Resource(StateGDPHandler)
-state_gdp_pre97_handler = Resource(StateGDPPre97Handler)
+state_gdp_handler = Resource(StateGdpHandler)
+state_gdp_pre97_handler = Resource(StateGdpPre97Handler)
 state_emissions_handler = Resource(StateEmissionsHandler)
 state_labor_force_participation_handler = Resource(StateLaborForceParticipationHandler)
 state_median_income_handler = Resource(StateMedianIncomeHandler)
@@ -91,11 +91,11 @@ summer_lunch_participation_handler = Resource(SummerLunchParticipationHandler)
 teacher_pupil_ratio_handler = Resource(TeacherPupilRatioHandler)
 title_i_funding_handler = Resource(TitleIFundingHandler)
 total_students_handler = Resource(TotalStudentsHandler)
-subfunctions_cffr_handler = Resource(SubfunctionsCFFRHandler)
+subfunctions_cffr_handler = Resource(SubfunctionsCffrHandler)
 vehicle_registrations_handler = Resource(VehicleRegistrationsHandler)
 vocational_ed_spending_handler = Resource(VocationalEdSpendingHandler)
-wic_benefits_handler = Resource(WICBenefits)
-wic_participants_handler = Resource(WICParticipants)
+wic_benefits_handler = Resource(WicBenefitsHandler)
+wic_participants_handler = Resource(WicParticipantsHandler)
 
 urlpatterns = patterns('django.views.generic.simple',
     #documentation urls
@@ -116,8 +116,8 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^educational_attainment.html$', 'direct_to_template', {'template': 'api/educational_attainment.html'}),
     (r'^ell_students_district.html$', 'direct_to_template', {'template': 'api/ell_students_district.html'}),
     (r'^employment.html$', 'direct_to_template', {'template': 'api/employment.html'}),
-    (r'^energy_consumption_state.html$', 'direct_to_template', {'template': 'api/energy_consumption_state.html'}),
-    (r'^energy_expenditures_state.html$', 'direct_to_template', {'template': 'api/energy_expenditures_state.html'}),
+    (r'^energy_consumption.html$', 'direct_to_template', {'template': 'api/energy_consumption.html'}),
+    (r'^energy_expenditures.html$', 'direct_to_template', {'template': 'api/energy_expenditures.html'}),
     (r'^energy_production_estimates.html$', 'direct_to_template', {'template': 'api/energy_production_estimates.html'}),
     (r'^enrolled_students_district.html$', 'direct_to_template', {'template': 'api/enrolled_students_district.html'}),
     (r'^enrollment_race.html$', 'direct_to_template', {'template': 'api/enrollment_race.html'}),
@@ -125,7 +125,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^families_poverty.html$', 'direct_to_template', {'template': 'api/families_poverty.html'}),
     (r'^fcna_spending.html$', 'direct_to_template', {'template': 'api/fcna_spending.html'}),
     (r'^federal_impact_aid.html$', 'direct_to_template', {'template': 'api/federal_impact_aid.html'}),
-    (r'^fips_county_congressional.html$', 'direct_to_template', {'template': 'api/fips_county_congressional.html'}),
+    (r'^fips_county_congress_district.html$', 'direct_to_template', {'template': 'api/fips_county_congress_district.html'}),
     (r'^free_lunch_eligible.html$', 'direct_to_template', {'template': 'api/free_lunch_eligible.html'}),
     (r'^free_reduced_lunch_eligible.html$', 'direct_to_template', {'template': 'api/free_reduced_lunch_eligible.html'}),
     (r'^free_reduced_lunch_eligible_county.html$', 'direct_to_template', {'template': 'api/free_reduced_lunch_eligible_county.html'}),
@@ -176,7 +176,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^state_population_estimates.html$', 'direct_to_template', {'template': 'api/state_population_estimates.html'}),
     (r'^state_renewable_energy.html$', 'direct_to_template', {'template': 'api/state_renewable_energy.html'}),
     (r'^state_unemployment.html$', 'direct_to_template', {'template': 'api/state_unemployment.html'}),
-    (r'^state_vehicle_registrations.html$', 'direct_to_template', {'template':'api/state_vehicle_registrations.html'}),
+    (r'^vehicle_registrations.html$', 'direct_to_template', {'template':'api/vehicle_registrations.html'}),
     (r'^summer_lunch_participation.html$', 'direct_to_template', {'template': 'api/summer_lunch_participation.html'}),
     (r'^subfunctions_cffr.html$', 'direct_to_template', {'template': 'api/subfunctions_cffr.html'}),
     (r'^teacher_pupil_ratio.html$', 'direct_to_template', {'template': 'api/teacher_pupil_ratio.html'}),
@@ -357,14 +357,16 @@ urlpatterns += patterns('',
     url(r'^state_postal_codes/list\.(?P<emitter_format>.+)', state_postal_codes_handler),
     url(r'^state_unemployment/$', state_unemployment_handler),
     url(r'^state_unemployment/list\.(?P<emitter_format>.+)', state_unemployment_handler),
-    url(r'^state_vehicle_registrations/$', vehicle_registrations_handler),
-    url(r'^state_vehicle_registrations/list\.(?P<emitter_format>.+)', vehicle_registrations_handler),
+    url(r'^vehicle_registrations/$', vehicle_registrations_handler),
+    url(r'^vehicle_registrations/list\.(?P<emitter_format>.+)', vehicle_registrations_handler),
     url(r'^subfunctions_cffr/$', subfunctions_cffr_handler),
     url(r'^subfunctions_cffr/list\.(?P<emitter_format>.+)', subfunctions_cffr_handler),
     url(r'^summer_lunch_participation/$', summer_lunch_participation_handler),
     url(r'^summer_lunch_participation/list\.(?P<emitter_format>.+)', summer_lunch_participation_handler),
     url(r'^teacher_pupil_ratio/$', teacher_pupil_ratio_handler),
     url(r'^teacher_pupil_ratio/list\.(?P<emitter_format>.+)', teacher_pupil_ratio_handler),
+    url(r'^total_students/$', total_students_handler),
+    url(r'^total_students/list\.(?P<emitter_format>.+)', total_students_handler),
     url(r'^title_i_funding/$', title_i_funding_handler),
     url(r'^title_i_funding/list\.(?P<emitter_format>.+)', title_i_funding_handler),
     url(r'^vocational_ed_spending/$', vocational_ed_spending_handler),

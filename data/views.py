@@ -1,5 +1,6 @@
-from django.http import HttpResponseNotFound, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import render_to_response
+from npp.data.models import Category, Source
 import api.handlers
 import urllib
 
@@ -20,7 +21,26 @@ def _create_query_string(response_get):
         query_string = "?%s" % query_string
     
     return query_string
-
+    
+def index(request):
+    categories = Category.objects.all().order_by('title')
+    sources = Source.objects.all().order_by('title')
+    category_sources = []
+    for category in categories:
+        cat_sources = Source.objects.filter(category__id=category.id)
+        source_list = []
+        for s in cat_sources:
+            source_list.append({'id':s.id, 'title':s.title})
+        this_cat = {'id':category.id, 'sources':source_list }
+        category_sources.append(this_cat)
+        print category_sources
+        
+    return render_to_response("data/index.html", {"categories":categories, "sources":sources, "category_sources":category_sources})
+    
+def result(request, source):
+    query_string = _create_query_string(request.GET)
+    return HttpResponseRedirect('/api/%s/list.html%s' % (source, query_string))
+    
 def source_search(request, source):
     try:
         dummy_class = getattr(api.handlers, "%sHandler" % _underscore_to_camelcase(source))
@@ -32,7 +52,6 @@ def source_search(request, source):
         return render_to_response('data/source_search.html', {'source':source_info})
     except:
         return HttpResponseNotFound('<h1>Page not found</h1>')
-        
-def result(request, source):
-    query_string = _create_query_string(request.GET)
-    return HttpResponseRedirect('/api/%s/list.html%s' % (source, query_string))
+
+def source_select(request):
+    return HttpResponseRedirect("/search/%s/" % request.GET['source'])
