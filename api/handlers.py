@@ -51,7 +51,7 @@ class AnsiCountyStateHandler(GenericHandler):
         
 class AtCodesHandler(GenericHandler):
     def __init__(self):
-        allowed_keys = ('code')
+        allowed_keys = ('code',)
         model = AtCodes
         super(AtCodesHandler, self).__init__(allowed_keys, model)
         
@@ -69,7 +69,7 @@ class BilingualEdSpendingHandler(GenericHandler):
         
 class BudgetCategorySubfunctionsHandler(GenericHandler):
     def __init__(self):
-        allowed_keys = ('subfunction')
+        allowed_keys = ('subfunction',)
         model = BudgetCategorySubfunctions
         super(BudgetCategorySubfunctionsHandler, self).__init__(allowed_keys, model)
         

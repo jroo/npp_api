@@ -16,9 +16,7 @@ def _get_page_info(request):
     next_page = page_num + 1
     
     query_string = "?%s" % request.META['QUERY_STRING']
-    print query_string
     query_string_no_page = "%s" % re.sub('page\=\d+', '', query_string)
-    print query_string_no_page      
     
     if page_num > 1:
         prev_page = page_num - 1

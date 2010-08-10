@@ -33,7 +33,6 @@ def index(request):
             source_list.append({'string_id':s.string_id, 'title':s.title})
         this_cat = {'id':category.id, 'sources':source_list }
         category_sources.append(this_cat)
-        print category_sources
         
     return render_to_response("data/index.html", {"categories":categories, "sources":sources, "category_sources":category_sources})
     
@@ -49,6 +48,7 @@ def source_search(request, source):
         source_info = {}
         source_info["source_name"] = source
         source_info["allowed_keys"] = dummy_obj.get_allowed_keys()
+        
         return render_to_response('data/source_search.html', {'source':source_info})
     except:
         return HttpResponseNotFound('<h1>Page not found</h1>')
