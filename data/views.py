@@ -30,7 +30,7 @@ def index(request):
         cat_sources = Source.objects.filter(category__id=category.id)
         source_list = []
         for s in cat_sources:
-            source_list.append({'id':s.id, 'title':s.title})
+            source_list.append({'string_id':s.string_id, 'title':s.title})
         this_cat = {'id':category.id, 'sources':source_list }
         category_sources.append(this_cat)
         print category_sources
