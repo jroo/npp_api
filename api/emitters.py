@@ -1,8 +1,10 @@
+from django.http import HttpResponse
 from django.template.loader import render_to_string
 from piston.emitters import Emitter
+import csv
 import re
 
-def get_page_info(request):
+def _get_page_info(request):
     csv_path = request.META['PATH_INFO'].replace('.html', '.csv')
     xml_path = request.META['PATH_INFO'].replace('.html', '.xml')
     json_path = request.META['PATH_INFO'].replace('.html', '.json')
@@ -26,7 +28,7 @@ def get_page_info(request):
     return { 'csv_path':csv_path, 'xml_path':xml_path, 'json_path':json_path, 'page_num':page_num, 
         'prev_page':prev_page, 'next_page':next_page, 'query_string':query_string, 'query_string_no_page':query_string_no_page}
     
-def construct_to_list(construct):
+def _construct_to_list(construct):
     data = []
     header_row = []
     for key, value in construct[0].items():
@@ -41,8 +43,20 @@ def construct_to_list(construct):
     
 class HTMLEmitter(Emitter):
     def render(self, request):
-        page_info = get_page_info(request)
-        data = construct_to_list(self.construct())
+        page_info = _get_page_info(request)
+        data = _construct_to_list(self.construct())
         return render_to_string("api/data_html_view.html", { 'page_info':page_info, 'data':data })
+        
+class CSVEmitter(Emitter):
+    def render(self, request):
+        response = HttpResponse(mimetype='text/csv')
+        writer = csv.writer(response)
+        data = _construct_to_list(self.construct())
+        
+        writer.writerow(data['header_row'])
+        for row in data['data']:
+            writer.writerow(row)
+        return(response)
 
 Emitter.register('html', HTMLEmitter, 'text/html')
+Emitter.register('csv', CSVEmitter, 'text/csv')
