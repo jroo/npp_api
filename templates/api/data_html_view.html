@@ -2,6 +2,7 @@
 
 {% block content %}
 <div class="results_content">
+       {% if data.data %}
 	<table class="data_view">
 		<tr class="header_row"> 
 			{% for col in data.header_row %}
@@ -29,6 +30,9 @@
 		<a href="{{ page_info.xml_path }}{{ page_info.query_string }}">XML</a>, 
 		<a href="{{ page_info.json_path }}{{ page_info.query_string }}">JSON</a>
 	</div>
+        {% else %}
+            <p>Your search did not return any results.</p>
+        {% endif %}
 </div>
 
 {% endblock %}

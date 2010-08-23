@@ -29,14 +29,16 @@ def _get_page_info(request):
 def _construct_to_list(construct):
     data = []
     header_row = []
-    for key, value in construct[0].items():
-        header_row.append(key)
+
+    if len(construct) > 0:
+        for key, value in construct[0].items():
+            header_row.append(key)
     
-    for row in construct:
-        this_row = []
-        for header in header_row:
-            this_row.append(row[header])
-        data.append(this_row)
+        for row in construct:
+            this_row = []
+            for header in header_row:
+                this_row.append(row[header])
+            data.append(this_row)
     return { 'header_row':header_row, 'data':data }
     
 class HTMLEmitter(Emitter):
