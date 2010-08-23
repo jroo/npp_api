@@ -42,13 +42,13 @@ def result(request, source):
     
 def source_search(request, source):
     try:
-        dummy_class = getattr(api.handlers, "%sHandler" % _underscore_to_camelcase(source))
+        dummy_class = getattr(npp.api.handlers, "%sHandler" % _underscore_to_camelcase(source))
         dummy_obj = dummy_class()
-        
+    
         source_info = {}
         source_info["source_name"] = source
         source_info["allowed_keys"] = dummy_obj.get_allowed_keys()
-        
+    
         return render_to_response('data/source_search.html', {'source':source_info})
     except:
         return HttpResponseNotFound('<h1>Page not found</h1>')
