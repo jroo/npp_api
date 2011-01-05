@@ -2,6 +2,7 @@ from piston.handler import BaseHandler, AnonymousBaseHandler
 from npp.data.models import *
 from django.conf import settings
 from piston.doc import generate_doc
+from django.http import Http404
 
 def page_limits(request_get):    
     page = 1
@@ -33,8 +34,16 @@ class GenericHandler(BaseHandler):
                 params[str(key)] = val
  
         records = self.model.objects.all()           
-        records = records.filter(**params)[bound['lower']:bound['upper']]
+        
+        # ADDED 01/05/2010 - allow a no_limit option for apps making large queries, 
+        # else paginate normally
+        if 'no_limit' in request.GET:
+                no_limit = True
+                records.filter(**params)
+        else:
+            records = records.filter(**params)[bound['lower']:bound['upper']]
             
+
         return records
         
 class AlternativeFuelVehiclesHandler(GenericHandler):
@@ -78,7 +87,7 @@ class CffrHandler(GenericHandler):
         allowed_keys = ('id', 'year', 'state_code', 'county_code', 'place_code', 'state_postal', 'congressional_district', 'program_code', 'object_type', 'agency_code', 'funding_sign')
         model = Cffr
         super(CffrHandler, self).__init__(allowed_keys, model)
-        
+  
 class CffrAgencyHandler(GenericHandler):
     def __init__(self):
         allowed_keys = ('id', 'year', 'agency_code', 'agency_name')
