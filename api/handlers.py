@@ -25,14 +25,18 @@ class GenericHandler(BaseHandler):
     def get_allowed_keys(self):
         return self.allowed_keys
 
-    def read(self, request):
+    def read(self, request, *args, **kwargs):
         bound = page_limits(request.GET)
 
         params = {}
         for key,val in request.GET.items():
             if key in self.allowed_keys:
                 params[str(key)] = val
- 
+        
+        for key in kwargs:
+            if key in self.allowed_keys:
+                params[str(key)] = kwargs[key]
+        
         records = self.model.objects.all()           
         
         # ADDED 01/05/2010 - allow a no_limit option for apps making large queries, 
@@ -610,3 +614,15 @@ class WicParticipantsHandler(GenericHandler):
         allowed_keys = ('place', 'state', 'year', 'type')
         model = WicParticipants
         super(WicParticipantsHandler, self).__init__(allowed_keys, model)
+
+
+
+
+
+# BRENDAN 01/05/2010
+class SCHIPHandler(GenericHandler):
+    def __init__(self):
+        allowed_keys = ('id', 'year', 'state_code', 'county_code', 'place_code', 'state_postal', 'congressional_district','program_code')
+        model = Cffr
+        super(CffrHandler, self).__init__(allowed_keys, model)
+
