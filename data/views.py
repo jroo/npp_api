@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import render_to_response
-from npp.data.models import Category, Source
-import npp.api.handlers
+from npp_api.data.models import Category, Source
+import npp_api.api.handlers
 import urllib
 
 def _underscore_to_camelcase(string):

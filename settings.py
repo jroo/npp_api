@@ -33,7 +33,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
 )
 
-ROOT_URLCONF = 'npp.urls'
+ROOT_URLCONF = 'npp_api.urls'
 
 INSTALLED_APPS = (
     'django.contrib.admin',
@@ -41,8 +41,8 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
-    'npp.data',
-    'npp.api',
+    'npp_api.data',
+    'npp_api.api',
 )
 
 #api reocrds per page

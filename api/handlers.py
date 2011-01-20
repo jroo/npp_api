@@ -1,5 +1,5 @@
 from piston.handler import BaseHandler, AnonymousBaseHandler
-from npp.data.models import *
+from npp_api.data.models import *
 from django.conf import settings
 from piston.doc import generate_doc
 from django.http import Http404
