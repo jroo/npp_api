@@ -43,7 +43,7 @@ class GenericHandler(BaseHandler):
         # else paginate normally
         if 'no_limit' in request.GET:
                 no_limit = True
-                records.filter(**params)
+                records = records.filter(**params)
         else:
             records = records.filter(**params)[bound['lower']:bound['upper']]
             
