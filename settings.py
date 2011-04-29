@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
+    'django_extensions',
     'npp_api.data',
     'npp_api.api',
 )
